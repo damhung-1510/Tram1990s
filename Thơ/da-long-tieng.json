@@ -1,0 +1,72 @@
+{
+ "Q038": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 444,
+  "file": "Long-tieng/elevenlabs/Q038_Nguoi-len-ngua-ke-chia-bao.mp3",
+  "date": "2026-10-16"
+ },
+ "Q040": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 500,
+  "file": "Long-tieng/elevenlabs/Q040_Nuoc-non-nang-mot-loi-the.mp3",
+  "date": "2026-10-16"
+ },
+ "Q041": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 616,
+  "file": "Long-tieng/elevenlabs/Q041_Sao-anh-khong-ve-choi-thon-Vi.mp3",
+  "date": "2026-10-16"
+ },
+ "Q044": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 586,
+  "file": "Long-tieng/elevenlabs/Q044_Thon-Doai-ngoi-nho-thon-Dong.mp3",
+  "date": "2026-10-16"
+ },
+ "C04": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 339,
+  "file": "Long-tieng/elevenlabs/C04_Doi-duyen-ta-nhu-loan-voi-phuong.mp3",
+  "date": "2026-10-16"
+ },
+ "S11": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 478,
+  "file": "Long-tieng/elevenlabs/S11_Troi-mua-lac-dac-ruong-dau.mp3",
+  "date": "2026-10-16"
+ },
+ "L10": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 415,
+  "file": "Long-tieng/elevenlabs/L10_Kieu-dem-the-nguyen.mp3",
+  "date": "2026-10-16"
+ },
+ "L11": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 488,
+  "file": "Long-tieng/elevenlabs/L11_Kieu-lan-dau-gap-Kim-Trong.mp3",
+  "date": "2026-10-16"
+ },
+ "C02": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 480,
+  "file": "Long-tieng/elevenlabs/C02_Vao-vuon-hai-qua-cau-xanh.mp3",
+  "date": "2026-10-16"
+ },
+ "C03": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 438,
+  "file": "Long-tieng/elevenlabs/C03_Treo-len-cay-buoi-hai-hoa.mp3",
+  "date": "2026-10-16"
+ }
+}

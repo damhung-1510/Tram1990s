@@ -1,0 +1,281 @@
+[
+ {
+  "loai": "Ca dao",
+  "text": "Chiều chiều ra đứng ngõ sau,\nTrông về quê mẹ ruột đau chín chiều.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "04_Hoang-hon-troi-may",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "nhớ nhà, chiều tà",
+  "id": "Q001"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Anh đi anh nhớ quê nhà,\nNhớ canh rau muống, nhớ cà dầm tương.\nNhớ ai dãi nắng dầm sương,\nNhớ ai tát nước bên đường hôm nao.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "09_Hanh-trinh-duong-xa",
+   "17_Tau-hoa-ga",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "nhớ quê",
+  "id": "Q002"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Khăn thương nhớ ai,\nKhăn rơi xuống đất.\nKhăn thương nhớ ai,\nKhăn vắt lên vai.\nKhăn thương nhớ ai,\nKhăn chùi nước mắt.\nĐèn thương nhớ ai,\nMà đèn không tắt.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "nhớ nhung, đêm",
+  "id": "Q003"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Đêm qua ra đứng bờ ao,\nTrông cá cá lặn, trông sao sao mờ.\nBuồn trông con nhện giăng tơ,\nNhện ơi nhện hỡi, nhện chờ mối ai?",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "cô đơn, đêm",
+  "id": "Q005"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Thuyền về có nhớ bến chăng?\nBến thì một dạ khăng khăng đợi thuyền.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "17_Tau-hoa-ga",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "cam_xuc": "chờ đợi",
+  "id": "Q006"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Gió mùa thu mẹ ru con ngủ,\nNăm canh chầy thức đủ vừa năm.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "mẹ, mùa thu",
+  "id": "Q007"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Lá vàng còn ở trên cây,\nLá xanh rụng xuống trời hay chăng trời?",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "mùa thu, bâng khuâng",
+  "id": "Q008"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Gió đưa cành trúc la đà,\nTiếng chuông Trấn Vũ, canh gà Thọ Xương.\nMịt mù khói toả ngàn sương,\nNhịp chày Yên Thái, mặt gương Tây Hồ.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "19_Suong-mu",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "Hà Nội xưa, sương",
+  "id": "Q009"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Công cha như núi Thái Sơn,\nNghĩa mẹ như nước trong nguồn chảy ra.\nMột lòng thờ mẹ kính cha,\nCho tròn chữ hiếu mới là đạo con.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "16_Nguoi-gia-ky-uc",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "hiếu, gia đình",
+  "id": "Q010"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Qua đình ngả nón trông đình,\nĐình bao nhiêu ngói thương mình bấy nhiêu.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "09_Hanh-trinh-duong-xa"
+  ],
+  "cam_xuc": "thương nhớ",
+  "id": "Q011"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Đã bấy lâu nay, bác tới nhà,\nTrẻ thời đi vắng, chợ thời xa.\nAo sâu nước cả, khôn chài cá,\nVườn rộng rào thưa, khó đuổi gà.\nCải chửa ra cây, cà mới nụ,\nBầu vừa rụng rốn, mướp đương hoa.\nĐầu trò tiếp khách, trầu không có,\nBác đến chơi đây, ta với ta.",
+  "nguon": "Nguyễn Khuyến, “Bạn đến chơi nhà”",
+  "thu_muc": [
+   "20_Cafe-sach-vang",
+   "07_Ca-phe-tra"
+  ],
+  "cam_xuc": "tình bạn, giản dị",
+  "id": "Q031"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Đêm khuya văng vẳng trống canh dồn,\nTrơ cái hồng nhan với nước non.\nChén rượu hương đưa say lại tỉnh,\nVầng trăng bóng xế khuyết chưa tròn,\nXiên ngang mặt đất, rêu từng đám.\nĐâm toạc chân mây, đá mấy hòn.\nNgán nỗi xuân đi xuân lại lại,\nMảnh tình san sẻ tí con con!",
+  "nguon": "Hồ Xuân Hương, “Tự tình II” (đủ 8 câu)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "cô đơn, đêm",
+  "id": "Q034",
+  "text_ngan_cu": "Đêm khuya văng vẳng trống canh dồn,\nTrơ cái hồng nhan với nước non.\nChén rượu hương đưa say lại tỉnh,\nVầng trăng bóng xế khuyết chưa tròn.",
+  "nguon_cu": "Hồ Xuân Hương (cuối thế kỷ XVIII), “Tự tình” (4 câu đầu)",
+  "nguon_url": "https://vi.wikisource.org/wiki/Tự_tình_II",
+  "ghi_chu_van_ban": "Wikisource dẫn: Thơ Hồ Xuân Hương, NXB Văn học, Hà Nội, 1987. Câu mở đầu có dị bản “Canh khuya”; dùng “Đêm khuya” (SGK)."
+ },
+ {
+  "loai": "Thơ",
+  "text": "Buồn trông cửa bể chiều hôm,\nThuyền ai thấp thoáng cánh buồm xa xa?\nBuồn trông ngọn nước mới sa,\nHoa trôi man mác biết là về đâu?\nBuồn trông nội cỏ rầu rầu,\nChân mây mặt đất một màu xanh xanh.\nBuồn trông gió cuốn mặt duềnh,\nẦm ầm tiếng sóng kêu quanh ghế ngồi.",
+  "nguon": "Nguyễn Du (1766–1820), “Truyện Kiều” (câu 1055–1062)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "04_Hoang-hon-troi-may",
+   "14_Co-don-tram-lang"
+  ],
+  "cam_xuc": "buồn, chiều biển",
+  "id": "Q035"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Trăm năm trong cõi người ta,\nChữ tài chữ mệnh khéo là ghét nhau.\nTrải qua một cuộc bể dâu,\nNhững điều trông thấy mà đau đớn lòng.\nLạ gì bỉ sắc tư phong,\nTrời xanh quen thói má hồng đánh ghen.\nCảo thơm lần giở trước đèn,\nPhong tình cổ lục còn truyền sử xanh.",
+  "nguon": "Nguyễn Du, “Truyện Kiều” (câu 1–8)",
+  "thu_muc": [
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "đời người",
+  "id": "Q036",
+  "text_ngan_cu": "Trăm năm trong cõi người ta,\nChữ tài chữ mệnh khéo là ghét nhau.\nTrải qua một cuộc bể dâu,\nNhững điều trông thấy mà đau đớn lòng.",
+  "nguon_cu": "Nguyễn Du, “Truyện Kiều” (4 câu đầu)",
+  "nguon_url": "https://vi.wikisource.org/wiki/Truyện_Kiều",
+  "ghi_chu_van_ban": "Đánh số câu theo bản Wikisource (3254 câu). Số câu có thể lệch ở các bản khác."
+ },
+ {
+  "loai": "Thơ",
+  "text": "Đôi phen gió tựa, hoa kề,\nNửa rèm tuyết ngậm, bốn bề trăng thâu.\nCảnh nào cảnh chẳng đeo sầu,\nNgười buồn, cảnh có vui đâu bao giờ!\nĐòi phen nét vẽ, câu thơ,\nCung cầm trong nguyệt, nước cờ dưới hoa,\nVui là vui gượng kẻo mà,\nAi tri âm đó, mặn mà với ai?",
+  "nguon": "Nguyễn Du, “Truyện Kiều” (câu 1241–1248)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "13_Mua-cua-so"
+  ],
+  "cam_xuc": "buồn",
+  "id": "Q037",
+  "text_ngan_cu": "Cảnh nào cảnh chẳng đeo sầu,\nNgười buồn cảnh có vui đâu bao giờ.",
+  "nguon_cu": "Nguyễn Du, “Truyện Kiều”",
+  "nguon_url": "https://vi.wikisource.org/wiki/Truyện_Kiều",
+  "ghi_chu_van_ban": "Đánh số câu theo bản Wikisource (3254 câu). Số câu có thể lệch ở các bản khác."
+ },
+ {
+  "loai": "Thơ",
+  "text": "Người lên ngựa kẻ chia bào,\nRừng phong thu đã nhuốm màu quan san.\nDặm hồng bụi cuốn chinh an,\nTrông người đã khuất mấy ngàn dâu xanh.\nNgười về chiếc bóng năm canh,\nKẻ đi muôn dặm một mình xa xôi.\nVầng trăng ai xẻ làm đôi,\nNửa in gối chiếc, nửa soi dặm trường.",
+  "nguon": "Nguyễn Du, “Truyện Kiều” (câu 1519–1526)",
+  "thu_muc": [
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho",
+   "17_Tau-hoa-ga"
+  ],
+  "cam_xuc": "trăng, xa cách",
+  "id": "Q038",
+  "text_ngan_cu": "Vầng trăng ai xẻ làm đôi,\nNửa in gối chiếc, nửa soi dặm trường.",
+  "nguon_cu": "Nguyễn Du, “Truyện Kiều”",
+  "nguon_url": "https://vi.wikisource.org/wiki/Truyện_Kiều",
+  "ghi_chu_van_ban": "Đánh số câu theo bản Wikisource (3254 câu). Số câu có thể lệch ở các bản khác."
+ },
+ {
+  "loai": "Thơ",
+  "text": "Nước non nặng một lời thề,\nNước đi đi mãi không về cùng non.\nNhớ lời nguyện nước thề non,\nNước đi chưa lại, non còn đứng không.\nNon cao những ngóng cùng trông,\nSuối khô dòng lệ chờ mong tháng ngày.\nXương mai một nắm hao gầy,\nTóc mây một mái đã đầy tuyết sương!\nTrời tây ngả bóng tà dương,\nCàng phơi vẻ ngọc nét vàng phôi pha.",
+  "nguon": "Tản Đà (1889–1939), “Thề non nước” (10 câu đầu / 22 câu)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "08_Lang-man-tinh-yeu",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "chờ đợi, thề nguyền",
+  "id": "Q040",
+  "text_ngan_cu": "Nước non nặng một lời thề,\nNước đi đi mãi không về cùng non.\nNhớ lời nguyện nước thề non,\nNước đi chưa lại, non còn đứng không.\nNon xanh đã biết hay không?\nNước đi ra bể lại mong nguồn về.",
+  "nguon_cu": "Tản Đà, “Thề non nước” (6 câu đầu)",
+  "nguon_url": "https://vi.wikisource.org/wiki/Thề_non_nước_(thơ)",
+  "ghi_chu_van_ban": "Wikisource ghi nhiều dị bản; dùng cách đọc phổ biến trong SGK: lời, Xương mai, Trời tây ngả bóng. Bản Wikisource chép: nhời, Sương mai, Giời tây chiếu bóng. Dấu câu cuối dòng được chuẩn hoá."
+ },
+ {
+  "loai": "Thơ",
+  "text": "Sao anh không về chơi thôn Vĩ?\nNhìn nắng hàng cau nắng mới lên,\nVườn ai mướt quá xanh như ngọc,\nLá trúc che ngang mặt chữ điền.\nGió theo lối gió, mây đường mây,\nDòng nước buồn thiu, hoa bắp lay.\nThuyền ai đậu bến sông trăng đó,\nCó chở trăng về kịp tối nay?\nMơ khách đường xa, khách đường xa,\nÁo em trắng quá nhìn không ra...\nỞ đây sương khói mờ nhân ảnh,\nAi biết tình ai có đậm đà?",
+  "nguon": "Hàn Mặc Tử (1912–1940), “Đây thôn Vĩ Dạ” (đủ 12 câu, 3 khổ)",
+  "thu_muc": [
+   "01_Thien-nhien",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "cam_xuc": "sáng sớm, mong nhớ",
+  "id": "Q041",
+  "text_ngan_cu": "Sao anh không về chơi thôn Vĩ?\nNhìn nắng hàng cau nắng mới lên.\nVườn ai mướt quá xanh như ngọc,\nLá trúc che ngang mặt chữ điền.",
+  "nguon_cu": "Hàn Mặc Tử (1912–1940), “Đây thôn Vĩ Dạ” (khổ 1)",
+  "nguon_url": "https://vi.wikisource.org/wiki/Đây_thôn_Vĩ_Dạ",
+  "ghi_chu_van_ban": "Wikisource chép từ SGK Ngữ văn 11, NXB Giáo dục, 2007. “sông trăng” viết thường theo bản này. Dấu câu cuối dòng được chuẩn hoá. Q042, Q043 là khổ 2, 3 của cùng bài (đã gộp)."
+ },
+ {
+  "loai": "Thơ",
+  "text": "Gió theo lối gió, mây đường mây,\nDòng nước buồn thiu, hoa bắp lay…\nThuyền ai đậu bến sông Trăng đó,\nCó chở trăng về kịp tối nay?",
+  "nguon": "Hàn Mặc Tử, “Đây thôn Vĩ Dạ” (khổ 2)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "trăng, sông",
+  "id": "Q042",
+  "gop_vao": "Q041"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Mơ khách đường xa, khách đường xa,\nÁo em trắng quá nhìn không ra…\nỞ đây sương khói mờ nhân ảnh,\nAi biết tình ai có đậm đà?",
+  "nguon": "Hàn Mặc Tử, “Đây thôn Vĩ Dạ” (khổ 3)",
+  "thu_muc": [
+   "19_Suong-mu",
+   "17_Tau-hoa-ga"
+  ],
+  "cam_xuc": "sương, xa cách",
+  "id": "Q043",
+  "gop_vao": "Q041"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Thôn Đoài ngồi nhớ thôn Đông,\nMột người chín nhớ mười mong một người.\nGió mưa là bệnh của giời,\nTương tư là bệnh của tôi yêu nàng.\nHai thôn chung lại một làng,\nCớ sao bên ấy chẳng sang bên này?\nNgày qua ngày lại qua ngày,\nLá xanh nhuộm đã thành cây lá vàng.\nBảo rằng cách trở đò giang,\nKhông sang là chẳng đường sang đã đành.\nNhưng đây cách một đầu đình,\nCó xa xôi mấy cho tình xa xôi...",
+  "nguon": "Nguyễn Bính (1918–1966), “Tương tư” (12 câu đầu / 20 câu)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "cam_xuc": "tương tư, mưa",
+  "id": "Q044",
+  "text_ngan_cu": "Thôn Đoài ngồi nhớ thôn Đông,\nMột người chín nhớ mười mong một người.\nGió mưa là bệnh của giời,\nTương tư là bệnh của tôi yêu nàng.",
+  "nguon_cu": "Nguyễn Bính (1918–1966), “Tương tư” (4 câu đầu)",
+  "nguon_url": "https://vi.wikisource.org/wiki/Tương_tư",
+  "ghi_chu_van_ban": "In trong tập “Lỡ bước sang ngang” (Hương Sơn, 1940). Wikisource ghi dị bản “Nắng mưa… trời, trầu”; dùng “Gió mưa… giời”. Dấu câu cuối dòng được chuẩn hoá."
+ },
+ {
+  "loai": "Trích dẫn (EN)",
+  "text": "That it will never come again\nis what makes life so sweet.",
+  "nguon": "Emily Dickinson (1830–1886)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "trân trọng hiện tại",
+  "id": "Q050"
+ }
+]

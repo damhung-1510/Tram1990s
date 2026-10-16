@@ -1,0 +1,422 @@
+[
+ {
+  "id": "Q034",
+  "title": "Đêm khuya văng vẳng trống canh dồn",
+  "voice": "Nữ",
+  "hook": "Đêm khuya, có người cũng thức giống bạn. Cụ Hồ Xuân Hương gọi đó là nỗi cô đơn:",
+  "tts": "[softly] Đêm khuya, có người cũng thức giống bạn. Cụ Hồ Xuân Hương gọi đó là nỗi cô đơn. [long pause]\nĐêm khuya văng vẳng trống canh dồn, [pause]\nTrơ cái hồng nhan với nước non. [pause]\nChén rượu hương đưa say lại tỉnh, [pause]\nVầng trăng bóng xế khuyết chưa tròn, [pause]\nXiên ngang mặt đất, [short pause] rêu từng đám. [pause]\nĐâm toạc chân mây, [short pause] đá mấy hòn. [pause]\nNgán nỗi xuân đi xuân lại lại, [pause]\nMảnh tình san sẻ tí con con.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "Q035",
+  "title": "Buồn trông cửa bể chiều hôm",
+  "voice": "Nam",
+  "hook": "Chiều xuống, đứng nhìn biển, ai mà không nhớ nhà? Cụ Nguyễn Du hiểu điều đó:",
+  "tts": "[softly] Chiều xuống, đứng nhìn biển, ai mà không nhớ nhà? Cụ Nguyễn Du hiểu điều đó. [long pause]\nBuồn trông cửa bể chiều hôm, [pause]\nThuyền ai thấp thoáng cánh buồm xa xa? [pause]\nBuồn trông ngọn nước mới sa, [pause]\nHoa trôi man mác biết là về đâu? [pause]\nBuồn trông nội cỏ rầu rầu, [pause]\nChân mây mặt đất một màu xanh xanh. [pause]\nBuồn trông gió cuốn mặt duềnh, [pause]\nẦm ầm tiếng sóng kêu quanh ghế ngồi.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "Q036",
+  "title": "Trăm năm trong cõi người ta",
+  "voice": "Nam",
+  "hook": "Ngẫm lại một đời, ai chẳng có lúc thấy mình nhỏ bé. Cụ Nguyễn Du mở đầu thế này:",
+  "tts": "[softly] Ngẫm lại một đời, ai chẳng có lúc thấy mình nhỏ bé. Cụ Nguyễn Du mở đầu thế này. [long pause]\nTrăm năm trong cõi người ta, [pause]\nChữ tài chữ mệnh khéo là ghét nhau. [pause]\nTrải qua một cuộc bể dâu, [pause]\nNhững điều trông thấy mà đau đớn lòng. [pause]\nLạ gì bỉ sắc tư phong, [pause]\nTrời xanh quen thói má hồng đánh ghen. [pause]\nCảo thơm lần giở trước đèn, [pause]\nPhong tình cổ lục còn truyền sử xanh.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "Q037",
+  "title": "Đôi phen gió tựa, hoa kề",
+  "voice": "Nam",
+  "hook": "Có những lúc, vui mà chỉ là vui gượng. Cụ Nguyễn Du hiểu điều đó rõ lắm:",
+  "tts": "[softly] Có những lúc, vui mà chỉ là vui gượng. Cụ Nguyễn Du hiểu điều đó rõ lắm. [long pause]\nĐôi phen gió tựa, [short pause] hoa kề, [pause]\nNửa rèm tuyết ngậm, [short pause] bốn bề trăng thâu. [pause]\nCảnh nào cảnh chẳng đeo sầu, [pause]\nNgười buồn, [short pause] cảnh có vui đâu bao giờ. [pause]\nĐòi phen nét vẽ, [short pause] câu thơ, [pause]\nCung cầm trong nguyệt, [short pause] nước cờ dưới hoa, [pause]\nVui là vui gượng kẻo mà, [pause]\nAi tri âm đó, [short pause] mặn mà với ai?",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "Q038",
+  "title": "Người lên ngựa kẻ chia bào",
+  "voice": "Nữ",
+  "hook": "Chia tay nào cũng khó, nhưng khó nhất là lúc người đi đã khuất sau dặm dài. Cụ Nguyễn Du kể:",
+  "tts": "[softly] Chia tay nào cũng khó, nhưng khó nhất là lúc người đi đã khuất sau dặm dài. Cụ Nguyễn Du kể. [long pause]\nNgười lên ngựa kẻ chia bào, [pause]\nRừng phong thu đã nhuốm màu quan san. [pause]\nDặm hồng bụi cuốn chinh an, [pause]\nTrông người đã khuất mấy ngàn dâu xanh. [pause]\nNgười về chiếc bóng năm canh, [pause]\nKẻ đi muôn dặm một mình xa xôi. [pause]\nVầng trăng ai xẻ làm đôi, [pause]\nNửa in gối chiếc, [short pause] nửa soi dặm trường.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 444,
+   "file": "Long-tieng/elevenlabs/Q038_Nguoi-len-ngua-ke-chia-bao.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "Q040",
+  "title": "Nước non nặng một lời thề",
+  "voice": "Nam",
+  "hook": "Lời thề ngày ấy, người còn nhớ không? Cụ Tản Đà nhắc giùm bạn đây:",
+  "tts": "[softly] Lời thề ngày ấy, người còn nhớ không? Cụ Tản Đà nhắc giùm bạn đây. [long pause]\nNước non nặng một lời thề, [pause]\nNước đi đi mãi không về cùng non. [pause]\nNhớ lời nguyện nước thề non, [pause]\nNước đi chưa lại, [short pause] non còn đứng không. [pause]\nNon cao những ngóng cùng trông, [pause]\nSuối khô dòng lệ chờ mong tháng ngày. [pause]\nXương mai một nắm hao gầy, [pause]\nTóc mây một mái đã đầy tuyết sương. [pause]\nTrời tây ngả bóng tà dương, [pause]\nCàng phơi vẻ ngọc nét vàng phôi pha.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 500,
+   "file": "Long-tieng/elevenlabs/Q040_Nuoc-non-nang-mot-loi-the.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "Q041",
+  "title": "Sao anh không về chơi thôn Vĩ?",
+  "voice": "Nữ",
+  "hook": "Có bao giờ bạn muốn hỏi một người: sao không về chơi? Cụ Hàn Mặc Tử đã hỏi thay bạn:",
+  "tts": "[softly] Có bao giờ bạn muốn hỏi một người: sao không về chơi? Cụ Hàn Mặc Tử đã hỏi thay bạn. [long pause]\nSao anh không về chơi thôn Vĩ? [pause]\nNhìn nắng hàng cau nắng mới lên, [pause]\nVườn ai mướt quá xanh như ngọc, [pause]\nLá trúc che ngang mặt chữ điền. [pause]\nGió theo lối gió, [short pause] mây đường mây, [pause]\nDòng nước buồn thiu, [short pause] hoa bắp lay. [pause]\nThuyền ai đậu bến sông trăng đó, [pause]\nCó chở trăng về kịp tối nay? [pause]\nMơ khách đường xa, [short pause] khách đường xa, [pause]\nÁo em trắng quá nhìn không ra. [pause]\nỞ đây sương khói mờ nhân ảnh, [pause]\nAi biết tình ai có đậm đà?",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 616,
+   "file": "Long-tieng/elevenlabs/Q041_Sao-anh-khong-ve-choi-thon-Vi.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "Q044",
+  "title": "Thôn Đoài ngồi nhớ thôn Đông",
+  "voice": "Nam",
+  "hook": "Có ai từng nhớ một người, mà chẳng dám nói thành lời? Nguyễn Bính đã nói giúp bạn rồi đấy:",
+  "tts": "[softly] Có ai từng nhớ một người, mà chẳng dám nói thành lời? Nguyễn Bính đã nói giúp bạn rồi đấy. [long pause]\nThôn Đoài ngồi nhớ thôn Đông, [pause]\nMột người chín nhớ mười mong một người. [pause]\nGió mưa là bệnh của giời, [pause]\nTương tư là bệnh của tôi yêu nàng. [pause]\nHai thôn chung lại một làng, [pause]\nCớ sao bên ấy chẳng sang bên này? [pause]\nNgày qua ngày lại qua ngày, [pause]\nLá xanh nhuộm đã thành cây lá vàng. [pause]\nBảo rằng cách trở đò giang, [pause]\nKhông sang là chẳng đường sang đã đành. [pause]\nNhưng đây cách một đầu đình, [pause]\nCó xa xôi mấy cho tình xa xôi.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 586,
+   "file": "Long-tieng/elevenlabs/Q044_Thon-Doai-ngoi-nho-thon-Dong.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "S11",
+  "title": "Trời mưa lác đác ruộng dâu",
+  "voice": "Nữ",
+  "hook": "Các cụ nhà ta không hứa chuyện giàu sang, mà chỉ dặn nhau: gian nan rồi, đừng quên nhau!",
+  "tts": "[softly] Các cụ nhà ta không hứa chuyện giàu sang, mà chỉ dặn nhau: gian nan rồi, đừng quên nhau. [long pause]\nTrời mưa lác đác ruộng dâu, [pause]\nCái nón đội đầu, [short pause] cái thúng cắp tay, [pause]\nBước chân xuống hái dâu nầy, [pause]\nNuôi tằm cho lớn, [short pause] mong ngày ươm tơ. [pause]\nThương em chút phận ngây thơ, [pause]\nLầm than đã trải, [short pause] nắng mưa đã từng. [pause]\nXa xuôi ai có tỏ chừng? [pause]\nGian nan tân khổ, [short pause] ta đừng quên nhau.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 478,
+   "file": "Long-tieng/elevenlabs/S11_Troi-mua-lac-dac-ruong-dau.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "S18",
+  "title": "Bạn đến chơi nhà",
+  "voice": "Nam",
+  "hook": "Có người bạn nào đến chơi, mà bạn chẳng có gì đãi? Cụ Nguyễn Khuyến cũng từng như thế:",
+  "tts": "[softly] Có người bạn nào đến chơi, mà bạn chẳng có gì đãi? Cụ Nguyễn Khuyến cũng từng như thế. [long pause]\nĐã bấy lâu nay bác tới nhà, [pause]\nTrẻ thời đi vắng, [short pause] chợ thời xa. [pause]\nAo sâu nước cả khôn chài cá, [pause]\nVườn rộng rào thưa khó đuổi gà. [pause]\nCải chửa ra cây, [short pause] cà chửa nụ, [pause]\nBầu vừa rụng rốn, [short pause] mướp đương hoa. [pause]\nĐầu trò tiếp khách, [short pause] giầu không có, [pause]\nBác đến chơi đây ta với ta.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "S20",
+  "title": "Trời hôm nhớ nhà",
+  "voice": "Nữ",
+  "hook": "Chiều xuống rồi, bạn đã gọi về nhà chưa? Bà Huyện Thanh Quan nhớ nhà thế này:",
+  "tts": "[softly] Chiều xuống rồi, bạn đã gọi về nhà chưa? Bà Huyện Thanh Quan nhớ nhà thế này. [long pause]\nChiều trời bảng lảng bóng hoàng hôn, [pause]\nTiếng ốc xa đưa vẳng trống đồn. [pause]\nGác mái, [short pause] ngư ông về viễn phố, [pause]\nGõ sừng, [short pause] mục tử lại cô thôn. [pause]\nNgàn mai gió cuốn, [short pause] chim bay mỏi, [pause]\nDặm liễu sương sa, [short pause] khách bước giồn. [pause]\nKẻ chốn chương đài, [short pause] người lữ thứ, [pause]\nLấy ai mà kể nỗi hàn ôn?",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "T01",
+  "title": "Cuộc gọi của mẹ",
+  "voice": "Cả hai",
+  "hook": "Có một cuộc gọi, bạn bấm tắt mà chẳng nghĩ gì. Nhưng với mẹ, đó là cả một ngày chờ:",
+  "tts": "[softly] Có một cuộc gọi, bạn bấm tắt mà chẳng nghĩ gì. Nhưng với mẹ, đó là cả một ngày chờ. [long pause]\nMẹ gọi lúc mình đang họp. [short pause]\nMình bấm tắt, nhắn: [pause]\ntối con gọi lại. [short pause]\nRồi quên mất. [short pause]\nHôm sau mẹ không gọi nữa. [short pause]\nMình gọi lại, mẹ cười: [pause]\ncó gì đâu con, mẹ chỉ muốn nghe giọng con thôi. [short pause]\nCuộc gọi nào của mẹ cũng vậy. [short pause]\nChỉ là mẹ nhớ. [short pause]\nGọi cho mẹ đi.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T02",
+  "title": "Đầu cá",
+  "voice": "Cả hai",
+  "hook": "Có một lời nói dối ngọt nhất đời, mà chỉ mẹ mới nói được:",
+  "tts": "[softly] Có một lời nói dối ngọt nhất đời, mà chỉ mẹ mới nói được. [long pause]\nHồi nhỏ, mẹ luôn bảo mẹ thích ăn đầu cá, vì phần đó ngon nhất. [short pause]\nMình tin thật. [short pause]\nLớn lên, đi làm xa, ăn cơm quán, mình mới biết đầu cá chẳng ngon gì. [short pause]\nMẹ chỉ nhường mình phần thịt. [short pause]\nCó những yêu thương mẹ không nói ra. [short pause]\nMẹ chỉ nói dối, rất dịu dàng.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T03",
+  "title": "Đứng đợi ở cổng",
+  "voice": "Cả hai",
+  "hook": "Bạn có biết, ở quê, có một người đứng đợi bạn lâu hơn bạn tưởng?",
+  "tts": "[softly] Bạn có biết, ở quê, có một người đứng đợi bạn lâu hơn bạn tưởng?. [long pause]\nMười năm đi làm xa, Tết nào mình cũng về. [short pause]\nMẹ đứng ở cổng từ sáng sớm. [short pause]\nMình hỏi sao mẹ ra sớm thế, mẹ bảo mẹ đi dạo. [short pause]\nHàng xóm kể, từ ba hôm trước, ngày nào mẹ cũng ra đứng đó. [short pause]\nTrên đời này, không ai đợi mình lâu như mẹ.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T04",
+  "title": "Hộp bánh quy",
+  "voice": "Cả hai",
+  "hook": "Có những thứ mẹ để lại, mãi sau này mình mới mở ra:",
+  "tts": "[softly] Có những thứ mẹ để lại, mãi sau này mình mới mở ra. [long pause]\nNgày mẹ mất, mình dọn tủ, thấy hộp bánh quy cũ. [short pause]\nTrong đó có xấp tiền lẻ buộc dây thun, kèm tờ giấy: [pause]\ntiền cho con lấy vợ. [short pause]\nNăm đó mình còn chưa có người yêu. [short pause]\nMẹ đã để dành cho một ngày mà chính mẹ cũng không chắc mình có được thấy.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T05",
+  "title": "Cãi nhau",
+  "voice": "Cả hai",
+  "hook": "Ai cũng sợ ba mẹ cãi nhau, cho đến khi trong nhà chỉ còn lại một người:",
+  "tts": "[softly] Ai cũng sợ ba mẹ cãi nhau, cho đến khi trong nhà chỉ còn lại một người. [long pause]\nBa mẹ mình cãi nhau cả đời. [short pause]\nHồi nhỏ mình sợ lắm. [short pause]\nNgày ba mất, mẹ ngồi im cả buổi, rồi nói nhỏ: [pause]\ngiờ nhà yên quá, mẹ lại thấy sợ. [short pause]\nLúc đó mình mới hiểu, còn cãi nhau là còn thương, còn nhau. [short pause]\nIm lặng mới là thứ đáng sợ nhất.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T06",
+  "title": "Bạn thân",
+  "voice": "Cả hai",
+  "hook": "Lớn lên rồi, bạn bè không mất đi, họ chỉ lặng lẽ rơi dần:",
+  "tts": "[softly] Lớn lên rồi, bạn bè không mất đi, họ chỉ lặng lẽ rơi dần. [long pause]\nTuổi hai mươi, mình có cả chục người bạn thân. [short pause]\nQua ba mươi, còn lại hai. [short pause]\nMình từng buồn lắm. [short pause]\nGiờ mình hiểu, bạn không mất, chỉ là cuộc đời lọc dần. [short pause]\nAi còn nhắn cho mình lúc mình tệ nhất, người đó mới là bạn. [short pause]\nĐừng tiếc người đã đi, hãy giữ chặt người còn ở lại.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T07",
+  "title": "Người cũ",
+  "voice": "Cả hai",
+  "hook": "Chia tay xong, người ta có thật sự quên được không?",
+  "tts": "[softly] Chia tay xong, người ta có thật sự quên được không?. [long pause]\nMình từng nghĩ chia tay là hết. [short pause]\nHóa ra không. [short pause]\nHết là khi mình thôi kể cho người ta nghe chuyện của mình. [short pause]\nCòn thương thì vẫn thương, chỉ là thương mà không nhắn nữa. [short pause]\nNgười trưởng thành không quên người cũ. [short pause]\nHọ chỉ học cách sống chung với cái tên đó.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "T08",
+  "title": "Tiền và bữa cơm",
+  "voice": "Cả hai",
+  "hook": "Kiếm tiền để làm gì, nếu quên mất một bữa cơm với mẹ?",
+  "tts": "[softly] Kiếm tiền để làm gì, nếu quên mất một bữa cơm với mẹ?. [long pause]\nHồi trẻ mình hay nói, tiền không mua được hạnh phúc. [short pause]\nRồi mình nghèo, mình thấy câu đó chỉ đúng với người có tiền. [short pause]\nNhưng có một thứ tiền thật sự không mua được: [pause]\nnhững buổi chiều có mẹ ngồi chờ ăn cơm cùng. [short pause]\nCứ đi kiếm tiền, nhưng nhớ về ăn cơm.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "L01",
+  "title": "Vì em",
+  "voice": "Nam",
+  "hook": "Các cụ nhà ta không nói câu \"anh yêu em\", mà cụ Nguyễn Bính dâng cả một bài thơ thế này:",
+  "tts": "[softly] Các cụ nhà ta không nói câu \"anh yêu em\", mà cụ Nguyễn Bính dâng cả một bài thơ thế này. [long pause]\nVì em là một bài thơ. [pause]\nVì em là một giấc mơ khôn cùng. [pause]\nTôi xin ôm lấy vào lòng. [pause]\nTôi xin giữ lấy trọn vòng thời gian. [pause]\nTôi xin sung sướng vô vàn. [pause]\nĐể ca ngợi, [short pause] để mơ màng em luôn. [pause]\nTôi xin dành một chiếc hôn. [pause]\nĐặt lên tất cả tâm hồn thơ ngây.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L03",
+  "title": "Lỡ duyên",
+  "voice": "Nam",
+  "hook": "Các cụ nhà ta không đăng trạng thái buồn, mà viết thơ tiễn người yêu đi lấy chồng:",
+  "tts": "[softly] Các cụ nhà ta không đăng trạng thái buồn, mà viết thơ tiễn người yêu đi lấy chồng. [long pause]\nThan ôi nàng sắp lấy chồng. [pause]\nSắp mang pháo đỏ rượu hồng tiễn tôi. [pause]\nXe hoa sắp đón nàng rồi. [pause]\nMang nàng về với cuộc đời chồng con. [pause]\nRiêng tôi sắp sửa đón buồn. [pause]\nĐể mang tim héo, [short pause] để hồn hết mơ. [pause]\nNàng đi còn có bao giờ. [pause]\nNgoảnh trông lại kẻ se tơ lỡ làng?",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L05",
+  "title": "Tôi còn nhớ lắm",
+  "voice": "Nam",
+  "hook": "Có những người, chia tay rồi mới biết mình còn thương nhiều đến thế. Cụ Nguyễn Bính viết:",
+  "tts": "[softly] Có những người, chia tay rồi mới biết mình còn thương nhiều đến thế. Cụ Nguyễn Bính viết. [long pause]\nTôi còn gì nữa là tôi. [pause]\nThuyền quyên nàng vẫn là người thuyền quyên. [pause]\nMùa xuân ấy nàng se duyên. [pause]\nCó đình đổi kiệu, [short pause] có đèn giăng hoa. [pause]\nTóc tôi để bạc cho già. [pause]\nĐời tôi để rụng cho là đời tôi. [pause]\nCòn nên nói nữa hay thôi. [pause]\nGặp nhau một chuyến đò rồi quên nhau.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L06",
+  "title": "Nhớ người trong nắng",
+  "voice": "Nam",
+  "hook": "Có những mùa hè bạn nhớ mãi, chỉ vì một người đã không ở lại. Cụ Nguyễn Bính cũng nhớ như thế:",
+  "tts": "[softly] Có những mùa hè bạn nhớ mãi, chỉ vì một người đã không ở lại. Cụ Nguyễn Bính cũng nhớ như thế. [long pause]\nHà Nội có hồ loạn tiếng ve, [pause]\nNắng dâng làm lụt cả trưa hè, [pause]\nNăm xưa, [short pause] một buổi đang mưa lụt. [pause]\nTôi tiễn chân người sang biệt ly. [pause]\nTừ buổi về đây, [short pause] sầu lại sầu. [pause]\nNgười xa vời quá, [short pause] ai thương đâu. [pause]\nTôi đi ngửa mặt trên hè vắng. [pause]\nXem những cành cây nó cưới nhau.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L07",
+  "title": "Vu quy",
+  "voice": "Nam",
+  "hook": "Người yêu đi lấy chồng, các cụ nhà ta không trách móc, chỉ lặng lẽ viết ra thế này:",
+  "tts": "[softly] Người yêu đi lấy chồng, các cụ nhà ta không trách móc, chỉ lặng lẽ viết ra thế này. [long pause]\nTháng chạp cho cải hoa vàng. [pause]\nCho cam da đỏ, [short pause] cho nàng vu quy. [pause]\nNàng về mãi xứ bên kia. [pause]\nCam thôi màu đỏ, [short pause] bướm chê hoa vàng. [pause]\nSáng nay sương suống đầy làng. [pause]\nTưởng như khói pháo đưa nàng năm xưa. [pause]\nNàng về kẻ đón người đưa. [pause]\nTôi chờ gì nữa mà chưa giang hồ? [pause]\nSông Thương cách mấy lần đò. [pause]\nChợ Hoàng họp mãi bao giờ cho tan.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ },
+ {
+  "id": "L08",
+  "title": "Chân quê (trích)",
+  "voice": "Nam",
+  "hook": "Các cụ nhà ta không chê người yêu quê mùa, mà các cụ năn nỉ: xin em đừng đổi khác!",
+  "tts": "[softly] Các cụ nhà ta không chê người yêu quê mùa, mà các cụ năn nỉ: xin em đừng đổi khác. [long pause]\nHôm qua em đi tỉnh về, [pause]\nĐợi em ở mãi con đê đầu làng. [pause]\nKhăn nhung, [short pause] quần lĩnh rộn ràng, [pause]\nÁo cài khuy bấm, [short pause] em làm khổ tôi. [pause]\nNói ra sợ mất lòng em, [pause]\nVan em, [short pause] em hãy giữ nguyên quê mùa. [pause]\nNhư hôm em đi lễ chùa, [pause]\nCứ ăn mặc thế cho vừa lòng anh.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L09",
+  "title": "Cô hái mơ",
+  "voice": "Nam",
+  "hook": "Các cụ nhà ta không xin số điện thoại, mà các cụ ngỏ lời giữa rừng mơ thế này đây:",
+  "tts": "[softly] Các cụ nhà ta không xin số điện thoại, mà các cụ ngỏ lời giữa rừng mơ thế này đây. [long pause]\nThơ thẩn đường chiều một khách thơ. [pause]\nSay nhìn xa rặng núi xanh lơ. [pause]\nKhí trời lặng lẽ và trong trẻo. [pause]\nThấp thoáng rừng mơ cô hái mơ. [pause]\nHỡi cô con gái hái mơ già. [pause]\nCô chửa về ư? Đường thì xa. [pause]\nMà cái thoi ngày như sắp tắt. [pause]\nHay cô ở lại về cùng ta?",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L10",
+  "title": "Kiều: đêm thề nguyền",
+  "voice": "Cả hai",
+  "hook": "Các cụ nhà ta không thề qua tin nhắn, mà các cụ thề dưới vầng trăng:",
+  "tts": "[softly] Các cụ nhà ta không thề qua tin nhắn, mà các cụ thề dưới vầng trăng. [long pause]\nVầng trăng vằng vặc giữa trời, [pause]\nĐinh ninh hai mặt một lời song song. [pause]\nTóc tơ căn vặn tấc lòng, [pause]\nTrăm năm tạc một chữ đồng đến xương. [pause]\nChén hà sánh giọng quỳnh tương, [pause]\nDải là hương lộn bình gương bóng lồng. [pause]\nSinh rằng: Gió mát trăng trong, [pause]\nBấy lâu nay một chút lòng chưa cam.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 415,
+   "file": "Long-tieng/elevenlabs/L10_Kieu-dem-the-nguyen.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "L11",
+  "title": "Kiều: lần đầu gặp Kim Trọng",
+  "voice": "Cả hai",
+  "hook": "Có những tình yêu, chỉ cần một ánh nhìn, là đủ nhớ cả đời. Cụ Nguyễn Du kể lại thế này:",
+  "tts": "[softly] Có những tình yêu, chỉ cần một ánh nhìn, là đủ nhớ cả đời. Cụ Nguyễn Du kể lại thế này. [long pause]\nNgười quốc sắc, [short pause] kẻ thiên tài, [pause]\nTình trong như đã, [short pause] mặt ngoài còn e. [pause]\nChập chờn cơn tỉnh cơn mê. [pause]\nRốn ngồi chẳng tiện, [short pause] dứt về chỉn khôn. [pause]\nBóng tà như giục cơn buồn, [pause]\nKhách đà lên ngựa, [short pause] người còn nghé theo. [pause]\nDưới cầu nước chảy trong veo, [pause]\nBên cầu tơ liễu bóng chiều thướt tha.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 488,
+   "file": "Long-tieng/elevenlabs/L11_Kieu-lan-dau-gap-Kim-Trong.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "C01",
+  "title": "Hôm qua tát nước đầu đình",
+  "voice": "Nam",
+  "hook": "Các cụ nhà ta không nhắn \"em có người yêu chưa\", mà bỏ quên cái áo trên cành hoa sen:",
+  "tts": "[softly] Các cụ nhà ta không nhắn \"em có người yêu chưa\", mà bỏ quên cái áo trên cành hoa sen. [long pause]\nHôm qua tát nước đầu đình, [pause]\nBỏ quên cái áo trên cánh hoa sen, [pause]\nEm được thì cho anh xin, [pause]\nHay là em để làm tin trong nhà. [pause]\nÁo anh sứt chỉ đường tà, [pause]\nVợ anh chưa có, [short pause] mẹ già chưa khâu. [pause]\nÁo anh sứt chỉ đã lâu, [pause]\nMai mượn cô ấy vào khâu cho cùng.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "C02",
+  "title": "Vào vườn hái quả cau xanh",
+  "voice": "Nữ",
+  "hook": "Các cụ nhà ta không nhắn \"anh ăn cơm chưa\", mà têm sẵn miếng trầu mời người thương:",
+  "tts": "[softly] Các cụ nhà ta không nhắn \"anh ăn cơm chưa\", mà têm sẵn miếng trầu mời người thương. [long pause]\nVào vườn hái quả cau xanh, [pause]\nBổ ra làm sáu, [short pause] mời anh xơi trầu. [pause]\nTrầu này têm những vôi tàu, [pause]\nGiữa đệm cát cánh, [short pause] hai đầu quế cay. [pause]\nTrầu này ăn thiệt là say, [pause]\nDù mặn, [short pause] dù nhạt, [short pause] dù cay, [short pause] dù nồng. [pause]\nDù chăng nên đạo vợ chồng. [pause]\nXơi dăm ba miếng kẻo lòng nhớ thương.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 480,
+   "file": "Long-tieng/elevenlabs/C02_Vao-vuon-hai-qua-cau-xanh.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "C03",
+  "title": "Trèo lên cây bưởi hái hoa",
+  "voice": "Nữ",
+  "hook": "Có những người, gặp nhau lúc đã muộn màng. Các cụ nhà ta tiếc thế này:",
+  "tts": "[softly] Có những người, gặp nhau lúc đã muộn màng. Các cụ nhà ta tiếc thế này. [long pause]\nTrèo lên cây bưởi hái hoa, [pause]\nBước xuống vườn cà hái nụ tầm-xuân. [pause]\nBa đồng một mớ trầu cay, [pause]\nSao anh chẳng hỏi những ngày còn không? [pause]\nBây giờ em đã có chồng, [pause]\nNhư chim vào lồng, [short pause] như cá cắn câu. [pause]\nCá cắn câu, [short pause] biết đâu mà gỡ, [pause]\nChim vào lồng, [short pause] biết thuở nào ra.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 438,
+   "file": "Long-tieng/elevenlabs/C03_Treo-len-cay-buoi-hai-hoa.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "C04",
+  "title": "Đôi duyên ta như loan với phượng",
+  "voice": "Nữ",
+  "hook": "Thà không biết nhau còn hơn biết rồi phải xa. Các cụ nhà ta nói thế này:",
+  "tts": "[softly] Thà không biết nhau còn hơn biết rồi phải xa. Các cụ nhà ta nói thế này. [long pause]\nĐôi duyên ta như loan với phượng, [pause]\nNỡ lòng nào để phượng lìa cây. [pause]\nMuốn cho có đó có đây, [pause]\nAi làm nên nỗi nước này, [short pause] chàng ôi. [pause]\nThà rằng chẳng biết thì thôi, [pause]\nBiết chi gối chiếc lẻ-loi thêm phiền.",
+  "da_long_tieng": {
+   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+   "model": "eleven_v4",
+   "chars": 339,
+   "file": "Long-tieng/elevenlabs/C04_Doi-duyen-ta-nhu-loan-voi-phuong.mp3",
+   "date": "2026-10-16"
+  },
+  "template": "tho-hoai-co"
+ },
+ {
+  "id": "N01",
+  "title": "Lòng mẹ",
+  "voice": "Nữ",
+  "hook": "Mẹ không nói yêu thương, mẹ chỉ dỗ con gái đừng khóc ngày về nhà chồng, rồi một mình khóc cả đêm. Cụ Nguyễn Bính viết:",
+  "tts": "[softly] Mẹ không nói yêu thương, mẹ chỉ dỗ con gái đừng khóc ngày về nhà chồng, rồi một mình khóc cả đêm. Cụ Nguyễn Bính viết. [long pause]\nGái lớn ai không phải lấy chồng. [pause]\nCan gì mà khóc, [short pause] nín đi không. [pause]\nNín đi, [short pause] mặc áo ra chào họ. [pause]\nRõ quí con tôi, [short pause] các chị trông. [pause]\nĐưa con ra đến cửa buồng thôi. [pause]\nMẹ phải xa con, [short pause] khổ mấy mươi. [pause]\nCon ạ, [short pause] đêm nay mình mẹ khóc. [pause]\nĐêm đêm mình mẹ lại đưa thoi.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "N02",
+  "title": "Tết của mẹ tôi",
+  "voice": "Nam",
+  "hook": "Ngày Tết, mẹ vất vả nhất, mà chẳng ai nhớ cảm ơn mẹ. Cụ Nguyễn Bính nhớ mẹ như thế này:",
+  "tts": "[softly] Ngày Tết, mẹ vất vả nhất, mà chẳng ai nhớ cảm ơn mẹ. Cụ Nguyễn Bính nhớ mẹ như thế này. [long pause]\nTết đến me tôi vất vả nhiều, [pause]\nMe tôi lo liệu đủ trăm chiều. [pause]\nSân gạch tường hoa, [short pause] người quét lại. [pause]\nVẽ cung trừ quỷ, [short pause] trồng cây nêu. [pause]\nXong ba ngày tết me tôi lại. [pause]\nĐầu tắt, [short pause] mặt tối, [short pause] nuôi chồng con, [pause]\nRồi một đôi khi người giã gạo, [pause]\nChuyện trò kể lại tuổi chân son.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "N03",
+  "title": "Thư gửi thày mẹ (khổ 1)",
+  "voice": "Nam",
+  "hook": "Có bao giờ bạn đi xa, rồi mới nhận ra nhà mình vắng một người làm thay bạn? Cụ Nguyễn Bính viết:",
+  "tts": "[softly] Có bao giờ bạn đi xa, rồi mới nhận ra nhà mình vắng một người làm thay bạn? Cụ Nguyễn Bính viết. [long pause]\nCon đi năm ấy tháng tư. [pause]\nLúa chiêm xấp xỉ giỗ từ tháng ba. [pause]\nCon đi quạnh cửa, [short pause] quạnh nhà. [pause]\nCha già đập lúa, [short pause] mẹ già rũ rơm. [pause]\nCha giã gạo, [short pause] mẹ thổi cơm. [pause]\nCó con, [short pause] con vắng, [short pause] ai làm thay cho?",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co"
+ },
+ {
+  "id": "N04",
+  "title": "Thư gửi thày mẹ (khổ 2)",
+  "voice": "Nam",
+  "hook": "Đi xa, đứa con nào cũng nhắn một câu: bố mẹ đừng nhớ, con sẽ về. Cụ Nguyễn Bính viết bức thư ấy:",
+  "tts": "[softly] Đi xa, đứa con nào cũng nhắn một câu: bố mẹ đừng nhớ, con sẽ về. Cụ Nguyễn Bính viết bức thư ấy. [long pause]\nỞ thư này, [short pause] thày mẹ ơi. [pause]\nNhận cho con lấy vài lời kính thăm. [pause]\nXin thày mẹ cứ yên tâm. [pause]\nĐừng thương nhớ, [short pause] một vài năm con về. [pause]\nThày ơi, [short pause] đừng chặt vườn chè. [pause]\nMẹ ơi đừng bán cây lê con trồng. [pause]\nNhớ thương thày mẹ khôn cùng. [pause]\nLạy thày, [short pause] lạy mẹ thấu lòng cho con.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "N05",
+  "title": "Con ơi! Mẹ bảo đây này",
+  "voice": "Nữ",
+  "hook": "Mẹ dặn con những điều nhỏ bé, mà con nhớ cả đời. Các cụ nhà ta chép lại lời mẹ dặn:",
+  "tts": "[softly] Mẹ dặn con những điều nhỏ bé, mà con nhớ cả đời. Các cụ nhà ta chép lại lời mẹ dặn. [long pause]\nCon ơi, [short pause] Mẹ bảo đây này, [pause]\nHọc buôn học bán cho tày người ta. [pause]\nCon đừng học thói chua ngoa, [pause]\nHọ hàng ghét bỏ, [short pause] người ta chê cười. [pause]\nDù no, [short pause] dù đói, [short pause] cho tươi, [pause]\nKhoan ăn, [short pause] bớt ngủ, [short pause] liệu bài lo toan.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co"
+ },
+ {
+  "id": "N06",
+  "title": "Quê tôi",
+  "voice": "Nam",
+  "hook": "Đi xa mới biết, quê mình chỉ có gió, có trăng, có tiếng chuông chùa, mà nhớ đến nao lòng. Cụ Nguyễn Bính kể:",
+  "tts": "[softly] Đi xa mới biết, quê mình chỉ có gió, có trăng, có tiếng chuông chùa, mà nhớ đến nao lòng. Cụ Nguyễn Bính kể. [long pause]\nQuê tôi có gió bốn mùa. [pause]\nCó giăng giữa tháng, [short pause] có chùa quanh năm. [pause]\nChuông hôm, [short pause] gió sớm, [short pause] giăng rằm. [pause]\nChỉ thanh đạm thế, [short pause] âm thầm thế thôi. [pause]\nTôi về đây, [short pause] đã lâu rồi, [pause]\nNằm trong cô tịch nhớ người phồn hoa. [pause]\nTóc tơ, [short pause] mình liễu da ngà, [pause]\nMột người càng nhớ, [short pause] càng xa một người.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-2-trang"
+ },
+ {
+  "id": "N07",
+  "title": "Khóc Dương Khuê (trích)",
+  "voice": "Nam",
+  "hook": "Bạn cũ mất rồi, rượu ngon cũng hết người cùng uống. Cụ Nguyễn Khuyến khóc bạn thế này:",
+  "tts": "[softly] Bạn cũ mất rồi, rượu ngon cũng hết người cùng uống. Cụ Nguyễn Khuyến khóc bạn thế này. [long pause]\nBác Dương thôi đã thôi rồi, [pause]\nNước mây man mác ngậm ngùi lòng ta. [pause]\nNhớ từ thuở đăng khoa ngày trước, [pause]\nVẫn sớm hôm tôi bác cùng nhau, [pause]\nKính yêu từ trước đến sau, [pause]\nTrong khi gặp gỡ khác đâu duyên trời?",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co"
+ },
+ {
+  "id": "N08",
+  "title": "Nhớ chăng (trích)",
+  "voice": "Nam",
+  "hook": "Ngày bé, ta tưởng lời hứa nào cũng giữ được. Cụ Hàn Mặc Tử nhớ về thuở ấy:",
+  "tts": "[softly] Ngày bé, ta tưởng lời hứa nào cũng giữ được. Cụ Hàn Mặc Tử nhớ về thuở ấy. [long pause]\nNhớ chăng? Anh cùng em nô đùa. [pause]\nNgây thơ như trẻ lên ba. [pause]\nAnh đứng bên cạnh. [pause]\nCoi em thêu thùa. [pause]\nEm thêu con phụng. [pause]\nĐậu trên cành ngô. [pause]\nRồi ba em lại mất. [pause]\nRồi ba anh chẳng còn. [pause]\nMẹ em giàu có. [pause]\nRồi lời hứa năm xưa. [pause]\nCùng với dòng nước chảy qua. [pause]\nĐi biệt. [pause]\nKhông về.",
+  "da_long_tieng": null,
+  "template": "tho-hoai-co-chay-chu-nhieu-trang"
+ }
+]

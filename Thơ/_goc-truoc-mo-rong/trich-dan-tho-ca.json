@@ -1,0 +1,560 @@
+[
+ {
+  "loai": "Ca dao",
+  "text": "Chiều chiều ra đứng ngõ sau,\nTrông về quê mẹ ruột đau chín chiều.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "04_Hoang-hon-troi-may",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "nhớ nhà, chiều tà",
+  "id": "Q001"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Anh đi anh nhớ quê nhà,\nNhớ canh rau muống, nhớ cà dầm tương.\nNhớ ai dãi nắng dầm sương,\nNhớ ai tát nước bên đường hôm nao.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "09_Hanh-trinh-duong-xa",
+   "17_Tau-hoa-ga",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "nhớ quê",
+  "id": "Q002"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Khăn thương nhớ ai,\nKhăn rơi xuống đất.\nKhăn thương nhớ ai,\nKhăn vắt lên vai.\nKhăn thương nhớ ai,\nKhăn chùi nước mắt.\nĐèn thương nhớ ai,\nMà đèn không tắt.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "nhớ nhung, đêm",
+  "id": "Q003"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Thân em như hạt mưa sa,\nHạt vào đài các, hạt ra ruộng cày.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "03_Mua-tuyet"
+  ],
+  "cam_xuc": "mưa, phận người",
+  "id": "Q004"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Đêm qua ra đứng bờ ao,\nTrông cá cá lặn, trông sao sao mờ.\nBuồn trông con nhện giăng tơ,\nNhện ơi nhện hỡi, nhện chờ mối ai?",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "cô đơn, đêm",
+  "id": "Q005"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Thuyền về có nhớ bến chăng?\nBến thì một dạ khăng khăng đợi thuyền.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "17_Tau-hoa-ga",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "cam_xuc": "chờ đợi",
+  "id": "Q006"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Gió mùa thu mẹ ru con ngủ,\nNăm canh chầy thức đủ vừa năm.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "mẹ, mùa thu",
+  "id": "Q007"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Lá vàng còn ở trên cây,\nLá xanh rụng xuống trời hay chăng trời?",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "mùa thu, bâng khuâng",
+  "id": "Q008"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Gió đưa cành trúc la đà,\nTiếng chuông Trấn Vũ, canh gà Thọ Xương.\nMịt mù khói toả ngàn sương,\nNhịp chày Yên Thái, mặt gương Tây Hồ.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "19_Suong-mu",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "Hà Nội xưa, sương",
+  "id": "Q009"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Công cha như núi Thái Sơn,\nNghĩa mẹ như nước trong nguồn chảy ra.\nMột lòng thờ mẹ kính cha,\nCho tròn chữ hiếu mới là đạo con.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "16_Nguoi-gia-ky-uc",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "hiếu, gia đình",
+  "id": "Q010"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Qua đình ngả nón trông đình,\nĐình bao nhiêu ngói thương mình bấy nhiêu.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "09_Hanh-trinh-duong-xa"
+  ],
+  "cam_xuc": "thương nhớ",
+  "id": "Q011"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Trăng bao nhiêu tuổi trăng già,\nNúi bao nhiêu tuổi gọi là núi non.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "05_Dem-thanh-pho",
+   "10_Vu-tru-sao",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "trăng, triết lý",
+  "id": "Q012"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Chim khôn kêu tiếng rảnh rang,\nNgười khôn nói tiếng dịu dàng dễ nghe.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "11_Dong-vat"
+  ],
+  "cam_xuc": "sống đẹp",
+  "id": "Q013"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Trong đầm gì đẹp bằng sen,\nLá xanh bông trắng lại chen nhị vàng.\nNhị vàng bông trắng lá xanh,\nGần bùn mà chẳng hôi tanh mùi bùn.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "06_Hoa-la-cay"
+  ],
+  "cam_xuc": "sen, giữ mình",
+  "id": "Q014"
+ },
+ {
+  "loai": "Ca dao",
+  "text": "Ai ơi giữ chí cho bền,\nDù ai xoay hướng đổi nền mặc ai.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "09_Hanh-trinh-duong-xa",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "kiên định",
+  "id": "Q015"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Chuồn chuồn bay thấp thì mưa,\nBay cao thì nắng, bay vừa thì râm.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "03_Mua-tuyet"
+  ],
+  "cam_xuc": "mưa",
+  "id": "Q016"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Mưa tháng ba hoa đất,\nMưa tháng tư hư đất.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "03_Mua-tuyet",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "mưa",
+  "id": "Q017"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Sau cơn mưa, trời lại sáng.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "cam_xuc": "hy vọng",
+  "id": "Q018"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Có công mài sắt, có ngày nên kim.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "12_Lua-khoi"
+  ],
+  "cam_xuc": "kiên trì",
+  "id": "Q019"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Lửa thử vàng, gian nan thử sức.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "12_Lua-khoi"
+  ],
+  "cam_xuc": "nghị lực",
+  "id": "Q020"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Đi một ngày đàng, học một sàng khôn.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "09_Hanh-trinh-duong-xa",
+   "17_Tau-hoa-ga"
+  ],
+  "cam_xuc": "hành trình",
+  "id": "Q021"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Nước chảy đá mòn.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "bền bỉ",
+  "id": "Q022"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Ăn quả nhớ kẻ trồng cây.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "06_Hoa-la-cay"
+  ],
+  "cam_xuc": "biết ơn",
+  "id": "Q023"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Uống nước nhớ nguồn.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "biết ơn",
+  "id": "Q024"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Một cây làm chẳng nên non,\nBa cây chụm lại nên hòn núi cao.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "01_Thien-nhien",
+   "09_Hanh-trinh-duong-xa"
+  ],
+  "cam_xuc": "đoàn kết",
+  "id": "Q025"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Sông có khúc, người có lúc.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "14_Co-don-tram-lang"
+  ],
+  "cam_xuc": "an ủi",
+  "id": "Q026"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Tre già măng mọc.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "01_Thien-nhien",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "thế hệ",
+  "id": "Q027"
+ },
+ {
+  "loai": "Tục ngữ",
+  "text": "Ở hiền gặp lành.",
+  "nguon": "Dân gian (không rõ tác giả)",
+  "thu_muc": [
+   "07_Ca-phe-tra",
+   "20_Cafe-sach-vang"
+  ],
+  "cam_xuc": "sống tốt",
+  "id": "Q028"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Ao thu lạnh lẽo nước trong veo,\nMột chiếc thuyền câu bé tẻo teo.\nSóng biếc theo làn hơi gợn tí,\nLá vàng trước gió sẽ đưa vèo.\nTầng mây lơ lửng trời xanh ngắt,\nNgõ trúc quanh co khách vắng teo.\nTựa gối ôm cần lâu chẳng được,\nCá đâu đớp động dưới chân bèo.",
+  "nguon": "Nguyễn Khuyến (1835–1909), “Thu điếu”",
+  "thu_muc": [
+   "15_Mua-thu",
+   "02_Bien-song-nuoc"
+  ],
+  "cam_xuc": "thu, tĩnh lặng",
+  "id": "Q029"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Trời thu xanh ngắt mấy từng cao,\nCần trúc lơ phơ gió hắt hiu.\nNước biếc trông như tầng khói phủ,\nSong thưa để mặc bóng trăng vào.",
+  "nguon": "Nguyễn Khuyến, “Thu vịnh” (4 câu đầu)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "19_Suong-mu"
+  ],
+  "cam_xuc": "thu",
+  "id": "Q030"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Đã bấy lâu nay, bác tới nhà,\nTrẻ thời đi vắng, chợ thời xa.\nAo sâu nước cả, khôn chài cá,\nVườn rộng rào thưa, khó đuổi gà.\nCải chửa ra cây, cà mới nụ,\nBầu vừa rụng rốn, mướp đương hoa.\nĐầu trò tiếp khách, trầu không có,\nBác đến chơi đây, ta với ta.",
+  "nguon": "Nguyễn Khuyến, “Bạn đến chơi nhà”",
+  "thu_muc": [
+   "20_Cafe-sach-vang",
+   "07_Ca-phe-tra"
+  ],
+  "cam_xuc": "tình bạn, giản dị",
+  "id": "Q031"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Bước tới Đèo Ngang bóng xế tà,\nCỏ cây chen đá, lá chen hoa.\nLom khom dưới núi tiều vài chú,\nLác đác bên sông chợ mấy nhà.\nNhớ nước đau lòng con quốc quốc,\nThương nhà mỏi miệng cái gia gia.\nDừng chân đứng lại: trời, non, nước,\nMột mảnh tình riêng ta với ta.",
+  "nguon": "Bà Huyện Thanh Quan (đầu thế kỷ XIX), “Qua Đèo Ngang”",
+  "thu_muc": [
+   "04_Hoang-hon-troi-may",
+   "18_Binh-minh-hoang-hon",
+   "14_Co-don-tram-lang"
+  ],
+  "cam_xuc": "hoàng hôn, cô đơn",
+  "id": "Q032"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Tạo hoá gây chi cuộc hí trường,\nĐến nay thấm thoắt mấy tinh sương.\nLối xưa xe ngựa hồn thu thảo,\nNền cũ lâu đài bóng tịch dương.\nĐá vẫn trơ gan cùng tuế nguyệt,\nNước còn cau mặt với tang thương.\nNgàn năm gương cũ soi kim cổ,\nCảnh đấy người đây luống đoạn trường.",
+  "nguon": "Bà Huyện Thanh Quan, “Thăng Long thành hoài cổ”",
+  "thu_muc": [
+   "16_Nguoi-gia-ky-uc",
+   "04_Hoang-hon-troi-may"
+  ],
+  "cam_xuc": "hoài cổ",
+  "id": "Q033"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Đêm khuya văng vẳng trống canh dồn,\nTrơ cái hồng nhan với nước non.\nChén rượu hương đưa say lại tỉnh,\nVầng trăng bóng xế khuyết chưa tròn.",
+  "nguon": "Hồ Xuân Hương (cuối thế kỷ XVIII), “Tự tình” (4 câu đầu)",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "cô đơn, đêm",
+  "id": "Q034"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Buồn trông cửa bể chiều hôm,\nThuyền ai thấp thoáng cánh buồm xa xa?\nBuồn trông ngọn nước mới sa,\nHoa trôi man mác biết là về đâu?\nBuồn trông nội cỏ rầu rầu,\nChân mây mặt đất một màu xanh xanh.\nBuồn trông gió cuốn mặt duềnh,\nẦm ầm tiếng sóng kêu quanh ghế ngồi.",
+  "nguon": "Nguyễn Du (1766–1820), “Truyện Kiều” (câu 1055–1062)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "04_Hoang-hon-troi-may",
+   "14_Co-don-tram-lang"
+  ],
+  "cam_xuc": "buồn, chiều biển",
+  "id": "Q035"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Trăm năm trong cõi người ta,\nChữ tài chữ mệnh khéo là ghét nhau.\nTrải qua một cuộc bể dâu,\nNhững điều trông thấy mà đau đớn lòng.",
+  "nguon": "Nguyễn Du, “Truyện Kiều” (4 câu đầu)",
+  "thu_muc": [
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "đời người",
+  "id": "Q036"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Cảnh nào cảnh chẳng đeo sầu,\nNgười buồn cảnh có vui đâu bao giờ.",
+  "nguon": "Nguyễn Du, “Truyện Kiều”",
+  "thu_muc": [
+   "14_Co-don-tram-lang",
+   "13_Mua-cua-so"
+  ],
+  "cam_xuc": "buồn",
+  "id": "Q037"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Vầng trăng ai xẻ làm đôi,\nNửa in gối chiếc, nửa soi dặm trường.",
+  "nguon": "Nguyễn Du, “Truyện Kiều”",
+  "thu_muc": [
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho",
+   "17_Tau-hoa-ga"
+  ],
+  "cam_xuc": "trăng, xa cách",
+  "id": "Q038"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Đêm thu buồn lắm, chị Hằng ơi!\nTrần thế em nay chán nữa rồi.\nCung quế có ai ngồi đó chửa?\nCành đa xin chị nhắc lên chơi.\nCó bầu có bạn, can chi tủi,\nCùng gió cùng mây, thế mới vui.\nRồi cứ đêm đêm, Hằng đối bóng,\nĐố ai biết Cuội với ai ngồi.",
+  "nguon": "Tản Đà (1889–1939), “Muốn làm thằng Cuội”",
+  "thu_muc": [
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho",
+   "15_Mua-thu"
+  ],
+  "cam_xuc": "thu, trăng",
+  "id": "Q039"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Nước non nặng một lời thề,\nNước đi đi mãi không về cùng non.\nNhớ lời nguyện nước thề non,\nNước đi chưa lại, non còn đứng không.\nNon xanh đã biết hay không?\nNước đi ra bể lại mong nguồn về.",
+  "nguon": "Tản Đà, “Thề non nước” (6 câu đầu)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "08_Lang-man-tinh-yeu",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "chờ đợi, thề nguyền",
+  "id": "Q040"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Sao anh không về chơi thôn Vĩ?\nNhìn nắng hàng cau nắng mới lên.\nVườn ai mướt quá xanh như ngọc,\nLá trúc che ngang mặt chữ điền.",
+  "nguon": "Hàn Mặc Tử (1912–1940), “Đây thôn Vĩ Dạ” (khổ 1)",
+  "thu_muc": [
+   "01_Thien-nhien",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "cam_xuc": "sáng sớm, mong nhớ",
+  "id": "Q041"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Gió theo lối gió, mây đường mây,\nDòng nước buồn thiu, hoa bắp lay…\nThuyền ai đậu bến sông Trăng đó,\nCó chở trăng về kịp tối nay?",
+  "nguon": "Hàn Mặc Tử, “Đây thôn Vĩ Dạ” (khổ 2)",
+  "thu_muc": [
+   "02_Bien-song-nuoc",
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "trăng, sông",
+  "id": "Q042"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Mơ khách đường xa, khách đường xa,\nÁo em trắng quá nhìn không ra…\nỞ đây sương khói mờ nhân ảnh,\nAi biết tình ai có đậm đà?",
+  "nguon": "Hàn Mặc Tử, “Đây thôn Vĩ Dạ” (khổ 3)",
+  "thu_muc": [
+   "19_Suong-mu",
+   "17_Tau-hoa-ga"
+  ],
+  "cam_xuc": "sương, xa cách",
+  "id": "Q043"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Thôn Đoài ngồi nhớ thôn Đông,\nMột người chín nhớ mười mong một người.\nGió mưa là bệnh của giời,\nTương tư là bệnh của tôi yêu nàng.",
+  "nguon": "Nguyễn Bính (1918–1966), “Tương tư” (4 câu đầu)",
+  "thu_muc": [
+   "13_Mua-cua-so",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "cam_xuc": "tương tư, mưa",
+  "id": "Q044"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Tiếng suối trong như tiếng hát xa,\nTrăng lồng cổ thụ bóng lồng hoa.\nCảnh khuya như vẽ người chưa ngủ,\nChưa ngủ vì lo nỗi nước nhà.",
+  "nguon": "Hồ Chí Minh (1890–1969), “Cảnh khuya”",
+  "thu_muc": [
+   "01_Thien-nhien",
+   "05_Dem-thanh-pho"
+  ],
+  "cam_xuc": "đêm khuya, trăng",
+  "id": "Q045"
+ },
+ {
+  "loai": "Thơ",
+  "text": "Trong tù không rượu cũng không hoa,\nCảnh đẹp đêm nay khó hững hờ.\nNgười ngắm trăng soi ngoài cửa sổ,\nTrăng nhòm khe cửa ngắm nhà thơ.",
+  "nguon": "Hồ Chí Minh, “Ngắm trăng” (bản dịch của Nam Trân, mất 1967)",
+  "thu_muc": [
+   "05_Dem-thanh-pho",
+   "10_Vu-tru-sao",
+   "14_Co-don-tram-lang"
+  ],
+  "cam_xuc": "trăng, cửa sổ",
+  "id": "Q046"
+ },
+ {
+  "loai": "Trích dẫn",
+  "text": "Đường đi khó, không khó vì ngăn sông cách núi,\nmà khó vì lòng người ngại núi e sông.",
+  "nguon": "Nguyễn Bá Học (1857–1921)",
+  "thu_muc": [
+   "09_Hanh-trinh-duong-xa",
+   "17_Tau-hoa-ga",
+   "01_Thien-nhien"
+  ],
+  "cam_xuc": "hành trình, dũng khí",
+  "id": "Q047"
+ },
+ {
+  "loai": "Trích dẫn (EN)",
+  "text": "Let life be beautiful like summer flowers\nand death like autumn leaves.",
+  "nguon": "Rabindranath Tagore (1861–1941), “Stray Birds” (1916)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "06_Hoa-la-cay"
+  ],
+  "cam_xuc": "mùa thu, cuộc đời",
+  "id": "Q048"
+ },
+ {
+  "loai": "Trích dẫn (EN)",
+  "text": "The clouds come floating into my life, no more to carry rain or usher storm,\nbut to add color to my sunset sky.",
+  "nguon": "Rabindranath Tagore, “Stray Birds” (1916)",
+  "thu_muc": [
+   "04_Hoang-hon-troi-may",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "cam_xuc": "hoàng hôn, bình yên",
+  "id": "Q049"
+ },
+ {
+  "loai": "Trích dẫn (EN)",
+  "text": "That it will never come again\nis what makes life so sweet.",
+  "nguon": "Emily Dickinson (1830–1886)",
+  "thu_muc": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "cam_xuc": "trân trọng hiện tại",
+  "id": "Q050"
+ }
+]

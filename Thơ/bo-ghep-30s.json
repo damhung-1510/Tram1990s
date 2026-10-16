@@ -1,0 +1,460 @@
+[
+ {
+  "id": "B01",
+  "kind": "Bộ ghép",
+  "title": "Chiều chiều ra đứng ngõ sau + Muốn cho gần bến gần thuyền + Trời hôm nhớ nhà",
+  "mood": "nho-que",
+  "voice": "Nữ",
+  "note": "3 bài",
+  "text": "Chiều chiều ra đứng ngõ sau,\nTrông về quê mẹ ruột đau chín chiều.\n\nMuốn cho gần bến gần thuyền,\nGần cha gần mẹ, nhân duyên cũng gần.\n\nChiều trời bảng lảng bóng hoàng hôn,\nTiếng ốc xa đưa vẳng trống đồn.\nGác mái, ngư ông về viễn phố,\nGõ sừng, mục tử lại cô thôn.\nNgàn mai gió cuốn, chim bay mỏi,\nDặm liễu sương sa, khách bước giồn.\nKẻ chốn chương đài, người lữ thứ,\nLấy ai mà kể nỗi hàn ôn?",
+  "author": "Q001 · S09 · S20",
+  "est": 34,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "14_Co-don-tram-lang",
+   "04_Hoang-hon-troi-may",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q001",
+   "S09",
+   "S20"
+  ]
+ },
+ {
+  "id": "B02",
+  "kind": "Bộ ghép",
+  "title": "Khăn thương nhớ ai + Thuyền về có nhớ bến chăng? + Qua đình ngả nón trông đình + Người lên",
+  "mood": "doi-cho",
+  "voice": "Nữ",
+  "note": "4 bài",
+  "text": "Khăn thương nhớ ai,\nKhăn rơi xuống đất.\nKhăn thương nhớ ai,\nKhăn vắt lên vai.\nKhăn thương nhớ ai,\nKhăn chùi nước mắt.\nĐèn thương nhớ ai,\nMà đèn không tắt.\n\nThuyền về có nhớ bến chăng?\nBến thì một dạ khăng khăng đợi thuyền.\n\nQua đình ngả nón trông đình,\nĐình bao nhiêu ngói thương mình bấy nhiêu.\n\nNgười lên ngựa kẻ chia bào,\nRừng phong thu đã nhuốm màu quan san.\nDặm hồng bụi cuốn chinh an,\nTrông người đã khuất mấy ngàn dâu xanh.\nNgười về chiếc bóng năm canh,\nKẻ đi muôn dặm một mình xa xôi.\nVầng trăng ai xẻ làm đôi,\nNửa in gối chiếc, nửa soi dặm trường.",
+  "author": "Q003 · Q006 · Q011 · Q038",
+  "est": 46,
+  "folders": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho",
+   "17_Tau-hoa-ga",
+   "13_Mua-cua-so"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q003",
+   "Q006",
+   "Q011",
+   "Q038"
+  ]
+ },
+ {
+  "id": "B03",
+  "kind": "Bộ ghép",
+  "title": "Ước gì sông hẹp một gang + Chồng ta áo rách ta thương + Yêu nhau cổi áo cho nhau + Trời mư",
+  "mood": "tinh-yeu",
+  "voice": "Nữ",
+  "note": "4 bài",
+  "text": "Ước gì sông hẹp một gang,\nBắc cầu giải yếm cho chàng sang chơi.\n\nChồng ta áo rách, ta thương,\nChồng người áo gấm xông hương, mặc người.\n\nYêu nhau cổi áo cho nhau,\nVề nhà mẹ hỏi, qua cầu gió bay.\n\nTrời mưa lác đác ruộng dâu,\nCái nón đội đầu, cái thúng cắp tay;\nBước chân xuống hái dâu nầy,\nNuôi tằm cho lớn, mong ngày ươm tơ.\nThương em chút phận ngây thơ,\nLầm than đã trải, nắng mưa đã từng.\nXa xuôi ai có tỏ chừng?\nGian nan tân khổ, ta đừng quên nhau!",
+  "author": "S02 · S04 · S06 · S11",
+  "est": 40,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "S02",
+   "S04",
+   "S06",
+   "S11"
+  ]
+ },
+ {
+  "id": "B04",
+  "kind": "Bộ ghép",
+  "title": "Yêu nhau chẳng quản lầm than + Anh đi anh nhớ quê nhà + Nước non nặng một lời thề",
+  "mood": "tinh-yeu",
+  "voice": "Nam",
+  "note": "3 bài",
+  "text": "Yêu nhau chẳng quản lầm than,\nMấy sông cũng lội, mấy ngàn cũng qua.\n\nAnh đi anh nhớ quê nhà,\nNhớ canh rau muống, nhớ cà dầm tương.\nNhớ ai dãi nắng dầm sương,\nNhớ ai tát nước bên đường hôm nao.\n\nNước non nặng một lời thề,\nNước đi đi mãi không về cùng non.\nNhớ lời nguyện nước thề non,\nNước đi chưa lại, non còn đứng không.\nNon cao những ngóng cùng trông,\nSuối khô dòng lệ chờ mong tháng ngày.\nXương mai một nắm hao gầy,\nTóc mây một mái đã đầy tuyết sương!\nTrời tây ngả bóng tà dương,\nCàng phơi vẻ ngọc nét vàng phôi pha.",
+  "author": "S05 · Q002 · Q040",
+  "est": 43,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "09_Hanh-trinh-duong-xa",
+   "17_Tau-hoa-ga",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "S05",
+   "Q002",
+   "Q040"
+  ]
+ },
+ {
+  "id": "B05",
+  "kind": "Bộ ghép",
+  "title": "Đêm qua ra đứng bờ ao + Bước tới Đèo Ngang bóng xế tà + Đêm khuya văng vẳng trống canh dồn",
+  "mood": "co-don",
+  "voice": "Nữ",
+  "note": "3 bài",
+  "text": "Đêm qua ra đứng bờ ao,\nTrông cá cá lặn, trông sao sao mờ.\nBuồn trông con nhện giăng tơ,\nNhện ơi nhện hỡi, nhện chờ mối ai?\n\nBước tới Đèo Ngang bóng xế tà,\nCỏ cây chen đá, lá chen hoa.\nLom khom dưới núi tiều vài chú,\nLác đác bên sông chợ mấy nhà.\nNhớ nước đau lòng con quốc quốc,\nThương nhà mỏi miệng cái gia gia.\nDừng chân đứng lại: trời, non, nước,\nMột mảnh tình riêng ta với ta.\n\nĐêm khuya văng vẳng trống canh dồn,\nTrơ cái hồng nhan với nước non.\nChén rượu hương đưa say lại tỉnh,\nVầng trăng bóng xế khuyết chưa tròn,\nXiên ngang mặt đất, rêu từng đám.\nĐâm toạc chân mây, đá mấy hòn.\nNgán nỗi xuân đi xuân lại lại,\nMảnh tình san sẻ tí con con!",
+  "author": "Q005 · Q032 · Q034",
+  "est": 53,
+  "folders": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho",
+   "04_Hoang-hon-troi-may",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q005",
+   "Q032",
+   "Q034"
+  ]
+ },
+ {
+  "id": "B06",
+  "kind": "Bộ ghép",
+  "title": "Buồn trông cửa bể chiều hôm + Đôi phen gió tựa, hoa kề",
+  "mood": "co-don",
+  "voice": "Nam",
+  "note": "2 bài",
+  "text": "Buồn trông cửa bể chiều hôm,\nThuyền ai thấp thoáng cánh buồm xa xa?\nBuồn trông ngọn nước mới sa,\nHoa trôi man mác biết là về đâu?\nBuồn trông nội cỏ rầu rầu,\nChân mây mặt đất một màu xanh xanh.\nBuồn trông gió cuốn mặt duềnh,\nẦm ầm tiếng sóng kêu quanh ghế ngồi.\n\nĐôi phen gió tựa, hoa kề,\nNửa rèm tuyết ngậm, bốn bề trăng thâu.\nCảnh nào cảnh chẳng đeo sầu,\nNgười buồn, cảnh có vui đâu bao giờ!\nĐòi phen nét vẽ, câu thơ,\nCung cầm trong nguyệt, nước cờ dưới hoa,\nVui là vui gượng kẻo mà,\nAi tri âm đó, mặn mà với ai?",
+  "author": "Q035 · Q037",
+  "est": 42,
+  "folders": [
+   "14_Co-don-tram-lang",
+   "02_Bien-song-nuoc",
+   "04_Hoang-hon-troi-may",
+   "13_Mua-cua-so"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q035",
+   "Q037"
+  ]
+ },
+ {
+  "id": "B07",
+  "kind": "Bộ ghép",
+  "title": "Lá vàng còn ở trên cây + Gió đưa cành trúc la đà + Tạo hoá gây chi cuộc hí trường",
+  "mood": "thu-hoai-niem",
+  "voice": "Nữ",
+  "note": "3 bài",
+  "text": "Lá vàng còn ở trên cây,\nLá xanh rụng xuống trời hay chăng trời?\n\nGió đưa cành trúc la đà,\nTiếng chuông Trấn Vũ, canh gà Thọ Xương.\nMịt mù khói toả ngàn sương,\nNhịp chày Yên Thái, mặt gương Tây Hồ.\n\nTạo hoá gây chi cuộc hí trường,\nĐến nay thấm thoắt mấy tinh sương.\nLối xưa xe ngựa hồn thu thảo,\nNền cũ lâu đài bóng tịch dương.\nĐá vẫn trơ gan cùng tuế nguyệt,\nNước còn cau mặt với tang thương.\nNgàn năm gương cũ soi kim cổ,\nCảnh đấy người đây luống đoạn trường.",
+  "author": "Q008 · Q009 · Q033",
+  "est": 39,
+  "folders": [
+   "16_Nguoi-gia-ky-uc",
+   "15_Mua-thu",
+   "19_Suong-mu",
+   "05_Dem-thanh-pho"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q008",
+   "Q009",
+   "Q033"
+  ]
+ },
+ {
+  "id": "B08",
+  "kind": "Bộ ghép",
+  "title": "Ao thu lạnh lẽo nước trong veo + Trời thu xanh ngắt mấy từng cao + Trăm năm trong cõi ngườ",
+  "mood": "thu-hoai-niem",
+  "voice": "Nam",
+  "note": "3 bài",
+  "text": "Ao thu lạnh lẽo nước trong veo,\nMột chiếc thuyền câu bé tẻo teo.\nSóng biếc theo làn hơi gợn tí,\nLá vàng trước gió sẽ đưa vèo.\nTầng mây lơ lửng trời xanh ngắt,\nNgõ trúc quanh co khách vắng teo.\nTựa gối ôm cần lâu chẳng được,\nCá đâu đớp động dưới chân bèo.\n\nTrời thu xanh ngắt mấy từng cao,\nCần trúc lơ phơ gió hắt hiu.\nNước biếc trông như tầng khói phủ,\nSong thưa để mặc bóng trăng vào.\n\nTrăm năm trong cõi người ta,\nChữ tài chữ mệnh khéo là ghét nhau.\nTrải qua một cuộc bể dâu,\nNhững điều trông thấy mà đau đớn lòng.\nLạ gì bỉ sắc tư phong,\nTrời xanh quen thói má hồng đánh ghen.\nCảo thơm lần giở trước đèn,\nPhong tình cổ lục còn truyền sử xanh.",
+  "author": "Q029 · Q030 · Q036",
+  "est": 53,
+  "folders": [
+   "15_Mua-thu",
+   "02_Bien-song-nuoc",
+   "19_Suong-mu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q029",
+   "Q030",
+   "Q036"
+  ]
+ },
+ {
+  "id": "B09",
+  "kind": "Bộ ghép",
+  "title": "Đêm thu buồn lắm, chị Hằng ơi! + Thu ẩm",
+  "mood": "thu-hoai-niem",
+  "voice": "Nam",
+  "note": "2 bài",
+  "text": "Đêm thu buồn lắm, chị Hằng ơi!\nTrần thế em nay chán nữa rồi.\nCung quế có ai ngồi đó chửa?\nCành đa xin chị nhắc lên chơi.\nCó bầu có bạn, can chi tủi,\nCùng gió cùng mây, thế mới vui.\nRồi cứ đêm đêm, Hằng đối bóng,\nĐố ai biết Cuội với ai ngồi.\n\nNăm gian nhà cỏ thấp le te,\nNgõ tối đêm sâu đóm lập lòe.\nLưng giậu phất phơ mầu khói nhạt,\nLàn ao lóng lánh bóng trăng loe.\nDa trời ai nhuộm mà xanh ngắt,\nMắt lão không vầy cũng đỏ hoe.\nRượu tiếng rằng hay, hay chẳng mấy,\nĐộ dăm ba chén đã say nhè.",
+  "author": "Q039 · S16",
+  "est": 42,
+  "folders": [
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho",
+   "15_Mua-thu",
+   "Viet_Nam_Chill_20_40s"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q039",
+   "S16"
+  ]
+ },
+ {
+  "id": "B10",
+  "kind": "Bộ ghép",
+  "title": "Thu vịnh + Tiếng suối trong như tiếng hát xa + Trong tù không rượu cũng không hoa",
+  "mood": "thu-hoai-niem",
+  "voice": "Nam",
+  "note": "3 bài",
+  "text": "Trời thu xanh ngắt mấy từng cao,\nCần trúc lơ phơ gió hắt hiu.\nNước biếc trông như từng khói phủ,\nSong thưa để mặc bóng trăng vào.\nMấy chùm trước giậu hoa năm ngoái,\nMột tiếng trên không ngỗng nước nào.\nNhân hứng cũng vừa toan cất bút,\nNghĩ ra lại thẹn với ông Đào.\n\nTiếng suối trong như tiếng hát xa,\nTrăng lồng cổ thụ bóng lồng hoa.\nCảnh khuya như vẽ người chưa ngủ,\nChưa ngủ vì lo nỗi nước nhà.\n\nTrong tù không rượu cũng không hoa,\nCảnh đẹp đêm nay khó hững hờ.\nNgười ngắm trăng soi ngoài cửa sổ,\nTrăng nhòm khe cửa ngắm nhà thơ.",
+  "author": "S17 · Q045 · Q046",
+  "est": 44,
+  "folders": [
+   "05_Dem-thanh-pho",
+   "Viet_Nam_Chill_20_40s",
+   "01_Thien-nhien",
+   "10_Vu-tru-sao"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "S17",
+   "Q045",
+   "Q046"
+  ]
+ },
+ {
+  "id": "B11",
+  "kind": "Bộ ghép",
+  "title": "Chim khôn kêu tiếng rảnh rang + Chẳng tham nhà ngói bức bàn + Trăng bao nhiêu tuổi trăng g",
+  "mood": "binh-yen",
+  "voice": "Nữ",
+  "note": "6 bài",
+  "text": "Chim khôn kêu tiếng rảnh rang,\nNgười khôn nói tiếng dịu dàng dễ nghe.\n\nChẳng tham nhà ngói bức bàn,\nTrái duyên coi bẵng một gian chuồng gà.\nBa gian nhà rạ bà xòa,\nPhải duyên coi tựa chín tòa nhà lim.\n\nTrăng bao nhiêu tuổi trăng già,\nNúi bao nhiêu tuổi gọi là núi non.\n\nSông có khúc, người có lúc.\n\nTrái cau nho nhỏ,\nCái vỏ vân vân,\nNay anh học gần,\nMai anh học xa,\nTiền gạo thì của mẹ cha,\nCái nghiên cái bút thật là của em.\n\nThương chồng nên phải gắng công,\nNào ai xương sắt da đồng chi đây.",
+  "author": "Q013 · S13 · Q012 · Q026 · S12 · S14",
+  "est": 45,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "11_Dong-vat",
+   "05_Dem-thanh-pho",
+   "10_Vu-tru-sao"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q013",
+   "S13",
+   "Q012",
+   "Q026",
+   "S12",
+   "S14"
+  ]
+ },
+ {
+  "id": "B12",
+  "kind": "Bộ ghép",
+  "title": "Thu điếu + Thơ nhàn",
+  "mood": "binh-yen",
+  "voice": "Nam",
+  "note": "2 bài",
+  "text": "Ao thu lạnh lẽo nước trong veo,\nMột chiếc thuyền câu bé tẻo teo.\nSóng biếc theo làn hơi gợn tí,\nLá vàng trước gió sẽ đưa vèo.\nTừng mây lơ lửng trời xanh ngắt,\nNgõ trúc quanh co khách vắng teo.\nTựa gối ôm cần lâu chẳng được,\nCá đâu đớp động dưới chân bèo.\n\nMột mai, một cuốc, một cần câu,\nThơ thẩn dù ai vui thú nào?\nTa dại, ta tìm nơi vắng vẻ,\nNgười khôn, người đến chốn lao sao.\nThu ăn măng trúc, đông ăn giá,\nXuân tắm hồ sen, hạ tắm ao.\nRượu đến gốc cây ta sẽ nhắp,\nNhìn xem phú quí tựa chiêm bao.",
+  "author": "S15 · S19",
+  "est": 43,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "01_Thien-nhien",
+   "02_Bien-song-nuoc"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "S15",
+   "S19"
+  ]
+ },
+ {
+  "id": "B13",
+  "kind": "Bộ ghép",
+  "title": "Thân em như hạt mưa sa + Trong đầm gì đẹp bằng sen + Thuyền ơi có nhớ bến chăng + Anh đi đ",
+  "mood": "nghi-luc",
+  "voice": "Nữ",
+  "note": "5 bài",
+  "text": "Thân em như hạt mưa sa,\nHạt vào đài các, hạt ra ruộng cày.\n\nTrong đầm gì đẹp bằng sen,\nLá xanh bông trắng lại chen nhị vàng.\nNhị vàng bông trắng lá xanh,\nGần bùn mà chẳng hôi tanh mùi bùn.\n\nThuyền ơi có nhớ bến chăng,\nBến thì một dạ khăng khăng đợi thuyền.\n\nAnh đi đường ấy xa xa,\nĐể em ôm bóng trăng tà năm canh.\nNước non một gánh chung tình,\nNhớ ai, ai có nhớ mình hay chăng?\n\nNhớ ai nhớ mãi thế này,\nNhớ đêm quên ngủ, nhớ ngày quên ăn.",
+  "author": "Q004 · Q014 · S01 · S10 · S03",
+  "est": 41,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "13_Mua-cua-so",
+   "03_Mua-tuyet",
+   "06_Hoa-la-cay"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q004",
+   "Q014",
+   "S01",
+   "S10",
+   "S03"
+  ]
+ },
+ {
+  "id": "B14",
+  "kind": "Bộ ghép",
+  "title": "Ai ơi giữ chí cho bền + Chuồn chuồn bay thấp thì mưa + Mưa tháng ba hoa đất + Sau cơn mưa,",
+  "mood": "nghi-luc",
+  "voice": "Nam",
+  "note": "9 bài",
+  "text": "Ai ơi giữ chí cho bền,\nDù ai xoay hướng đổi nền mặc ai.\n\nChuồn chuồn bay thấp thì mưa,\nBay cao thì nắng, bay vừa thì râm.\n\nMưa tháng ba hoa đất,\nMưa tháng tư hư đất.\n\nSau cơn mưa, trời lại sáng.\n\nCó công mài sắt, có ngày nên kim.\n\nLửa thử vàng, gian nan thử sức.\n\nĐi một ngày đàng, học một sàng khôn.\n\nNước chảy đá mòn.\n\nĐường đi khó, không khó vì ngăn sông cách núi,\nmà khó vì lòng người ngại núi e sông.",
+  "author": "Q015 · Q016 · Q017 · Q018 · Q019 · Q020 · Q021 · Q022 · Q047",
+  "est": 41,
+  "folders": [
+   "01_Thien-nhien",
+   "09_Hanh-trinh-duong-xa",
+   "13_Mua-cua-so",
+   "03_Mua-tuyet"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q015",
+   "Q016",
+   "Q017",
+   "Q018",
+   "Q019",
+   "Q020",
+   "Q021",
+   "Q022",
+   "Q047"
+  ]
+ },
+ {
+  "id": "B15",
+  "kind": "Bộ ghép",
+  "title": "Gió mùa thu mẹ ru con ngủ + Công cha như núi Thái Sơn + Ăn quả nhớ kẻ trồng cây + Uống nướ",
+  "mood": "biet-on",
+  "voice": "Nữ",
+  "note": "6 bài",
+  "text": "Gió mùa thu mẹ ru con ngủ,\nNăm canh chầy thức đủ vừa năm.\n\nCông cha như núi Thái Sơn,\nNghĩa mẹ như nước trong nguồn chảy ra.\nMột lòng thờ mẹ kính cha,\nCho tròn chữ hiếu mới là đạo con.\n\nĂn quả nhớ kẻ trồng cây.\n\nUống nước nhớ nguồn.\n\nMột cây làm chẳng nên non,\nBa cây chụm lại nên hòn núi cao.\n\nTre già măng mọc.",
+  "author": "Q007 · Q010 · Q023 · Q024 · Q025 · Q027",
+  "est": 33,
+  "folders": [
+   "01_Thien-nhien",
+   "16_Nguoi-gia-ky-uc",
+   "15_Mua-thu",
+   "06_Hoa-la-cay"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q007",
+   "Q010",
+   "Q023",
+   "Q024",
+   "Q025",
+   "Q027"
+  ]
+ },
+ {
+  "id": "B16",
+  "kind": "Bộ ghép",
+  "title": "Đã bấy lâu nay, bác tới nhà + Bạn bè là nghĩa tương tri + Ai mà phụ nghĩa quên công",
+  "mood": "biet-on",
+  "voice": "Nam",
+  "note": "3 bài",
+  "text": "Đã bấy lâu nay, bác tới nhà,\nTrẻ thời đi vắng, chợ thời xa.\nAo sâu nước cả, khôn chài cá,\nVườn rộng rào thưa, khó đuổi gà.\nCải chửa ra cây, cà mới nụ,\nBầu vừa rụng rốn, mướp đương hoa.\nĐầu trò tiếp khách, trầu không có,\nBác đến chơi đây, ta với ta.\n\nBạn bè là nghĩa tương tri,\nSao cho sau trước một bề mới nên.\n\nAi mà phụ nghĩa quên công,\nThì đeo trăm cánh hoa hồng chẳng thơm.",
+  "author": "Q031 · S07 · S08",
+  "est": 34,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "20_Cafe-sach-vang",
+   "07_Ca-phe-tra"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q031",
+   "S07",
+   "S08"
+  ]
+ },
+ {
+  "id": "B17",
+  "kind": "Bộ ghép",
+  "title": "Bạn đến chơi nhà + Ở hiền gặp lành",
+  "mood": "biet-on",
+  "voice": "Nam",
+  "note": "2 bài",
+  "text": "Đã bấy lâu nay bác tới nhà,\nTrẻ thời đi vắng, chợ thời xa.\nAo sâu nước cả khôn chài cá,\nVườn rộng rào thưa khó đuổi gà.\nCải chửa ra cây, cà chửa nụ,\nBầu vừa rụng rốn, mướp đương hoa.\nĐầu trò tiếp khách, giầu không có,\nBác đến chơi đây ta với ta.\n\nỞ hiền gặp lành.",
+  "author": "S18 · Q028",
+  "est": 25,
+  "folders": [
+   "Viet_Nam_Chill_20_40s",
+   "07_Ca-phe-tra",
+   "20_Cafe-sach-vang"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "S18",
+   "Q028"
+  ]
+ },
+ {
+  "id": "B18",
+  "kind": "Bộ ghép",
+  "title": "Let life be beautiful like summer flowers + The clouds come floating into my life, no more",
+  "mood": "binh-yen",
+  "voice": "Cả hai",
+  "note": "3 bài",
+  "text": "Let life be beautiful like summer flowers\nand death like autumn leaves.\n\nThe clouds come floating into my life, no more to carry rain or usher storm,\nbut to add color to my sunset sky.\n\nThat it will never come again\nis what makes life so sweet.",
+  "author": "Q048 · Q049 · Q050",
+  "est": 24,
+  "folders": [
+   "15_Mua-thu",
+   "06_Hoa-la-cay",
+   "04_Hoang-hon-troi-may",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "extra": [],
+  "exact": null,
+  "voice_why": "ghép các bài ngắn cùng mood, đọc liền một video",
+  "items": [
+   "Q048",
+   "Q049",
+   "Q050"
+  ]
+ }
+]

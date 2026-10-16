@@ -1,0 +1,874 @@
+[
+ {
+  "id": "Q001",
+  "kind": "Ca dao",
+  "title": "Chiều chiều ra đứng ngõ sau",
+  "text": "Chiều chiều ra đứng ngõ sau,\nTrông về quê mẹ ruột đau chín chiều.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "nhớ nhà, chiều tà",
+  "mood": "nho-que",
+  "folders": [
+   "14_Co-don-tram-lang",
+   "04_Hoang-hon-troi-may",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [
+   "17_Tau-hoa-ga"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "Q002",
+  "kind": "Ca dao",
+  "title": "Anh đi anh nhớ quê nhà",
+  "text": "Anh đi anh nhớ quê nhà,\nNhớ canh rau muống, nhớ cà dầm tương.\nNhớ ai dãi nắng dầm sương,\nNhớ ai tát nước bên đường hôm nao.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "nhớ quê",
+  "mood": "nho-que",
+  "folders": [
+   "09_Hanh-trinh-duong-xa",
+   "17_Tau-hoa-ga",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [
+   "04_Hoang-hon-troi-may"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nam",
+  "voice_why": "lời người đàn ông",
+  "audio": [],
+  "est": 12
+ },
+ {
+  "id": "Q003",
+  "kind": "Ca dao",
+  "title": "Khăn thương nhớ ai",
+  "text": "Khăn thương nhớ ai,\nKhăn rơi xuống đất.\nKhăn thương nhớ ai,\nKhăn vắt lên vai.\nKhăn thương nhớ ai,\nKhăn chùi nước mắt.\nĐèn thương nhớ ai,\nMà đèn không tắt.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "nhớ nhung, đêm",
+  "mood": "doi-cho",
+  "folders": [
+   "13_Mua-cua-so",
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "08_Lang-man-tinh-yeu",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 14
+ },
+ {
+  "id": "Q005",
+  "kind": "Ca dao",
+  "title": "Đêm qua ra đứng bờ ao",
+  "text": "Đêm qua ra đứng bờ ao,\nTrông cá cá lặn, trông sao sao mờ.\nBuồn trông con nhện giăng tơ,\nNhện ơi nhện hỡi, nhện chờ mối ai?",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "cô đơn, đêm",
+  "mood": "co-don",
+  "folders": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "extra": [
+   "03_Mua-tuyet",
+   "10_Vu-tru-sao",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/01_Mua",
+   "Chill_100_9x16/05_Co_don"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 12
+ },
+ {
+  "id": "Q006",
+  "kind": "Ca dao",
+  "title": "Thuyền về có nhớ bến chăng?",
+  "text": "Thuyền về có nhớ bến chăng?\nBến thì một dạ khăng khăng đợi thuyền.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "chờ đợi",
+  "mood": "doi-cho",
+  "folders": [
+   "02_Bien-song-nuoc",
+   "17_Tau-hoa-ga",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "extra": [
+   "05_Dem-thanh-pho"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "dịu, ấm, hợp nhịp chậm",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "Q007",
+  "kind": "Ca dao",
+  "title": "Gió mùa thu mẹ ru con ngủ",
+  "text": "Gió mùa thu mẹ ru con ngủ,\nNăm canh chầy thức đủ vừa năm.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "mẹ, mùa thu",
+  "mood": "biet-on",
+  "folders": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [
+   "07_Ca-phe-tra",
+   "20_Cafe-sach-vang"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "Q008",
+  "kind": "Ca dao",
+  "title": "Lá vàng còn ở trên cây",
+  "text": "Lá vàng còn ở trên cây,\nLá xanh rụng xuống trời hay chăng trời?",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "mùa thu, bâng khuâng",
+  "mood": "thu-hoai-niem",
+  "folders": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [
+   "19_Suong-mu"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "dịu, ấm, hợp nhịp chậm",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "Q009",
+  "kind": "Ca dao",
+  "title": "Gió đưa cành trúc la đà",
+  "text": "Gió đưa cành trúc la đà,\nTiếng chuông Trấn Vũ, canh gà Thọ Xương.\nMịt mù khói toả ngàn sương,\nNhịp chày Yên Thái, mặt gương Tây Hồ.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "Hà Nội xưa, sương",
+  "mood": "thu-hoai-niem",
+  "folders": [
+   "19_Suong-mu",
+   "05_Dem-thanh-pho"
+  ],
+  "extra": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "dịu, ấm, hợp nhịp chậm",
+  "audio": [],
+  "est": 12
+ },
+ {
+  "id": "Q010",
+  "kind": "Ca dao",
+  "title": "Công cha như núi Thái Sơn",
+  "text": "Công cha như núi Thái Sơn,\nNghĩa mẹ như nước trong nguồn chảy ra.\nMột lòng thờ mẹ kính cha,\nCho tròn chữ hiếu mới là đạo con.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "hiếu, gia đình",
+  "mood": "biet-on",
+  "folders": [
+   "16_Nguoi-gia-ky-uc",
+   "01_Thien-nhien"
+  ],
+  "extra": [
+   "07_Ca-phe-tra",
+   "20_Cafe-sach-vang"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "dịu, ấm, hợp nhịp chậm",
+  "audio": [],
+  "est": 12
+ },
+ {
+  "id": "Q011",
+  "kind": "Ca dao",
+  "title": "Qua đình ngả nón trông đình",
+  "text": "Qua đình ngả nón trông đình,\nĐình bao nhiêu ngói thương mình bấy nhiêu.",
+  "author": "Dân gian (không rõ tác giả)",
+  "note": "thương nhớ",
+  "mood": "doi-cho",
+  "folders": [
+   "14_Co-don-tram-lang",
+   "09_Hanh-trinh-duong-xa"
+  ],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "05_Dem-thanh-pho",
+   "08_Lang-man-tinh-yeu",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "Q031",
+  "kind": "Thơ",
+  "title": "Đã bấy lâu nay, bác tới nhà",
+  "text": "Đã bấy lâu nay, bác tới nhà,\nTrẻ thời đi vắng, chợ thời xa.\nAo sâu nước cả, khôn chài cá,\nVườn rộng rào thưa, khó đuổi gà.\nCải chửa ra cây, cà mới nụ,\nBầu vừa rụng rốn, mướp đương hoa.\nĐầu trò tiếp khách, trầu không có,\nBác đến chơi đây, ta với ta.",
+  "author": "Nguyễn Khuyến, “Bạn đến chơi nhà”",
+  "note": "tình bạn, giản dị",
+  "mood": "biet-on",
+  "folders": [
+   "20_Cafe-sach-vang",
+   "07_Ca-phe-tra"
+  ],
+  "extra": [
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nam",
+  "voice_why": "giọng trầm, thơ cổ điển / suy ngẫm",
+  "audio": [],
+  "est": 23
+ },
+ {
+  "id": "Q034",
+  "kind": "Thơ",
+  "title": "Đêm khuya văng vẳng trống canh dồn",
+  "text": "Đêm khuya văng vẳng trống canh dồn,\nTrơ cái hồng nhan với nước non.\nChén rượu hương đưa say lại tỉnh,\nVầng trăng bóng xế khuyết chưa tròn,\nXiên ngang mặt đất, rêu từng đám.\nĐâm toạc chân mây, đá mấy hòn.\nNgán nỗi xuân đi xuân lại lại,\nMảnh tình san sẻ tí con con!",
+  "author": "Hồ Xuân Hương, “Tự tình II” (đủ 8 câu)",
+  "note": "cô đơn, đêm",
+  "mood": "co-don",
+  "folders": [
+   "14_Co-don-tram-lang",
+   "05_Dem-thanh-pho"
+  ],
+  "extra": [
+   "03_Mua-tuyet",
+   "10_Vu-tru-sao",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/01_Mua",
+   "Chill_100_9x16/05_Co_don"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Tự_tình_II",
+  "vnote": "Wikisource dẫn: Thơ Hồ Xuân Hương, NXB Văn học, Hà Nội, 1987. Câu mở đầu có dị bản “Canh khuya”; dùng “Đêm khuya” (SGK).",
+  "voice": "Nữ",
+  "voice_why": "nỗi lòng người phụ nữ, trầm buồn",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "Q035",
+  "kind": "Thơ",
+  "title": "Buồn trông cửa bể chiều hôm",
+  "text": "Buồn trông cửa bể chiều hôm,\nThuyền ai thấp thoáng cánh buồm xa xa?\nBuồn trông ngọn nước mới sa,\nHoa trôi man mác biết là về đâu?\nBuồn trông nội cỏ rầu rầu,\nChân mây mặt đất một màu xanh xanh.\nBuồn trông gió cuốn mặt duềnh,\nẦm ầm tiếng sóng kêu quanh ghế ngồi.",
+  "author": "Nguyễn Du (1766–1820), “Truyện Kiều” (câu 1055–1062)",
+  "note": "buồn, chiều biển",
+  "mood": "co-don",
+  "folders": [
+   "02_Bien-song-nuoc",
+   "04_Hoang-hon-troi-may",
+   "14_Co-don-tram-lang"
+  ],
+  "extra": [
+   "03_Mua-tuyet",
+   "05_Dem-thanh-pho",
+   "10_Vu-tru-sao",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/01_Mua",
+   "Chill_100_9x16/05_Co_don"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nam",
+  "voice_why": "giọng trầm, thơ cổ điển / suy ngẫm",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "Q036",
+  "kind": "Thơ",
+  "title": "Trăm năm trong cõi người ta",
+  "text": "Trăm năm trong cõi người ta,\nChữ tài chữ mệnh khéo là ghét nhau.\nTrải qua một cuộc bể dâu,\nNhững điều trông thấy mà đau đớn lòng.\nLạ gì bỉ sắc tư phong,\nTrời xanh quen thói má hồng đánh ghen.\nCảo thơm lần giở trước đèn,\nPhong tình cổ lục còn truyền sử xanh.",
+  "author": "Nguyễn Du, “Truyện Kiều” (câu 1–8)",
+  "note": "đời người",
+  "mood": "thu-hoai-niem",
+  "folders": [
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [
+   "15_Mua-thu",
+   "19_Suong-mu"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Truyện_Kiều",
+  "vnote": "Đánh số câu theo bản Wikisource (3254 câu). Số câu có thể lệch ở các bản khác.",
+  "voice": "Nam",
+  "voice_why": "giọng trầm, thơ cổ điển / suy ngẫm",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "Q037",
+  "kind": "Thơ",
+  "title": "Đôi phen gió tựa, hoa kề",
+  "text": "Đôi phen gió tựa, hoa kề,\nNửa rèm tuyết ngậm, bốn bề trăng thâu.\nCảnh nào cảnh chẳng đeo sầu,\nNgười buồn, cảnh có vui đâu bao giờ!\nĐòi phen nét vẽ, câu thơ,\nCung cầm trong nguyệt, nước cờ dưới hoa,\nVui là vui gượng kẻo mà,\nAi tri âm đó, mặn mà với ai?",
+  "author": "Nguyễn Du, “Truyện Kiều” (câu 1241–1248)",
+  "note": "buồn",
+  "mood": "co-don",
+  "folders": [
+   "14_Co-don-tram-lang",
+   "13_Mua-cua-so"
+  ],
+  "extra": [
+   "03_Mua-tuyet",
+   "05_Dem-thanh-pho",
+   "10_Vu-tru-sao",
+   "Chill_100_9x16/01_Mua",
+   "Chill_100_9x16/05_Co_don"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Truyện_Kiều",
+  "vnote": "Đánh số câu theo bản Wikisource (3254 câu). Số câu có thể lệch ở các bản khác.",
+  "voice": "Nam",
+  "voice_why": "giọng trầm, thơ cổ điển / suy ngẫm",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "Q038",
+  "kind": "Thơ",
+  "title": "Người lên ngựa kẻ chia bào",
+  "text": "Người lên ngựa kẻ chia bào,\nRừng phong thu đã nhuốm màu quan san.\nDặm hồng bụi cuốn chinh an,\nTrông người đã khuất mấy ngàn dâu xanh.\nNgười về chiếc bóng năm canh,\nKẻ đi muôn dặm một mình xa xôi.\nVầng trăng ai xẻ làm đôi,\nNửa in gối chiếc, nửa soi dặm trường.",
+  "author": "Nguyễn Du, “Truyện Kiều” (câu 1519–1526)",
+  "note": "trăng, xa cách",
+  "mood": "doi-cho",
+  "folders": [
+   "10_Vu-tru-sao",
+   "05_Dem-thanh-pho",
+   "17_Tau-hoa-ga"
+  ],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Truyện_Kiều",
+  "vnote": "Đánh số câu theo bản Wikisource (3254 câu). Số câu có thể lệch ở các bản khác.",
+  "voice": "Nữ",
+  "voice_why": "nỗi lòng người phụ nữ, trầm buồn",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "Q040",
+  "kind": "Thơ",
+  "title": "Nước non nặng một lời thề",
+  "text": "Nước non nặng một lời thề,\nNước đi đi mãi không về cùng non.\nNhớ lời nguyện nước thề non,\nNước đi chưa lại, non còn đứng không.\nNon cao những ngóng cùng trông,\nSuối khô dòng lệ chờ mong tháng ngày.\nXương mai một nắm hao gầy,\nTóc mây một mái đã đầy tuyết sương!\nTrời tây ngả bóng tà dương,\nCàng phơi vẻ ngọc nét vàng phôi pha.",
+  "author": "Tản Đà (1889–1939), “Thề non nước” (10 câu đầu / 22 câu)",
+  "note": "chờ đợi, thề nguyền",
+  "mood": "doi-cho",
+  "folders": [
+   "02_Bien-song-nuoc",
+   "08_Lang-man-tinh-yeu",
+   "01_Thien-nhien"
+  ],
+  "extra": [
+   "05_Dem-thanh-pho",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Thề_non_nước_(thơ)",
+  "vnote": "Wikisource ghi nhiều dị bản; dùng cách đọc phổ biến trong SGK: lời, Xương mai, Trời tây ngả bóng. Bản Wikisource chép: nhời, Sương mai, Giời tây chiếu bóng. Dấu câu cuối dòng được chuẩn hoá.",
+  "voice": "Nam",
+  "voice_why": "lời người đàn ông",
+  "audio": [],
+  "est": 27
+ },
+ {
+  "id": "Q041",
+  "kind": "Thơ",
+  "title": "Sao anh không về chơi thôn Vĩ?",
+  "text": "Sao anh không về chơi thôn Vĩ?\nNhìn nắng hàng cau nắng mới lên,\nVườn ai mướt quá xanh như ngọc,\nLá trúc che ngang mặt chữ điền.\nGió theo lối gió, mây đường mây,\nDòng nước buồn thiu, hoa bắp lay.\nThuyền ai đậu bến sông trăng đó,\nCó chở trăng về kịp tối nay?\nMơ khách đường xa, khách đường xa,\nÁo em trắng quá nhìn không ra...\nỞ đây sương khói mờ nhân ảnh,\nAi biết tình ai có đậm đà?",
+  "author": "Hàn Mặc Tử (1912–1940), “Đây thôn Vĩ Dạ” (đủ 12 câu, 3 khổ)",
+  "note": "sáng sớm, mong nhớ",
+  "mood": "doi-cho",
+  "folders": [
+   "01_Thien-nhien",
+   "18_Binh-minh-hoang-hon"
+  ],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "05_Dem-thanh-pho",
+   "08_Lang-man-tinh-yeu",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Đây_thôn_Vĩ_Dạ",
+  "vnote": "Wikisource chép từ SGK Ngữ văn 11, NXB Giáo dục, 2007. “sông trăng” viết thường theo bản này. Dấu câu cuối dòng được chuẩn hoá. Q042, Q043 là khổ 2, 3 của cùng bài (đã gộp).",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 31
+ },
+ {
+  "id": "Q044",
+  "kind": "Thơ",
+  "title": "Thôn Đoài ngồi nhớ thôn Đông",
+  "text": "Thôn Đoài ngồi nhớ thôn Đông,\nMột người chín nhớ mười mong một người.\nGió mưa là bệnh của giời,\nTương tư là bệnh của tôi yêu nàng.\nHai thôn chung lại một làng,\nCớ sao bên ấy chẳng sang bên này?\nNgày qua ngày lại qua ngày,\nLá xanh nhuộm đã thành cây lá vàng.\nBảo rằng cách trở đò giang,\nKhông sang là chẳng đường sang đã đành.\nNhưng đây cách một đầu đình,\nCó xa xôi mấy cho tình xa xôi...",
+  "author": "Nguyễn Bính (1918–1966), “Tương tư” (12 câu đầu / 20 câu)",
+  "note": "tương tư, mưa",
+  "mood": "tinh-yeu",
+  "folders": [
+   "13_Mua-cua-so",
+   "08_Lang-man-tinh-yeu"
+  ],
+  "extra": [
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": null,
+  "files": null,
+  "url": "https://vi.wikisource.org/wiki/Tương_tư",
+  "vnote": "In trong tập “Lỡ bước sang ngang” (Hương Sơn, 1940). Wikisource ghi dị bản “Nắng mưa… trời, trầu”; dùng “Gió mưa… giời”. Dấu câu cuối dòng được chuẩn hoá.",
+  "voice": "Nam",
+  "voice_why": "lời người đàn ông",
+  "audio": [],
+  "est": 31
+ },
+ {
+  "id": "Q050",
+  "kind": "Trích dẫn (EN)",
+  "title": "That it will never come again",
+  "text": "That it will never come again\nis what makes life so sweet.",
+  "author": "Emily Dickinson (1830–1886)",
+  "note": "trân trọng hiện tại",
+  "mood": "binh-yen",
+  "folders": [
+   "15_Mua-thu",
+   "16_Nguoi-gia-ky-uc"
+  ],
+  "extra": [
+   "01_Thien-nhien",
+   "02_Bien-song-nuoc",
+   "04_Hoang-hon-troi-may",
+   "06_Hoa-la-cay",
+   "07_Ca-phe-tra",
+   "10_Vu-tru-sao",
+   "11_Dong-vat",
+   "18_Binh-minh-hoang-hon",
+   "19_Suong-mu",
+   "20_Cafe-sach-vang",
+   "Chill_100_9x16/02_Hoa",
+   "Chill_100_9x16/03_Suoi",
+   "Chill_100_9x16/04_Phong_canh"
+  ],
+  "exact": null,
+  "files": null,
+  "url": null,
+  "vnote": null,
+  "voice": "Nữ",
+  "voice_why": "dịu, ấm, hợp nhịp chậm",
+  "audio": [],
+  "est": 7
+ },
+ {
+  "id": "S01",
+  "kind": "Có nguồn",
+  "title": "Thuyền ơi có nhớ bến chăng",
+  "text": "Thuyền ơi có nhớ bến chăng,\nBến thì một dạ khăng khăng đợi thuyền.",
+  "author": "Dân gian Việt Nam",
+  "note": "Đợi chờ, thủy chung",
+  "mood": "doi-cho",
+  "folders": [],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "05_Dem-thanh-pho",
+   "08_Lang-man-tinh-yeu",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Viet_Nam/15_Viet_Nam_Hoang_hon_song_yen_40s_9x16.mp4",
+  "stem": "01_Thuyen_oi_co_nho_ben_chang",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S02",
+  "kind": "Có nguồn",
+  "title": "Ước gì sông hẹp một gang",
+  "text": "Ước gì sông hẹp một gang,\nBắc cầu giải yếm cho chàng sang chơi.",
+  "author": "Dân gian Việt Nam",
+  "note": "Tình yêu, dịu dàng",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Ha_Noi/14_Ha_Noi_Hoang_hon_cau_Long_Bien_40s_9x16.mp4",
+  "stem": "02_Uoc_gi_song_hep_mot_gang",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S03",
+  "kind": "Có nguồn",
+  "title": "Nhớ ai nhớ mãi thế này",
+  "text": "Nhớ ai nhớ mãi thế này,\nNhớ đêm quên ngủ, nhớ ngày quên ăn.",
+  "author": "Dân gian Việt Nam",
+  "note": "Nhớ người, cô đơn",
+  "mood": "doi-cho",
+  "folders": [],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "05_Dem-thanh-pho",
+   "08_Lang-man-tinh-yeu",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Ha_Long/09_Ha_Long_Hoang_hon_tren_vinh_40s_9x16.mp4",
+  "stem": "03_Nho_ai_nho_mai_the_nay",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Cả hai",
+  "voice_why": "câu ngắn, trung tính",
+  "audio": [],
+  "est": 7
+ },
+ {
+  "id": "S04",
+  "kind": "Có nguồn",
+  "title": "Chồng ta áo rách ta thương",
+  "text": "Chồng ta áo rách, ta thương,\nChồng người áo gấm xông hương, mặc người.",
+  "author": "Dân gian Việt Nam",
+  "note": "Tình nghĩa, giản dị",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Mang_Den/07_Mang_Den_Cao_nguyen_xanh_40s_9x16.mp4",
+  "stem": "04_Chong_ta_ao_rach_ta_thuong",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S05",
+  "kind": "Có nguồn",
+  "title": "Yêu nhau chẳng quản lầm than",
+  "text": "Yêu nhau chẳng quản lầm than,\nMấy sông cũng lội, mấy ngàn cũng qua.",
+  "author": "Dân gian Việt Nam",
+  "note": "Đồng hành, vượt xa cách",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Sa_Pa/18_Sa_Pa_Thung_lung_suong_mo_40s_9x16.mp4",
+  "stem": "05_Yeu_nhau_chang_quan_lam_than",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Nam",
+  "voice_why": "câu răn, nghị lực, giọng chắc",
+  "audio": [],
+  "est": 7
+ },
+ {
+  "id": "S06",
+  "kind": "Có nguồn",
+  "title": "Yêu nhau cổi áo cho nhau",
+  "text": "Yêu nhau cổi áo cho nhau,\nVề nhà mẹ hỏi, qua cầu gió bay.",
+  "author": "Dân gian Việt Nam",
+  "note": "Tình duyên, hóm hỉnh",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Da_Lat/06_Da_Lat_Thuyen_thien_nga_tren_ho_40s_9x16.mp4",
+  "stem": "06_Yeu_nhau_coi_ao_cho_nhau",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S07",
+  "kind": "Có nguồn",
+  "title": "Bạn bè là nghĩa tương tri",
+  "text": "Bạn bè là nghĩa tương tri,\nSao cho sau trước một bề mới nên.",
+  "author": "Dân gian Việt Nam",
+  "note": "Bạn bè, ấm áp",
+  "mood": "biet-on",
+  "folders": [],
+  "extra": [
+   "07_Ca-phe-tra",
+   "16_Nguoi-gia-ky-uc",
+   "20_Cafe-sach-vang"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Cao_nguyen/03_Cao_nguyen_Rung_thong_Viet_Nam_40s_9x16.mp4",
+  "stem": "07_Ban_be_la_nghia_tuong_tri",
+  "source": "https://vietbrooms.com/2022/03/28/tuyen-tap-tuc-ngu-phong-dao-viet-nam/",
+  "voice": "Nam",
+  "voice_why": "câu răn, nghị lực, giọng chắc",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S09",
+  "kind": "Có nguồn",
+  "title": "Muốn cho gần bến gần thuyền",
+  "text": "Muốn cho gần bến gần thuyền,\nGần cha gần mẹ, nhân duyên cũng gần.",
+  "author": "Dân gian Việt Nam",
+  "note": "Gia đình, quê nhà",
+  "mood": "nho-que",
+  "folders": [],
+  "extra": [
+   "04_Hoang-hon-troi-may",
+   "16_Nguoi-gia-ky-uc",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Hoi_An/13_Hoi_An_Chieu_tren_song_40s_9x16.mp4",
+  "stem": "09_Muon_cho_gan_ben_gan_thuyen",
+  "source": "https://vi.wikisource.org/wiki/Theo_tục_ngữ_phong_dao,_xét_về_sự_sanh_hoạt_của_phụ_nữ_nước_ta",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S10",
+  "kind": "Có nguồn",
+  "title": "Anh đi đường ấy xa xa",
+  "text": "Anh đi đường ấy xa xa,\nĐể em ôm bóng trăng tà năm canh.\nNước non một gánh chung tình,\nNhớ ai, ai có nhớ mình hay chăng?",
+  "author": "Dân gian Việt Nam",
+  "note": "Nhớ thương, xa cách",
+  "mood": "doi-cho",
+  "folders": [],
+  "extra": [
+   "02_Bien-song-nuoc",
+   "05_Dem-thanh-pho",
+   "08_Lang-man-tinh-yeu",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Kon_Tum/08_Kon_Tum_Nui_may_suong_40s_9x16.mp4",
+  "stem": "10_Anh_di_duong_ay_xa_xa",
+  "source": "https://vi.wikisource.org/wiki/Theo_tục_ngữ_phong_dao,_xét_về_sự_sanh_hoạt_của_phụ_nữ_nước_ta",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 12
+ },
+ {
+  "id": "S11",
+  "kind": "Có nguồn",
+  "title": "Trời mưa lác đác ruộng dâu",
+  "text": "Trời mưa lác đác ruộng dâu,\nCái nón đội đầu, cái thúng cắp tay;\nBước chân xuống hái dâu nầy,\nNuôi tằm cho lớn, mong ngày ươm tơ.\nThương em chút phận ngây thơ,\nLầm than đã trải, nắng mưa đã từng.\nXa xuôi ai có tỏ chừng?\nGian nan tân khổ, ta đừng quên nhau!",
+  "author": "Dân gian Việt Nam",
+  "note": "Thương người, nắng mưa",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Ninh_Binh/19_Ninh_Binh_Nui_va_song_trong_suong_40s_9x16.mp4",
+  "stem": "11_Troi_mua_lac_dac_ruong_dau",
+  "source": "https://vi.wikisource.org/wiki/Theo_tục_ngữ_phong_dao,_xét_về_sự_sanh_hoạt_của_phụ_nữ_nước_ta",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "S12",
+  "kind": "Có nguồn",
+  "title": "Trái cau nho nhỏ",
+  "text": "Trái cau nho nhỏ,\nCái vỏ vân vân,\nNay anh học gần,\nMai anh học xa,\nTiền gạo thì của mẹ cha,\nCái nghiên cái bút thật là của em.",
+  "author": "Dân gian Việt Nam",
+  "note": "Tình nghĩa, nâng đỡ",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Cao_nguyen/05_Cao_nguyen_Ho_yen_ben_rung_thong_40s_9x16.mp4",
+  "stem": "12_Trai_cau_nho_nho",
+  "source": "https://vi.wikisource.org/wiki/Theo_tục_ngữ_phong_dao,_xét_về_sự_sanh_hoạt_của_phụ_nữ_nước_ta",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 13
+ },
+ {
+  "id": "S13",
+  "kind": "Có nguồn",
+  "title": "Chẳng tham nhà ngói bức bàn",
+  "text": "Chẳng tham nhà ngói bức bàn,\nTrái duyên coi bẵng một gian chuồng gà.\nBa gian nhà rạ bà xòa,\nPhải duyên coi tựa chín tòa nhà lim.",
+  "author": "Dân gian Việt Nam",
+  "note": "An yên, trọng tình",
+  "mood": "binh-yen",
+  "folders": [],
+  "extra": [
+   "01_Thien-nhien",
+   "02_Bien-song-nuoc",
+   "04_Hoang-hon-troi-may",
+   "06_Hoa-la-cay",
+   "07_Ca-phe-tra",
+   "10_Vu-tru-sao",
+   "11_Dong-vat",
+   "18_Binh-minh-hoang-hon",
+   "19_Suong-mu",
+   "20_Cafe-sach-vang",
+   "Chill_100_9x16/02_Hoa",
+   "Chill_100_9x16/03_Suoi",
+   "Chill_100_9x16/04_Phong_canh"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Da_Lat/01_Da_Lat_Buoi_sang_suong_mo_40s_9x16.mp4",
+  "stem": "13_Chang_tham_nha_ngoi_buc_ban",
+  "source": "https://vi.wikisource.org/wiki/Theo_tục_ngữ_phong_dao,_xét_về_sự_sanh_hoạt_của_phụ_nữ_nước_ta",
+  "voice": "Nữ",
+  "voice_why": "dịu, ấm, hợp nhịp chậm",
+  "audio": [],
+  "est": 12
+ },
+ {
+  "id": "S14",
+  "kind": "Có nguồn",
+  "title": "Thương chồng nên phải gắng công",
+  "text": "Thương chồng nên phải gắng công,\nNào ai xương sắt da đồng chi đây.",
+  "author": "Dân gian Việt Nam",
+  "note": "Thương người, sẻ chia",
+  "mood": "tinh-yeu",
+  "folders": [],
+  "extra": [
+   "08_Lang-man-tinh-yeu",
+   "13_Mua-cua-so",
+   "Chill_100_9x16/02_Hoa"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Ninh_Binh/20_Ninh_Binh_Non_nuoc_xanh_40s_9x16.mp4",
+  "stem": "14_Thuong_chong_nen_phai_gang_cong",
+  "source": "https://vi.wikisource.org/wiki/Theo_tục_ngữ_phong_dao,_xét_về_sự_sanh_hoạt_của_phụ_nữ_nước_ta",
+  "voice": "Nữ",
+  "voice_why": "lời người con gái / người phụ nữ",
+  "audio": [],
+  "est": 8
+ },
+ {
+  "id": "S18",
+  "kind": "Có nguồn",
+  "title": "Bạn đến chơi nhà",
+  "text": "Đã bấy lâu nay bác tới nhà,\nTrẻ thời đi vắng, chợ thời xa.\nAo sâu nước cả khôn chài cá,\nVườn rộng rào thưa khó đuổi gà.\nCải chửa ra cây, cà chửa nụ,\nBầu vừa rụng rốn, mướp đương hoa.\nĐầu trò tiếp khách, giầu không có,\nBác đến chơi đây ta với ta.",
+  "author": "Nguyễn Khuyến",
+  "note": "Bạn bè, đời thường",
+  "mood": "biet-on",
+  "folders": [],
+  "extra": [
+   "07_Ca-phe-tra",
+   "16_Nguoi-gia-ky-uc",
+   "20_Cafe-sach-vang"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Mang_Den/07_Mang_Den_Cao_nguyen_xanh_40s_9x16.mp4",
+  "stem": "18_Ban_den_choi_nha",
+  "source": "https://vi.wikisource.org/wiki/Quốc_văn_trích_diễm/24",
+  "voice": "Nam",
+  "voice_why": "giọng trầm, thơ cổ điển / suy ngẫm",
+  "audio": [],
+  "est": 22
+ },
+ {
+  "id": "S20",
+  "kind": "Có nguồn",
+  "title": "Trời hôm nhớ nhà",
+  "text": "Chiều trời bảng lảng bóng hoàng hôn,\nTiếng ốc xa đưa vẳng trống đồn.\nGác mái, ngư ông về viễn phố,\nGõ sừng, mục tử lại cô thôn.\nNgàn mai gió cuốn, chim bay mỏi,\nDặm liễu sương sa, khách bước giồn.\nKẻ chốn chương đài, người lữ thứ,\nLấy ai mà kể nỗi hàn ôn?",
+  "author": "Bà Huyện Thanh Quan",
+  "note": "Hoàng hôn, nhớ nhà",
+  "mood": "nho-que",
+  "folders": [],
+  "extra": [
+   "04_Hoang-hon-troi-may",
+   "16_Nguoi-gia-ky-uc",
+   "17_Tau-hoa-ga"
+  ],
+  "exact": "Videos/Viet_Nam_Chill_20_40s/Ha_Long/12_Ha_Long_Vinh_bien_chieu_ta_40s_9x16.mp4",
+  "stem": "20_Troi_hom_nho_nha",
+  "source": "https://vi.wikisource.org/wiki/Quốc_văn_trích_diễm/17",
+  "voice": "Nữ",
+  "voice_why": "Bà Huyện Thanh Quan, giọng nhẹ, hoài cổ",
+  "audio": [],
+  "est": 22
+ }
+]

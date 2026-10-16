@@ -1,0 +1,12 @@
+# Media nặng và file sinh ra — không đưa lên git (xem README.md để lấy lại)
+Videos/
+Nhạc nền/
+_loai-bo/
+Vid_completed/
+Long-tieng/elevenlabs/
+Long-tieng/_giong-mau/
+.thumbs/
+.tao-video-tmp/
+__pycache__/
+.DS_Store
+*.part
