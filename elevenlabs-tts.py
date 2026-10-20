@@ -76,7 +76,7 @@ def main():
     url = f'https://api.elevenlabs.io/v1/text-to-speech/{args.voice_id}?output_format=mp3_44100_128'
     for x in items:
         path = os.path.join(OUT, f"{x['id']}_{slug(x['title'])}.mp3")
-        if os.path.exists(path):
+        if os.path.exists(path) and not args.force:
             print('bỏ qua (đã có file):', path)
             state.setdefault(x['id'], dict(voice_id=args.voice_id, model=args.model, chars=len(x['tts']), file=os.path.relpath(path, ROOT), date=time.strftime('%Y-%m-%d')))
             save_state(state); continue

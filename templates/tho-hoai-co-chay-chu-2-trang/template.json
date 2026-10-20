@@ -147,30 +147,7 @@
           "enabled": true
         }
       ],
-      "keys": [
-        {
-          "property": "scale",
-          "at": 0.0,
-          "value": 3.4,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        },
-        {
-          "property": "scale",
-          "at": 1.0,
-          "value": 3.7,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        }
-      ]
+      "keys": []
     },
     {
       "id": "c2",
@@ -184,7 +161,7 @@
       "volume": 1.0,
       "fadeIn": 0.0,
       "fadeOut": 0.0,
-      "scale": 0.96,
+      "scale": 1.0,
       "offsetX": 0.0,
       "offsetY": 0.0,
       "rotation": 0.0,
@@ -193,74 +170,7 @@
       "preservePitch": true,
       "filters": [],
       "videoEffects": [],
-      "keys": [
-        {
-          "property": "scale",
-          "at": 0.0,
-          "value": 0.96,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        },
-        {
-          "property": "scale",
-          "at": 1.0,
-          "value": 1.0,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        },
-        {
-          "property": "offsetX",
-          "at": 0.0,
-          "value": -0.012,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        },
-        {
-          "property": "offsetX",
-          "at": 1.0,
-          "value": 0.012,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        },
-        {
-          "property": "offsetY",
-          "at": 0.0,
-          "value": 0.0,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        },
-        {
-          "property": "offsetY",
-          "at": 1.0,
-          "value": 0.0,
-          "ease": [
-            0.42,
-            0.0,
-            0.58,
-            1.0
-          ]
-        }
-      ]
+      "keys": []
     },
     {
       "id": "c3",

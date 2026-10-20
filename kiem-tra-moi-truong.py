@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Kiểm tra máy đã đủ điều kiện tạo video chưa:  python3 kiem-tra-moi-truong.py"""
-import json, os, shutil, subprocess, sys
+import json, os, platform, shutil, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -23,16 +23,27 @@ for tool in ("ffmpeg", "ffprobe"):
 import tao_video as T
 if T.CLI:
     try:
+        binary = subprocess.run(["file", T.CLI], capture_output=True, text=True, timeout=20).stdout.strip()
+        arch = platform.machine()
+        if arch not in binary and "universal binary" not in binary:
+            fail(f"concat-cli sai kiến trúc: máy là {arch}, nhưng file là {binary}")
         ver = subprocess.run([T.CLI, "--version"], capture_output=True, text=True, timeout=20).stdout.strip()
         ok(f"concat-cli: {T.CLI} ({ver})")
     except Exception as e:
         fail(f"concat-cli không chạy được: {e}")
 else:
-    fail("không thấy concat-cli. Build Concat (xem HUONG_DAN.md, bước 1) hoặc đặt biến CONCAT_CLI=/đường/dẫn/concat-cli")
+    fail("không thấy concat-cli. Build Concat (xem README.md, bước 1) hoặc đặt biến CONCAT_CLI=/đường/dẫn/concat-cli")
+
+if sys.platform == "darwin":
+    try:
+        gpu = subprocess.run(["system_profiler", "SPDisplaysDataType"], capture_output=True, text=True, timeout=30).stdout
+        (ok("GPU hỗ trợ Metal") if "Metal: Supported" in gpu else fail("GPU không báo Metal: Supported; Concat có thể không xuất được video"))
+    except Exception as e:
+        warn(f"không kiểm tra được Metal: {e}")
 
 need = list(T.LABELS)
 miss = [t for t in need if not (T.TEMPLATES / t / "template.json").exists()]
-(ok(f"3 template trong {T.TEMPLATES}") if not miss else fail(f"thiếu template: {', '.join(miss)} (thư mục {T.TEMPLATES})"))
+(ok(f"{len(need)} template trong {T.TEMPLATES}") if not miss else fail(f"thiếu template: {', '.join(miss)} (thư mục {T.TEMPLATES})"))
 for f in ("Thơ/bai-chinh-thuc.json", "Thơ/template-bai.json", "GHEP_THO_VIDEO.html", "tao-video.js"):
     (ok(f) if (ROOT / f).exists() else fail(f"thiếu file {f}"))
 
@@ -49,5 +60,5 @@ try:
     ok("thư mục Vid_completed ghi được")
 except Exception as e:
     fail(f"không tạo được Vid_completed: {e}")
-print("\n" + ("Sẵn sàng. Làm theo HUONG_DAN.md từ bước 3." if not bad else f"Còn {bad} lỗi ❌ cần sửa trước."))
+print("\n" + ("Sẵn sàng. Làm theo README.md từ bước 3." if not bad else f"Còn {bad} lỗi ❌ cần sửa trước."))
 sys.exit(1 if bad else 0)

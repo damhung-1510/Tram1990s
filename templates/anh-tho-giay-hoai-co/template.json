@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "Ảnh Thơ Giấy Hoài Cổ",
+  "kind": "image",
+  "description": "Ảnh thơ dọc 4K, tối đa 10 dòng, nền giấy trắng ngà hoài cổ.",
+  "canvas": {
+    "width": 2160,
+    "height": 3840,
+    "format": "PNG",
+    "color": "#eee7d8"
+  },
+  "content": {
+    "maxLines": 10,
+    "pageName": "TRẠM 1990s",
+    "pageTagline": "THƠ & NHỮNG MIỀN KÝ ỨC",
+    "showTitle": false,
+    "showAuthor": true
+  },
+  "typography": {
+    "fontRegular": "/System/Library/Fonts/Supplemental/Georgia.ttf",
+    "fontItalic": "/System/Library/Fonts/Supplemental/Georgia Italic.ttf",
+    "fontBold": "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
+    "ink": "#3f3429",
+    "mutedInk": "#826d57",
+    "accent": "#9a604b"
+  }
+}

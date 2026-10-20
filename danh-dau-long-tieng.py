@@ -12,7 +12,7 @@ from pathlib import Path
 R = Path(__file__).resolve().parent
 STATE = R / "Thơ" / "da-long-tieng.json"
 KEYS = R / "Thơ" / "template-bai.json"
-LABELS = {"tho-hoai-co": "Thơ Hoài Cổ", "tho-hoai-co-chay-chu-2-trang": "Chạy Chữ 2 Trang",
+LABELS = {"tho-hoai-co": "Thơ Hoài Cổ", "trich-dan-khong-chu": "Không Chữ", "trich-dan": "Trích dẫn", "tho-hoai-co-chay-chu-2-trang": "Chạy Chữ 2 Trang",
           "tho-hoai-co-chay-chu-nhieu-trang": "Chạy Chữ Nhiều Trang"}
 TPL_BADGE = "${p.tpl?`<span class=\"tag\" style=\"background:transparent;border:1px solid var(--acc)\">📄 ${p.tpl}</span>`:''}"
 BADGE = "${p.done?`<span class=\"tag\" style=\"background:#2f7d4f;color:#fff\">✅ Đã lồng tiếng</span>`:''}"
@@ -57,6 +57,9 @@ def ensure_ui(head, rest):
 
 def main():
     state = load_state()
+    master_file = R / "Thơ" / "bai-chinh-thuc.json"
+    master = json.load(open(master_file, encoding="utf-8")) if master_file.exists() else []
+    scripts = {x["id"]: x.get("tts", "") for x in master}
     # bai-chinh-thuc.json, elevenlabs-script.json
     for name in ("bai-chinh-thuc.json", "elevenlabs-script.json"):
         f = R / "Thơ" / name
@@ -89,12 +92,15 @@ def main():
             kt = rows[0].index("Template")
         else:
             rows[0].append("Template"); kt = len(rows[0]) - 1
+        ktts = rows[0].index("Kịch bản ElevenLabs") if "Kịch bản ElevenLabs" in rows[0] else None
         for r in rows[1:]:
             while len(r) <= max(k, kt):
                 r.append("")
             r[k] = label(state.get(r[0]))
             r[kt] = tpl_label(r[0])
-        csv.writer(open(f, "w", encoding="utf-8-sig", newline="")).writerows(rows)
+            if ktts is not None and r[0] in scripts:
+                r[ktts] = scripts[r[0]]
+        csv.writer(open(f, "w", encoding="utf-8-sig", newline=""), lineterminator="\n").writerows(rows)
     # HTML
     f = R / "GHEP_THO_VIDEO.html"
     t = f.read_text(encoding="utf-8")
@@ -103,6 +109,8 @@ def main():
     for p in D["poems"] + D["combos"]:
         p["done"] = state.get(p["id"])
         p["tpl"] = tpl_label(p["id"])
+        if p["id"] in scripts:
+            p["tts"] = scripts[p["id"]]
     rest = t[j + end:]
     if BADGE not in rest:
         old = '<span class="id">${p.id}</span>'

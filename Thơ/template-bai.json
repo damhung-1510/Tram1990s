@@ -1,28 +1,4 @@
 {
- "Q034": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Đêm khuya văng vẳng trống canh dồn"
- },
- "Q035": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Buồn trông cửa bể chiều hôm"
- },
- "Q036": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Trăm năm trong cõi người ta"
- },
- "Q037": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Đôi phen gió tựa, hoa kề"
- },
  "Q038": {
   "template": "tho-hoai-co-chay-chu-2-trang",
   "per_page": 4,
@@ -53,108 +29,6 @@
   "ghi_chu": "8 dòng, 2 trang × 4 dòng",
   "tieu_de": "Trời mưa lác đác ruộng dâu"
  },
- "S18": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Bạn đến chơi nhà"
- },
- "S20": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Trời hôm nhớ nhà"
- },
- "T01": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 10 câu, mỗi trang 2 câu",
-  "tieu_de": "Cuộc gọi của mẹ"
- },
- "T02": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 6 câu, mỗi trang 2 câu",
-  "tieu_de": "Đầu cá"
- },
- "T03": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 5 câu, mỗi trang 2 câu",
-  "tieu_de": "Đứng đợi ở cổng"
- },
- "T04": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 5 câu, mỗi trang 2 câu",
-  "tieu_de": "Hộp bánh quy"
- },
- "T05": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 6 câu, mỗi trang 2 câu",
-  "tieu_de": "Cãi nhau"
- },
- "T06": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 6 câu, mỗi trang 2 câu",
-  "tieu_de": "Bạn thân"
- },
- "T07": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 6 câu, mỗi trang 2 câu",
-  "tieu_de": "Người cũ"
- },
- "T08": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 2,
-  "ghi_chu": "truyện ngắn 5 câu, mỗi trang 2 câu",
-  "tieu_de": "Tiền và bữa cơm"
- },
- "L01": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Vì em"
- },
- "L03": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Lỡ duyên"
- },
- "L05": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Tôi còn nhớ lắm"
- },
- "L06": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Nhớ người trong nắng"
- },
- "L07": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 6,
-  "ghi_chu": "10 dòng, mỗi trang 6 dòng",
-  "tieu_de": "Vu quy"
- },
- "L08": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Chân quê (trích)"
- },
- "L09": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Cô hái mơ"
- },
  "L10": {
   "template": "tho-hoai-co-chay-chu-2-trang",
   "per_page": 4,
@@ -166,12 +40,6 @@
   "per_page": 4,
   "ghi_chu": "8 dòng, 2 trang × 4 dòng",
   "tieu_de": "Kiều: lần đầu gặp Kim Trọng"
- },
- "C01": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Hôm qua tát nước đầu đình"
  },
  "C02": {
   "template": "tho-hoai-co-chay-chu-2-trang",
@@ -191,52 +59,82 @@
   "ghi_chu": "6 dòng, chữ tĩnh 1 trang",
   "tieu_de": "Đôi duyên ta như loan với phượng"
  },
- "N01": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Lòng mẹ"
+ "K02": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Dịu dàng với chính mình"
  },
- "N02": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Tết của mẹ tôi"
+ "K01": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Một khoảng lặng để sống thật"
  },
- "N03": {
-  "template": "tho-hoai-co",
-  "per_page": 6,
-  "ghi_chu": "6 dòng, chữ tĩnh 1 trang",
-  "tieu_de": "Thư gửi thày mẹ (khổ 1)"
+ "K03": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Bước nhỏ cũng đủ qua ngày giông bão"
  },
- "N04": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Thư gửi thày mẹ (khổ 2)"
+ "K04": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Không có mùa mưa nào kéo dài mãi"
  },
- "N05": {
-  "template": "tho-hoai-co",
-  "per_page": 6,
-  "ghi_chu": "6 dòng, chữ tĩnh 1 trang",
-  "tieu_de": "Con ơi! Mẹ bảo đây này"
+ "K05": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Thương lấy chính mình"
  },
- "N06": {
-  "template": "tho-hoai-co-chay-chu-2-trang",
-  "per_page": 4,
-  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
-  "tieu_de": "Quê tôi"
+ "K06": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Cảm ơn vì đã không bỏ rơi chính mình"
  },
- "N07": {
-  "template": "tho-hoai-co",
-  "per_page": 6,
-  "ghi_chu": "6 dòng, chữ tĩnh 1 trang",
-  "tieu_de": "Khóc Dương Khuê (trích)"
+ "K07": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Bình yên bắt đầu từ cách ta nhìn"
  },
- "N08": {
-  "template": "tho-hoai-co-chay-chu-nhieu-trang",
-  "per_page": 6,
-  "ghi_chu": "13 dòng, mỗi trang 6 dòng",
-  "tieu_de": "Nhớ chăng (trích)"
+ "K08": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Đừng đau khổ hai lần"
+ },
+ "K09": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Nơi nỗi buồn từng đi qua"
+ },
+ "K10": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Những hạt mầm vẫn lớn lên"
+ },
+ "K11": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Chỉ cần sống tốt phần hôm nay"
+ },
+ "K12": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Một người bạn biết lắng nghe"
+ },
+ "K13": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Gửi những người phụ nữ Việt Nam ngày 20/10"
  }
 }

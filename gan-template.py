@@ -4,9 +4,9 @@
     python3 gan-template.py            # chỉ gắn cho bài chưa có khóa, giữ nguyên khóa bạn đã sửa
     python3 gan-template.py --reset    # gắn lại tất cả theo quy tắc
 
-Quy tắc: ≤7 dòng → tho-hoai-co (chữ tĩnh 1 trang); đúng 8 dòng → tho-hoai-co-chay-chu-2-trang (2 trang × 4 dòng);
->8 dòng → tho-hoai-co-chay-chu-nhieu-trang (mỗi trang 6 dòng); truyện ngắn → nhiều trang, mỗi trang 2 câu.
-Khóa hợp lệ: tho-hoai-co · tho-hoai-co-chay-chu-2-trang · tho-hoai-co-chay-chu-nhieu-trang.
+Quy tắc: trích dẫn → trich-dan (hình ảnh trong, blur mở bài); ≤7 dòng → tho-hoai-co (chữ tĩnh 1 trang); đúng 8 dòng → tho-hoai-co-chay-chu-2-trang (2 trang × 4 dòng);
+>8 dòng → tho-hoai-co-chay-chu-nhieu-trang (mỗi trang 6 dòng).
+Khóa hợp lệ: trich-dan · trich-dan-khong-chu · tho-hoai-co · tho-hoai-co-chay-chu-2-trang · tho-hoai-co-chay-chu-nhieu-trang.
 tao_video.py chỉ đọc khóa này khi tạo video.
 """
 import json, sys

@@ -1,10 +1,11 @@
 // Thanh "Tạo video" cho GHEP_THO_VIDEO.html. Cần chạy qua máy chủ: python3 tao_video.py → http://127.0.0.1:8787/
 (() => {
-  const S = { poem: null, voice: '', videos: [], music: '', vol: 1.0, busy: false, note: '' };
-  let audio = {}, music = [], online = false;
+  const S = { poem: null, voice: '', videos: [], music: '', template: '', suggestedTemplate: '', vol: 1.0, busy: false, note: '' };
+  let audio = {}, music = [], templates = [], online = false;
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const base = p => p.split('/').pop();
+  const isImage = () => S.template === 'anh-tho-giay-hoai-co';
 
   const style = document.createElement('style');
   style.textContent = `
@@ -21,7 +22,7 @@
   .tv-pick{border:1px solid var(--acc);background:var(--accbg);color:var(--acc);border-radius:8px;padding:1px 9px;cursor:pointer;font-size:12px}
   .tv-pick.on{background:var(--acc);color:#fff}
   .tv-cb{cursor:pointer;margin-right:6px;color:var(--acc)}
-  .w{padding-bottom:150px}
+  .w{padding-bottom:210px}
   #tvM2{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center}
   #tvM2 .box{background:var(--card);border-radius:12px;width:min(960px,96vw);height:min(86vh,800px);display:flex;flex-direction:column;padding:12px 14px;box-shadow:0 8px 40px rgba(0,0,0,.4)}
   #tvM2 .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
@@ -38,21 +39,99 @@
   panel.id = 'tv';
   panel.innerHTML = `
    <div class="r"><span>🎬 <b>Thơ:</b> <span id="tvP">chưa chọn</span></span>
-     <span>🎙 <b>Giọng:</b> <select id="tvV"><option value="">—</option></select></span>
-     <span>📄 <b>Template:</b> <span id="tvT">—</span></span>
-     <span>🎞 <b>Clip:</b> <span class="vl" id="tvC">chưa chọn</span> <button class="tv-pick" id="tvAll">＋ Tất cả clip</button></span></div>
-   <div class="r"><span>🎵 <b>Nhạc nền:</b> <select id="tvM"><option value="">— chọn nhạc —</option></select>
-       <button class="tv-pick" id="tvMP">▶ nghe</button>
-       <label>nhỏ <input type="range" id="tvVol" min="0.3" max="1.6" step="0.1" value="1"> to</label></span>
+     <span id="tvVoiceGroup">🎙 <b>Giọng:</b> <select id="tvV"><option value="">—</option></select></span>
+     <span>📄 <b>Template:</b> <select id="tvT"><option value="">—</option></select></span>
+     <span id="tvClipGroup">🎞 <b>Clip:</b> <span class="vl" id="tvC">chưa chọn</span> <button class="tv-pick" id="tvAll">＋ Tất cả clip</button></span></div>
+   <div class="r"><span id="tvMusicGroup">🎵 <b>Nhạc nền:</b> <select id="tvM"><option value="">— chọn nhạc —</option></select>
+       <button class="tv-pick" id="tvMP">▶ nghe nhạc</button>
+       <label>nhỏ <input type="range" id="tvVol" min="0.05" max="1.5" step="0.05" value="1"> to</label>
+       <span id="tvDb" style="color:var(--mut)"></span></span>
+     <span id="tvPreviewGroup"><button class="tv-pick" id="tvVP">▶ nghe giọng</button> <button class="tv-pick" id="tvMix">🎧 Nghe thử giọng + nhạc</button></span>
      <button class="tv-pick" id="tvReset" title="Bỏ chọn bài, giọng, clip, nhạc và đưa mọi thứ về mặc định" style="margin-left:auto">↺ Reset</button>
      <button class="go" id="tvGo" disabled style="margin-left:6px">Tạo video</button></div>
    <div class="bar"><i id="tvBar"></i></div><div class="msg" id="tvMsg">Chọn thơ, giọng đọc, clip và nhạc nền để bật nút Tạo video.</div>`;
   document.body.appendChild(panel);
-  const prev = new Audio();
+  const prev = new Audio(), vA = new Audio(), mA = new Audio();
+  let info = null, mixing = false, startT = null, fadeT = null;
+  const effGain = () => (info ? info.gain : 0.1) * S.vol;
+  function showDb() {
+    $('#tvDb').textContent = info ? `≈ ${Math.round(info.below_db - 20 * Math.log10(S.vol))} dB dưới giọng` : '';
+  }
+  async function loadInfo() {
+    if (!S.voice || !S.music) { info = null; showDb(); return; }
+    const key = S.voice + '|' + S.music;
+    if (info && info.key === key) return;
+    try {
+      const j = await (await fetch('/api/mixinfo?voice=' + encodeURIComponent(S.voice) + '&music=' + encodeURIComponent(S.music))).json();
+      info = j.error ? null : { key, ...j };
+    } catch (e) { info = null; }
+    showDb();
+  }
+  function stopAll() {
+    [prev, vA, mA].forEach(a => a.pause());
+    clearTimeout(startT); clearInterval(fadeT); stopMix();
+    $('#tvMP').textContent = '▶ nghe nhạc'; $('#tvVP').textContent = '▶ nghe giọng'; $('#tvMix').textContent = '🎧 Nghe thử giọng + nhạc';
+  }
+  $('#tvVP').onclick = () => {
+    if (!vA.paused && !mixing) { stopAll(); return; }
+    stopAll();
+    if (!S.voice) { $('#tvMsg').textContent = 'Chọn bài và giọng đọc trước.'; return; }
+    vA.src = encodeURI('/' + S.voice); vA.currentTime = 0; vA.volume = 1; vA.play(); $('#tvVP').textContent = '⏸ dừng giọng';
+    vA.onended = stopAll;
+  };
+  // Nghe thử giọng + nhạc bằng Web Audio: chạy được ngay khi bấm, chỉnh to nhỏ trực tiếp, không bị trình duyệt chặn
+  let ac = null, srcV = null, srcM = null, gM = null, mixEnd = 0, endT = null;
+  const bufCache = {};
+  async function getBuf(rel) {
+    if (!bufCache[rel]) bufCache[rel] = ac.decodeAudioData(await (await fetch(encodeURI('/' + rel))).arrayBuffer());
+    return bufCache[rel];
+  }
+  function stopMix() {
+    clearTimeout(endT);
+    for (const n of [srcV, srcM]) { try { n && n.stop(); } catch (e) {} }
+    srcV = srcM = gM = null; mixing = false;
+  }
+  function applyMixGain() {            // đổi âm lượng nhạc ngay khi kéo thanh
+    if (!mixing || !gM) return;
+    const g = effGain(), now = ac.currentTime;
+    gM.gain.cancelScheduledValues(now);
+    gM.gain.setValueAtTime(g, now);
+    if (now < mixEnd) { gM.gain.setValueAtTime(g, mixEnd); gM.gain.linearRampToValueAtTime(0, mixEnd + 3); }
+  }
+  window.TV_DEBUG = () => ({ state: ac && ac.state, mixing, t: ac && +ac.currentTime.toFixed(2), end: +mixEnd.toFixed(2), gain: gM ? +gM.gain.value.toFixed(4) : null, eff: +effGain().toFixed(4) });
+  $('#tvMix').onclick = async () => {
+    if (mixing) { stopAll(); return; }
+    stopAll();
+    if (!S.voice || !S.music) { $('#tvMsg').textContent = 'Chọn giọng đọc và nhạc nền để nghe thử cả hai.'; return; }
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    ac.resume();                                            // phải gọi ngay trong lúc bấm
+    $('#tvMix').textContent = '⏳ đang tải…'; mixing = true;
+    try {
+      const [bv, bm] = await Promise.all([getBuf(S.voice), getBuf(S.music), loadInfo()]);
+      if (!mixing) return;                                  // người dùng đã bấm dừng trong lúc tải
+      const t0 = ac.currentTime + 0.05;
+      gM = ac.createGain(); gM.gain.value = effGain();
+      srcM = ac.createBufferSource(); srcM.buffer = bm; srcM.loop = true; srcM.connect(gM); gM.connect(ac.destination); srcM.start(t0);
+      srcV = ac.createBufferSource(); srcV.buffer = bv; srcV.connect(ac.destination); srcV.start(t0 + 0.5);   // giọng vào sau 0,5 giây
+      mixEnd = t0 + 0.5 + bv.duration;
+      gM.gain.setValueAtTime(effGain(), mixEnd); gM.gain.linearRampToValueAtTime(0, mixEnd + 3);               // 3 giây cuối nhạc nhỏ dần
+      srcM.stop(mixEnd + 3);
+      endT = setTimeout(stopAll, (mixEnd + 3.2 - ac.currentTime) * 1000);
+      $('#tvMix').textContent = '⏸ dừng nghe thử';
+    } catch (e) { stopAll(); $('#tvMsg').textContent = 'Không phát được: ' + e.message; }
+  };
 
   function ready() {
     const miss = [];
-    if (!S.poem) miss.push('thơ'); else if (!S.voice) miss.push('giọng đọc');
+    if (!S.poem) miss.push('thơ');
+    if (!S.template) miss.push('template');
+    if (isImage()) {
+      const p = S.poem && findP(x => x.id === S.poem);
+      const lines = p ? p.text.split('\n').filter(x => x.trim()).length : 0;
+      if (lines > 10) miss.push(`bài có ${lines} dòng, ảnh chỉ nhận tối đa 10 dòng`);
+      return miss;
+    }
+    if (S.poem && !S.voice) miss.push('giọng đọc');
     if (!S.videos.length) miss.push('clip');
     if (!S.music) miss.push('nhạc nền');
     return miss;
@@ -65,18 +144,38 @@
       : `<option value="">${S.poem ? 'chưa có giọng đọc cho bài này' : '—'}</option>`;
     $('#tvC').innerHTML = S.videos.length ? S.videos.map((v, i) => `<span data-tvrm="${i}" title="Bấm để bỏ">${esc(base(v).replace(/^TramCamXuc_/, '').slice(0, 28))} ✕</span>`).join('') : 'chưa chọn';
     if (S.poem !== S.tplFor) {
-      S.tplFor = S.poem; $('#tvT').textContent = S.poem ? '...' : '—';
-      if (S.poem) fetch('/api/template?poemId=' + encodeURIComponent(S.poem)).then(r => r.json()).then(j => {
-        $('#tvT').textContent = j.label ? `${j.label} (${j.why})${j.ok ? '' : ' ⚠ thiếu trong Concat'}` : '—'; }).catch(() => {});
+      S.tplFor = S.poem; S.template = ''; S.suggestedTemplate = ''; $('#tvT').innerHTML = '<option value="">...</option>';
+      const poemId = S.poem;
+      if (poemId) fetch('/api/template?poemId=' + encodeURIComponent(poemId)).then(r => r.json()).then(j => {
+        if (S.poem !== poemId) return;
+        S.suggestedTemplate = j.template || '';
+        S.template = S.suggestedTemplate;
+        $('#tvT').innerHTML = templates.map(t => `<option value="${esc(t.template)}"${t.template === S.template ? ' selected' : ''}${t.ok ? '' : ' disabled'}>${esc(t.label)}${t.template === S.suggestedTemplate ? ' · Gợi ý' : ''}${t.ok ? '' : ' · thiếu template'}</option>`).join('');
+        S.note = j.label ? `Template gợi ý: ${j.label} · ${j.why}. Bạn có thể đổi trong danh sách.` : '';
+        refresh();
+      }).catch(() => {});
     }
+    loadInfo();
+    const imageMode = isImage();
     const miss = ready();
+    $('#tvGo').textContent = imageMode ? 'Ghép ảnh' : 'Tạo video';
+    $('#pageTitle').textContent = imageMode ? 'Ghép Thơ – Ảnh' : 'Ghép Thơ – Video';
+    $('#pageSub').textContent = imageMode
+      ? 'Chọn một bài thơ tối đa 10 dòng và bấm Ghép ảnh để xuất PNG 4K.'
+      : 'Chọn mood → chọn bài thơ → lấy clip gợi ý (🎲 ngẫu nhiên hoặc bấm tên thư mục để xem clip). Bấm vào đường dẫn để sao chép.';
+    document.title = imageMode ? 'Ghép Thơ – Ảnh' : 'Ghép Thơ – Video';
+    for (const id of ['#tvVoiceGroup', '#tvClipGroup', '#tvMusicGroup', '#tvPreviewGroup'])
+      $(id).style.display = imageMode ? 'none' : '';
+    for (const el of [$('#tvV'), $('#tvM'), $('#tvVol'), $('#tvAll'), $('#tvMP'), $('#tvVP'), $('#tvMix')]) el.disabled = imageMode || S.busy;
     $('#tvGo').disabled = S.busy || !online || miss.length > 0;
     $('#tvReset').disabled = S.busy;
     if (!S.busy && S.note) { $('#tvMsg').className = 'msg'; $('#tvMsg').innerHTML = S.note; }
     else if (!S.busy) {
       $('#tvMsg').className = 'msg';
       $('#tvMsg').textContent = !online ? 'Chưa kết nối máy chủ: chạy python3 tao_video.py rồi mở http://127.0.0.1:8787/'
-        : miss.length ? 'Còn thiếu: ' + miss.join(', ') : 'Sẵn sàng. Bấm Tạo video, file lưu vào Vid_completed.';
+        : miss.length ? 'Còn thiếu: ' + miss.join(', ')
+        : imageMode ? 'Chế độ ghép ảnh 4K. Bấm Ghép ảnh, file lưu vào Anh_completed.'
+        : 'Sẵn sàng. Bấm Tạo video, file lưu vào Vid_completed.';
     }
     document.querySelectorAll('.tv-pick[data-tv-poem]').forEach(b => b.classList.toggle('on', b.dataset.tvPoem === S.poem));
     document.querySelectorAll('.tv-cb').forEach(c => { const w = S.videos.includes(c.dataset.path) ? '☑' : '☐'; if (c.textContent !== w) c.textContent = w; });
@@ -125,20 +224,29 @@
   }, true);
 
   $('#tvV').onchange = e => { S.voice = e.target.value; refresh(); };
-  $('#tvM').onchange = e => { S.music = e.target.value; prev.pause(); refresh(); };
-  $('#tvVol').oninput = e => { S.vol = +e.target.value; };
+  $('#tvT').onchange = e => {
+    S.template = e.target.value;
+    const chosen = templates.find(t => t.template === S.template);
+    const suggested = templates.find(t => t.template === S.suggestedTemplate);
+    S.note = S.template === S.suggestedTemplate
+      ? `Đang dùng template gợi ý: ${chosen?.label || S.template}.`
+      : `Đã chọn: ${chosen?.label || S.template}. Hệ thống sẽ dùng lựa chọn này thay cho gợi ý ${suggested?.label || S.suggestedTemplate}.`;
+    refresh();
+  };
+  $('#tvM').onchange = e => { S.music = e.target.value; stopAll(); refresh(); };
+  $('#tvVol').oninput = e => { S.vol = +e.target.value; showDb(); applyMixGain(); };
   $('#tvMP').onclick = () => {
     if (!S.music) return;
-    if (!prev.paused) { prev.pause(); $('#tvMP').textContent = '▶ nghe'; return; }
-    prev.src = encodeURI('/' + S.music); prev.play(); $('#tvMP').textContent = '⏸ dừng';
+    if (!prev.paused) { stopAll(); return; }
+    stopAll(); prev.src = encodeURI('/' + S.music); prev.play(); $('#tvMP').textContent = '⏸ dừng nhạc';
   };
-  prev.onended = () => { $('#tvMP').textContent = '▶ nghe'; };
+  prev.onended = stopAll;
 
   $('#tvReset').onclick = () => {
     if (S.busy) return;          // đang tạo video thì không reset
-    prev.pause(); $('#tvMP').textContent = '▶ nghe';
-    Object.assign(S, { poem: null, voice: '', videos: [], music: '', vol: 1.0, note: '', tplFor: null });
-    $('#tvM').value = ''; $('#tvVol').value = '1'; $('#tvT').textContent = '—';
+    stopAll();
+    Object.assign(S, { poem: null, voice: '', videos: [], music: '', template: '', suggestedTemplate: '', vol: 1.0, note: '', tplFor: null });
+    $('#tvM').value = ''; $('#tvVol').value = '1'; $('#tvT').innerHTML = '<option value="">—</option>'; info = null; showDb();
     $('#tvBar').style.width = '0';
     refresh();
   };
@@ -148,7 +256,8 @@
     const msg = $('#tvMsg'); msg.className = 'msg'; msg.textContent = 'Gửi yêu cầu...'; $('#tvBar').style.width = '1%';
     try {
       const r = await fetch('/api/render', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ poemId: S.poem, voice: S.voice, videos: S.videos, music: S.music, musicVolume: S.vol }) });
+        body: JSON.stringify({ poemId: S.poem, voice: S.voice, videos: S.videos, music: S.music,
+          template: S.template, musicVolume: S.vol }) });
       const j = await r.json();
       if (!r.ok) throw new Error(j.error || 'lỗi');
       for (;;) {
@@ -157,7 +266,8 @@
         $('#tvBar').style.width = (s.pct || 0) + '%';
         msg.textContent = `${s.message || ''} ${s.pct || 0}%`;
         if (s.status === 'done') {
-          S.note = `✅ Xong: <a href="/${encodeURI(s.output)}" target="_blank">${esc(s.output)}</a> (đã lưu trong thư mục Vid_completed)`;
+          const folder = isImage() ? 'Anh_completed' : 'Vid_completed';
+          S.note = `✅ Xong: <a href="/${encodeURI(s.output)}" target="_blank">${esc(s.output)}</a> (đã lưu trong thư mục ${folder})`;
           break;
         }
         if (s.status === 'error') throw new Error(s.message);
@@ -208,6 +318,7 @@
   (async () => {
     try {
       online = (await fetch('/api/ping')).ok;
+      templates = await (await fetch('/api/templates')).json();
       audio = await (await fetch('/api/audio')).json();
       music = await (await fetch('/api/music')).json();
       const groups = {};

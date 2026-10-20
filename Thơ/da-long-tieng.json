@@ -68,5 +68,26 @@
   "chars": 438,
   "file": "Long-tieng/elevenlabs/C03_Treo-len-cay-buoi-hai-hoa.mp3",
   "date": "2026-10-16"
+ },
+ "K02": {
+  "voice_id": "O4GJDPajhRb6MxWUMf7V",
+  "model": "eleven_v4",
+  "chars": 412,
+  "file": "Long-tieng/elevenlabs/K02_Diu-dang-voi-chinh-minh.mp3",
+  "date": "2026-10-19"
+ },
+ "K05": {
+  "voice_id": "O4GJDPajhRb6MxWUMf7V",
+  "model": "eleven_v4",
+  "chars": 416,
+  "file": "Long-tieng/elevenlabs/K05_Thuong-lay-chinh-minh.mp3",
+  "date": "2026-10-19"
+ },
+ "K13": {
+  "voice_id": "O4GJDPajhRb6MxWUMf7V",
+  "model": "eleven_v4",
+  "chars": 941,
+  "file": "Long-tieng/elevenlabs/K13_Gui-nhung-nguoi-phu-nu-Viet-Nam-ngay-20-.mp3",
+  "date": "2026-10-20"
  }
 }

@@ -9,6 +9,7 @@ tên tác giả, clip đã chọn, giọng đọc + nhạc nền, rồi xuất b
 """
 import argparse, importlib.util, json, math, mimetypes, os, re, shutil, subprocess, sys, tempfile
 import threading, time, unicodedata
+from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
@@ -27,11 +28,15 @@ def find_cli():
 
 CLI = find_cli()
 _APP_TEMPLATES = Path.home() / "Library" / "Application Support" / "app.concat.editor" / "templates"
-TEMPLATES = ROOT / "templates" if (ROOT / "templates").is_dir() else _APP_TEMPLATES   # 3 template đi kèm dự án
+TEMPLATES = ROOT / "templates" if (ROOT / "templates").is_dir() else _APP_TEMPLATES   # template đi kèm dự án
 USE_EDITED = False        # templates của bạn đã có màu/mờ, nên dùng clip gốc; đặt True để ưu tiên clip *_edited
 
+MUSIC_BELOW_VOICE_DB = float(os.environ.get("MUSIC_BELOW_DB", 22))   # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB
 LEAD, TAIL = 0.5, 3.0     # giọng đọc bắt đầu sau 0.5s; video kết thúc 3s sau khi giọng đọc xong
 _dur_cache = {}
+_music_cache_lock = threading.Lock()
+_music_cache_sig = None
+_music_cache_data = None
 
 
 def edited(path):
@@ -48,6 +53,26 @@ def duration(path):
                            capture_output=True, text=True).stdout.strip()
         _dur_cache[path] = float(o) if o else 0.0
     return _dur_cache[path]
+
+
+_lufs_cache = {}
+
+
+def lufs(path):
+    """Độ lớn tích hợp (LUFS) của một file âm thanh, đo một lần rồi nhớ lại."""
+    path = str(path)
+    if path not in _lufs_cache:
+        o = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path, "-af", "ebur128", "-f", "null", "-"],
+                           capture_output=True, text=True).stderr
+        m = re.findall(r"I:\s+(-?[\d.]+) LUFS", o)
+        _lufs_cache[path] = float(m[-1]) if m else -23.0
+    return _lufs_cache[path]
+
+
+def music_gain(voice, music, user=1.0):
+    """Hệ số âm lượng (tuyến tính) để nhạc nền thấp hơn giọng đọc MUSIC_BELOW_VOICE_DB; user = thanh chỉnh trong giao diện."""
+    db = (lufs(voice) - MUSIC_BELOW_VOICE_DB) - lufs(music)
+    return round(min(10 ** (db / 20), 1.5) * float(user), 4), round(db, 1)
 
 
 def slug(s):
@@ -113,12 +138,27 @@ def thumb(rel):
 
 
 def list_music():
-    out = []
-    for f in sorted((ROOT / "Nhạc nền").glob("*/*.mp3")):
-        if f.parent.name.startswith("_"):
+    global _music_cache_sig, _music_cache_data
+    music_root = ROOT / "Nhạc nền"
+    files = []
+    for f in sorted(music_root.rglob("*.mp3")):
+        rel_parts = f.relative_to(music_root).parts
+        if any(part.startswith("_") for part in rel_parts[:-1]):
             continue
-        out.append(dict(file=str(f.relative_to(ROOT)), name=f.stem, folder=f.parent.name, dur=round(duration(f), 1)))
-    return out
+        files.append(f)
+    sig = tuple((str(f), f.stat().st_mtime_ns, f.stat().st_size) for f in files)
+    with _music_cache_lock:
+        if sig == _music_cache_sig and _music_cache_data is not None:
+            return _music_cache_data
+        with ThreadPoolExecutor(max_workers=min(8, max(1, len(files)))) as pool:
+            durations = list(pool.map(duration, files))
+        out = []
+        for f, dur in zip(files, durations):
+            rel_parts = f.relative_to(music_root).parts
+            folder = " / ".join(rel_parts[:-1])
+            out.append(dict(file=str(f.relative_to(ROOT)), name=f.stem, folder=folder, dur=round(dur, 1)))
+        _music_cache_sig, _music_cache_data = sig, out
+        return out
 
 
 # ───────────────────────── nhãn và thời gian ─────────────────────────
@@ -249,23 +289,24 @@ class Api:
 # ───────────────────────── chọn template theo nội dung ─────────────────────────
 
 def poem_lines(p):
-    """Các dòng để hiện chữ: thơ theo dòng, truyện ngắn theo câu."""
-    if (p.get("kind") or "").startswith("Truyện"):
-        return [x.strip() for x in re.split(r"(?<=[.!?:])\s+", p["text"].replace("\n", " ")) if x.strip()]
+    """Các dòng để hiện chữ: mỗi dòng thơ một dòng."""
     return [x.strip() for x in p["text"].split("\n") if x.strip()]
 
 
 TEMPLATE_KEYS = ROOT / "Thơ" / "template-bai.json"      # khóa template gắn vào từng bài (sửa tay được)
-LABELS = {"tho-hoai-co": "Thơ Hoài Cổ",
+LABELS = {"tho-hoai-co": "Thơ Hoài Cổ", "trich-dan-khong-chu": "Trích Dẫn Không Chữ",
+          "trich-dan": "Trích dẫn",
           "tho-hoai-co-chay-chu-2-trang": "Thơ Hoài Cổ Chạy Chữ 2 Trang",
-          "tho-hoai-co-chay-chu-nhieu-trang": "Thơ Hoài Cổ Chạy Chữ Nhiều Trang"}
+          "tho-hoai-co-chay-chu-nhieu-trang": "Thơ Hoài Cổ Chạy Chữ Nhiều Trang",
+          "anh-tho-giay-hoai-co": "Ảnh Thơ Giấy Hoài Cổ · PNG 4K"}
+IMAGE_TEMPLATE = "anh-tho-giay-hoai-co"
 
 
 def auto_template(p):
     """Gợi ý theo nội dung: (khóa, số dòng mỗi trang, ghi chú)."""
-    lines = poem_lines(p); n = len(lines)
-    if (p.get("kind") or "").startswith("Truyện"):
-        return "tho-hoai-co-chay-chu-nhieu-trang", 2, f"truyện ngắn {n} câu, mỗi trang 2 câu"
+    n = len(poem_lines(p))
+    if (p.get("kind") or "") == "Trích dẫn":
+        return "trich-dan", 1, "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài"
     if n <= 7:
         return "tho-hoai-co", max(n, 1), f"{n} dòng, chữ tĩnh 1 trang"
     if n == 8:
@@ -284,6 +325,30 @@ def choose_template(p):
         return k["template"], LABELS[k["template"]], int(k.get("per_page") or 1), k.get("ghi_chu") or "khóa đã gắn"
     slug_, per_page, why = auto_template(p)
     return slug_, LABELS[slug_], per_page, why + " (tự gợi ý, bài chưa có khóa)"
+
+
+def template_per_page(name, p):
+    """Số dòng mỗi trang phù hợp khi người dùng đổi template thủ công."""
+    n = len(poem_lines(p))
+    if name == "tho-hoai-co":
+        return max(n, 1)
+    if name == "tho-hoai-co-chay-chu-2-trang":
+        return max(1, math.ceil(n / 2))
+    if name == "tho-hoai-co-chay-chu-nhieu-trang":
+        return 6
+    return 1
+
+
+def resolve_template(p, requested_template=None):
+    """Lấy template gợi ý theo phân loại, nhưng luôn ưu tiên lựa chọn của người dùng."""
+    suggested_name, suggested_label, suggested_per_page, why = choose_template(p)
+    if not requested_template:
+        return suggested_name, suggested_label, suggested_per_page, why
+    if requested_template not in LABELS:
+        raise ValueError("Template không hợp lệ")
+    return (requested_template, LABELS[requested_template],
+            template_per_page(requested_template, p),
+            f"do bạn chọn (gợi ý ban đầu: {suggested_label})")
 
 
 # ───────────────────────── dựng project từ template của bạn ─────────────────────────
@@ -306,8 +371,10 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
     protos = {c["id"]: c for c in clips}
     bg0 = next(c for c in clips if c["trackId"] == "BG" and c["kind"] == "video")
     fg0 = next(c for c in clips if c["trackId"] == "FG" and c["kind"] == "video")
-    page0 = next(c for c in clips if c["trackId"] == "T2" and c["kind"] == "text")
+    page0 = next((c for c in clips if c["trackId"] == "T2" and c["kind"] == "text"), None)
     media0 = doc["media"][0]
+    extra_media = list(doc["media"][1:])        # ô media khác ngoài clip video
+    extra_fills = {}
     keep = []
     for c in clips:
         if c["trackId"] in ("BG", "FG") and c["kind"] == "video" or (c["trackId"] == "T2" and c["kind"] == "text"):
@@ -333,7 +400,8 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
                 c["transitionIn"] = dict(id="concat.dissolve", duration=0.8)
             keep.append(c)
         t += seg
-    for txt, start, dur in pages:
+    doc["media"].extend(extra_media)
+    for txt, start, dur in (pages if page0 else []):
         c = copy.deepcopy(page0)
         c.update(id=nid(), name=txt, start=round(start, 3), duration=round(max(dur, 1.0), 3))
         c["text"]["content"] = txt
@@ -351,13 +419,57 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
     have = {tr["id"] for tr in doc["tracks"]}
     for lane in sorted(lanes - have):
         doc["tracks"].insert(0, dict(id=lane, name=lane, visible=True, muted=False))
-    return doc
+    return doc, extra_fills
 
 
 # ───────────────────────── tạo video ─────────────────────────
 
 JOBS = {}
 RENDER_LOCK = threading.Lock()
+DUB_JOBS = {}
+DUB_LOCK = threading.Lock()
+DUB_VOICES = {
+    "qn4pQo7kIjvZ1a7SowZE": "Giọng thơ Nữ",
+    "O4GJDPajhRb6MxWUMf7V": "Giọng trích dẫn Nam",
+}
+
+
+def dubbed_state():
+    path = ROOT / "Thơ" / "da-long-tieng.json"
+    return json.load(open(path, encoding="utf-8")) if path.exists() else {}
+
+
+def validate_dub_request(poem_id, voice_id):
+    if poem_id not in load_poems():
+        return "Không tìm thấy bài", 404
+    if voice_id not in DUB_VOICES:
+        return "Giọng đọc không hợp lệ", 400
+    if poem_id in dubbed_state():
+        return "Bài này đã được lồng tiếng", 409
+    return None
+
+
+def dub(job_id, poem_id, voice_id):
+    """Gọi công cụ ElevenLabs hiện có; công cụ sẽ lưu MP3 và đánh dấu bài đã lồng tiếng."""
+    job = DUB_JOBS[job_id]
+    try:
+        job.update(status="running", message="Đang gửi kịch bản tới ElevenLabs")
+        result = subprocess.run(
+            [sys.executable, str(ROOT / "elevenlabs-tts.py"), "--voice-id", voice_id, "--ids", poem_id],
+            cwd=ROOT, capture_output=True, text=True, timeout=180,
+        )
+        output = "\n".join(x.strip() for x in (result.stdout, result.stderr) if x.strip())
+        state = dubbed_state().get(poem_id)
+        if result.returncode or not state:
+            raise RuntimeError(output[-600:] or "ElevenLabs không tạo được file giọng đọc")
+        job.update(status="done", message="Đã lồng tiếng và đánh dấu hoàn tất",
+                   done=state, audio=list_audio().get(poem_id, []))
+    except subprocess.TimeoutExpired:
+        job.update(status="error", message="ElevenLabs xử lý quá 3 phút, hãy thử lại")
+    except Exception as e:
+        job.update(status="error", message=str(e))
+    finally:
+        DUB_LOCK.release()
 
 
 def render(job_id, req):
@@ -369,18 +481,31 @@ def render(job_id, req):
     try:
         poems = load_poems()
         p = poems[req["poemId"]]
+        tname, tlabel, per_page, why = resolve_template(p, req.get("template"))
+        tdir = TEMPLATES / tname
+        if not (tdir / "template.json").exists():
+            raise FileNotFoundError(f"không thấy template '{tlabel}'")
+        if tname == IMAGE_TEMPLATE:
+            image_out = ROOT / "Anh_completed" / f"{p['id']}_{slug(p['title'])}_{time.strftime('%Y%m%d-%H%M%S')}.png"
+            upd(status="running", pct=10, message=f"Đang ghép ảnh · {tlabel}")
+            result = subprocess.run(
+                [sys.executable, str(ROOT / "tao-anh-tho.py"), "--id", p["id"], "--output", str(image_out)],
+                cwd=ROOT, capture_output=True, text=True, timeout=120,
+            )
+            if result.returncode or not image_out.exists():
+                detail = "\n".join(x.strip() for x in (result.stdout, result.stderr) if x.strip())
+                raise RuntimeError(detail[-600:] or "Không xuất được ảnh")
+            upd(status="done", pct=100, message=f"Xong · {tlabel}",
+                output=str(image_out.relative_to(ROOT)))
+            return
         voice = ROOT / req["voice"]
         vids = [edited(ROOT / v)[0] if USE_EDITED else ROOT / v for v in req["videos"]]
         music = ROOT / req["music"] if req.get("music") else None
         for f in [voice, *vids] + ([music] if music else []):
             if not f.exists():
                 raise FileNotFoundError(str(f.relative_to(ROOT)))
-        tname, tlabel, per_page, why = choose_template(p)
-        tdir = TEMPLATES / tname
-        if not (tdir / "template.json").exists():
-            raise FileNotFoundError(f"không thấy template '{tlabel}' trong thư viện Concat")
         upd(status="running", pct=1, message=f"Template: {tlabel} ({why})")
-        has_hook = "/elevenlabs/" in str(voice)
+        has_hook = "/elevenlabs/" in str(voice) and bool(p.get("hook"))
         vdur = duration(voice)
         total = round(LEAD + vdur + TAIL, 2)       # mọi thứ cắt theo thời lượng giọng đọc
         ps, pe = timing(voice, has_hook, vdur)
@@ -406,18 +531,20 @@ def render(job_id, req):
                       volume=1.0, fade_in=0.05, fade_out=0.3)]
         if music:
             md = duration(music); t = 0.0; k = 0
+            mvol, mdb = music_gain(voice, music, req.get("musicVolume", 1.0))
             while t < total - 0.1 and k < 6:
                 seg = min(md, total - t)
                 audio.append(dict(path=str(music), name=music.stem, duration=md, lane="A.2", start=round(t, 2),
-                                  dur=round(seg, 2), volume=float(req.get("musicVolume", 1.0)),
+                                  dur=round(seg, 2), volume=mvol,
                                   fade_in=1.5 if k == 0 else 0.0, fade_out=3.0 if t + seg >= total - 0.1 else 0.0))
                 t += seg; k += 1
-        doc = build_from_template(tdir, float(total), slots, pages, p["title"], author_label(p), audio)
+        doc, extra = build_from_template(tdir, float(total), slots, pages, p["title"], author_label(p), audio)
         WORK.mkdir(exist_ok=True)
         work = Path(tempfile.mkdtemp(prefix="job-", dir=WORK))
         (work / "tpl" / "assets").mkdir(parents=True)
         (work / "tpl" / "template.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
         fills = [dict(mediaId=f"m{n+1}", file=str(vids[i])) for n, (i, _, _) in enumerate(plan)]
+        fills += [dict(mediaId=k, file=v) for k, v in extra.items()]
         upd(pct=3, message="Dựng project trong Concat")
         api = Api()
         res = api.call("template.instantiate", dict(template=str(work / "tpl"), location=str(work / "proj"), name="v", fills=fills))
@@ -454,16 +581,21 @@ class Handler(BaseHTTPRequestHandler):
 
     def send_json(self, obj, code=200):
         b = json.dumps(obj, ensure_ascii=False).encode()
-        self.send_response(code)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Content-Length", str(len(b)))
-        self.end_headers()
-        self.wfile.write(b)
+        try:
+            self.send_response(code)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(b)))
+            self.end_headers()
+            self.wfile.write(b)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
 
     def do_GET(self):
         u = urlparse(self.path); path = unquote(u.path)
         if path == "/api/ping":
             return self.send_json(dict(ok=True, cli=bool(CLI)))
+        if path == "/api/root":
+            return self.send_json(dict(root=str(ROOT)))
         if path == "/api/audio":
             return self.send_json(list_audio())
         if path == "/api/template":
@@ -474,6 +606,21 @@ class Handler(BaseHTTPRequestHandler):
             tname, tlabel, per_page, why = choose_template(p)
             return self.send_json(dict(template=tname, label=tlabel, why=why,
                                        ok=(TEMPLATES / tname / "template.json").exists()))
+        if path == "/api/templates":
+            return self.send_json([
+                dict(template=name, label=label, kind="image" if name == IMAGE_TEMPLATE else "video",
+                     ok=(TEMPLATES / name / "template.json").exists())
+                for name, label in LABELS.items()
+            ])
+        if path == "/api/mixinfo":
+            q = parse_qs(u.query)
+            v = ROOT / unquote(q.get("voice", [""])[0]); m = ROOT / unquote(q.get("music", [""])[0])
+            ok_ = all(ROOT in x.resolve().parents and x.is_file() for x in (v, m))
+            if not ok_:
+                return self.send_json(dict(error="không có file"), 404)
+            gain, db = music_gain(v, m, 1.0)
+            return self.send_json(dict(gain=gain, db=db, below_db=MUSIC_BELOW_VOICE_DB,
+                                       voice_lufs=lufs(v), music_lufs=lufs(m)))
         if path == "/api/clips":
             return self.send_json(list_clips())
         if path == "/api/thumb":
@@ -491,20 +638,46 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith("/api/job/"):
             j = JOBS.get(path.split("/")[-1])
             return self.send_json(j or dict(status="error", message="không có job"), 200 if j else 404)
+        if path.startswith("/api/dub/job/"):
+            j = DUB_JOBS.get(path.split("/")[-1])
+            return self.send_json(j or dict(status="error", message="không có tác vụ lồng tiếng"), 200 if j else 404)
         self.static(path)
 
     def do_POST(self):
-        if urlparse(self.path).path != "/api/render":
+        path = urlparse(self.path).path
+        if path not in ("/api/render", "/api/dub"):
             return self.send_json(dict(error="not found"), 404)
         n = int(self.headers.get("Content-Length") or 0)
-        req = json.loads(self.rfile.read(n) or b"{}")
-        miss = [k for k in ("poemId", "voice", "videos") if not req.get(k)]
-        if miss or not req.get("music"):
-            return self.send_json(dict(error="Thiếu: " + ", ".join(miss + ([] if req.get("music") else ["music"]))), 400)
-        if not CLI:
+        try:
+            req = json.loads(self.rfile.read(n) or b"{}")
+        except json.JSONDecodeError:
+            return self.send_json(dict(error="Dữ liệu JSON không hợp lệ"), 400)
+        if path == "/api/dub":
+            poem_id, voice_id = req.get("poemId"), req.get("voiceId")
+            invalid = validate_dub_request(poem_id, voice_id)
+            if invalid:
+                return self.send_json(dict(error=invalid[0]), invalid[1])
+            if not DUB_LOCK.acquire(blocking=False):
+                return self.send_json(dict(error="Đang lồng tiếng một bài khác, hãy chờ hoàn tất"), 409)
+            jid = "dub-" + str(int(time.time() * 1000))
+            DUB_JOBS[jid] = dict(status="queued", message="Chuẩn bị lồng tiếng", poemId=poem_id,
+                                 voiceId=voice_id, voiceName=DUB_VOICES[voice_id])
+            threading.Thread(target=dub, args=(jid, poem_id, voice_id), daemon=True).start()
+            return self.send_json(dict(job=jid))
+        template = req.get("template")
+        if template not in LABELS:
+            return self.send_json(dict(error="Template không hợp lệ"), 400)
+        is_image = template == IMAGE_TEMPLATE
+        required = ("poemId",) if is_image else ("poemId", "voice", "videos")
+        miss = [k for k in required if not req.get(k)]
+        if not is_image and not req.get("music"):
+            miss.append("music")
+        if miss:
+            return self.send_json(dict(error="Thiếu: " + ", ".join(miss)), 400)
+        if not is_image and not CLI:
             return self.send_json(dict(error="Không thấy concat-cli"), 500)
         if not RENDER_LOCK.acquire(blocking=False):
-            return self.send_json(dict(error="Đang tạo một video khác, chờ xong rồi thử lại"), 409)
+            return self.send_json(dict(error="Đang tạo một video hoặc ảnh khác, chờ xong rồi thử lại"), 409)
         jid = str(int(time.time() * 1000))
         JOBS[jid] = dict(status="queued", pct=0, message="Bắt đầu", output=None)
         threading.Thread(target=render, args=(jid, req), daemon=True).start()
@@ -559,6 +732,7 @@ def make_cli(a):
         voice = str(found[0].relative_to(ROOT))
     rel = lambda x: str(Path(x).resolve().relative_to(ROOT)) if Path(x).is_absolute() else x
     req = dict(poemId=a.make, voice=rel(voice), videos=[rel(v) for v in a.videos], music=rel(a.music),
+               template=a.template,
                musicVolume=a.music_volume)
     if not a.videos or not a.music:
         sys.exit("Cần --videos (một hoặc nhiều clip) và --music")
@@ -593,6 +767,7 @@ def main():
     ap.add_argument("--voice", help="file giọng đọc (mặc định: bản ElevenLabs của bài)")
     ap.add_argument("--videos", nargs="*", default=[], help="một hoặc nhiều clip dọc")
     ap.add_argument("--music", help="file nhạc nền")
+    ap.add_argument("--template", choices=LABELS, help="template dùng để tạo video")
     ap.add_argument("--music-volume", type=float, default=1.0)
     a = ap.parse_args()
     OUT.mkdir(exist_ok=True)
