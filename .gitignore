@@ -11,3 +11,5 @@ Long-tieng/_giong-mau/
 __pycache__/
 .DS_Store
 *.part
+.tools/
+.tao-video-logs/

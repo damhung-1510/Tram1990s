@@ -14,16 +14,28 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 import hashlib
+import urllib.request
+import urllib.error
+import traceback
+import queue
 
 ROOT = Path(__file__).resolve().parent
+_LOCAL_PYTHON = ROOT / ".tools/python"
+if _LOCAL_PYTHON.is_dir():
+    sys.path.insert(0, str(_LOCAL_PYTHON))
+    os.environ["PYTHONPATH"] = str(_LOCAL_PYTHON) + os.pathsep + os.environ.get("PYTHONPATH", "")
+_LOCAL_BIN = ROOT / ".tools/ffmpeg/bin"
+if _LOCAL_BIN.is_dir():
+    os.environ["PATH"] = str(_LOCAL_BIN) + os.pathsep + os.environ.get("PATH", "")
 OUT = ROOT / "Vid_completed"
 WORK = ROOT / ".tao-video-tmp"
 def find_cli():
     """concat-cli: biến môi trường CONCAT_CLI, rồi PATH, rồi các chỗ build mặc định."""
     cands = [os.environ.get("CONCAT_CLI"), shutil.which("concat-cli"),
+             str(ROOT / ".tools/Concat/src/target/quick/concat-cli"),
              "/Volumes/Volume/movie_creator/ConCat/concat/src/target/quick/concat-cli",
              "/Volumes/Volume/movie_creator/ConCat/concat/src/target/debug/concat-cli"]
-    return next((p for p in cands if p and os.path.exists(p)), None)
+    return next((p for p in cands if p and os.path.isfile(p) and os.access(p, os.X_OK)), None)
 
 
 CLI = find_cli()
@@ -31,7 +43,7 @@ _APP_TEMPLATES = Path.home() / "Library" / "Application Support" / "app.concat.e
 TEMPLATES = ROOT / "templates" if (ROOT / "templates").is_dir() else _APP_TEMPLATES   # template đi kèm dự án
 USE_EDITED = False        # templates của bạn đã có màu/mờ, nên dùng clip gốc; đặt True để ưu tiên clip *_edited
 
-MUSIC_BELOW_VOICE_DB = float(os.environ.get("MUSIC_BELOW_DB", 20))   # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB (+2 dB so với trước)
+MUSIC_BELOW_VOICE_DB = float(os.environ.get("MUSIC_BELOW_DB", 15))   # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB
 LEAD, TAIL = 0.5, 3.0     # giọng đọc bắt đầu sau 0.5s; template thường kết thúc 3s sau giọng đọc
 REELS_TAIL = 4.0           # Reels dành 4s cho phần kết tên bài + tác giả
 _dur_cache = {}
@@ -73,7 +85,7 @@ def lufs(path):
 def music_gain(voice, music, user=1.0):
     """Hệ số âm lượng (tuyến tính) để nhạc nền thấp hơn giọng đọc MUSIC_BELOW_VOICE_DB; user = thanh chỉnh trong giao diện."""
     db = (lufs(voice) - MUSIC_BELOW_VOICE_DB) - lufs(music)
-    return round(min(10 ** (db / 20), 1.5) * float(user), 4), round(db, 1)
+    return round(min(10 ** (db / 20), 1.5) * max(0.0, min(float(user), 1.0)), 4), round(db, 1)
 
 
 def slug(s):
@@ -89,7 +101,7 @@ def syllables(s):
 # ───────────────────────── dữ liệu cho giao diện ─────────────────────────
 
 def load_poems():
-    return {p["id"]: p for p in json.load(open(ROOT / "Thơ" / "bai-chinh-thuc.json", encoding="utf-8"))}
+    return {p["id"]: p for p in json.loads((ROOT / "Thơ" / "bai-chinh-thuc.json").read_text(encoding="utf-8"))}
 
 
 def list_audio():
@@ -249,9 +261,37 @@ def plan_slots(vdurs, total):
 
 class Api:
     def __init__(self):
-        self.p = subprocess.Popen([CLI, "api"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
-                                  text=True, bufsize=1)
+        self._stderr = tempfile.TemporaryFile()
+        try:
+            self.p = subprocess.Popen([CLI, "api"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=self._stderr,
+                                      text=True, bufsize=1)
+        except Exception:
+            self._stderr.close()
+            raise
         self.n = 0
+        self._lines = queue.Queue()
+        self._events = []
+        threading.Thread(target=self._read_output, daemon=True).start()
+
+    def _read_output(self):
+        try:
+            for line in self.p.stdout:
+                self._lines.put(line)
+        finally:
+            self._lines.put(None)
+
+    def stderr_text(self):
+        size = os.fstat(self._stderr.fileno()).st_size
+        return os.pread(self._stderr.fileno(), min(size, 4000), max(0, size - 4000)).decode(errors="replace").strip()
+
+    def _receive(self, timeout):
+        try:
+            line = self._lines.get(timeout=max(0, timeout))
+        except queue.Empty:
+            raise TimeoutError("Concat không phản hồi trong thời gian cho phép") from None
+        if line is None:
+            raise RuntimeError("concat-cli dừng đột ngột: " + (self.stderr_text() or f"exit={self.p.poll()}"))
+        return json.loads(line)
 
     def send(self, method, params):
         self.n += 1
@@ -259,27 +299,27 @@ class Api:
         self.p.stdin.flush()
         return self.n
 
-    def call(self, method, params, on_event=None):
+    def call(self, method, params, on_event=None, timeout=180):
         i = self.send(method, params)
+        deadline = time.monotonic() + timeout
         while True:
-            line = self.p.stdout.readline()
-            if not line:
-                raise RuntimeError("concat-cli dừng đột ngột")
-            m = json.loads(line)
+            m = self._receive(deadline - time.monotonic())
             if m.get("id") == i:
                 if "error" in m:
                     raise RuntimeError(f"{method}: {m['error'].get('message')}")
                 return m["result"]
+            if m.get("method") in ("export.done", "export.failed"):
+                self._events.append(m)
             if on_event:
                 on_event(m)
 
     def wait_event(self, names, on_event=None, timeout=3600):
-        t0 = time.time()
-        while time.time() - t0 < timeout:
-            line = self.p.stdout.readline()
-            if not line:
-                raise RuntimeError("concat-cli dừng đột ngột")
-            m = json.loads(line)
+        for i, event in enumerate(self._events):
+            if event.get("method") in names:
+                return self._events.pop(i)
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            m = self._receive(deadline - time.monotonic())
             if on_event:
                 on_event(m)
             if m.get("method") in names:
@@ -296,6 +336,8 @@ class Api:
                 self.p.kill()
             except Exception:
                 pass
+        finally:
+            self._stderr.close()
 
 
 # ───────────────────────── chọn template theo nội dung ─────────────────────────
@@ -311,6 +353,14 @@ def reels_hook_text(hook):
                                     break_on_hyphens=False)[:4])
 
 
+def reels_with_hook(pages, hook):
+    """Lời mở kết thúc đúng lúc dòng thơ đầu xuất hiện, không chèn khung trống."""
+    hook_start = 0.35
+    if not pages or pages[0][1] <= hook_start:
+        return pages
+    return [(reels_hook_text(hook), hook_start, pages[0][1] - hook_start), *pages]
+
+
 def reels_chunk_sizes(n):
     """Chia thơ thành các khổ 4–5 câu, cân đối nhất có thể."""
     if n <= 0:
@@ -323,19 +373,14 @@ def reels_chunk_sizes(n):
 
 
 def reels_reveal_pages(lines, starts, finish):
-    """Reveal words cumulatively; adjacent states share exactly one boundary."""
+    """Mỗi câu là một lớp giữ nguyên đến hết khổ, không thay cả khối chữ."""
     pages = []
     cursor = 0
     for count in reels_chunk_sizes(len(lines)):
         end = cursor + count
+        stanza_end = starts[end] if end < len(lines) else finish
         for row in range(cursor, end):
-            words = lines[row].split()
-            row_end = starts[row + 1] if row + 1 < len(lines) else finish
-            for i in range(len(words)):
-                begin = starts[row] + (row_end - starts[row]) * i / len(words)
-                stop = starts[row] + (row_end - starts[row]) * (i + 1) / len(words)
-                text = "\n".join(lines[cursor:row] + [" ".join(words[:i + 1])])
-                pages.append((text, begin, stop - begin))
+            pages.append((lines[row], starts[row], stanza_end - starts[row]))
         cursor = end
     return pages
 
@@ -482,8 +527,11 @@ def layout_reels_doc_nhanh(doc, clips, total, page_items):
     line_units = [[font.getlength(line) / 1000 for line in c["text"]["content"].splitlines()]
                   for c in verse_pages]
     max_units = max((units for page in line_units for units in page), default=1.0)
-    # Reels: chữ thơ nhỏ hơn 1,5 lần, nằm trong khổ gần full màn hình và căn trái.
-    size = min(0.025, 0.94 * width / height * 0.97 / max(max_units, 0.001))
+    # Concat renders onto a full-frame canvas. For a left-aligned 84%-wide
+    # box, its raster starts at 16%; shift by -8% to leave an 8% gutter.
+    box_width, gutter = 0.84, 0.08
+    offset_x = gutter - min(0.5, 1.0 - box_width)
+    size = min(0.025, box_width * width / height * 0.97 / max(max_units, 0.001))
 
     def wrap_to_width(text, max_px):
         """Bẻ các câu quá dài theo pixel để Concat không cắt ở mép phải."""
@@ -504,27 +552,37 @@ def layout_reels_doc_nhanh(doc, clips, total, page_items):
             result.append(line)
         return "\n".join(result)
 
-    for c in verse_pages:
-        c["text"]["content"] = wrap_to_width(c["text"]["content"], 0.94 * width)
-        c["text"].update(fontSize=size, maxWidth=0.94, align="left", italic=False,
+    # Preserve the opening's current position, then anchor the first line of
+    # every verse to its first line rather than centring each block separately.
+    pitch = size * 1.38
+    hook_rows = max((len(wrap_to_width(c["text"]["content"], box_width * width).splitlines())
+                     for c in hook_pages), default=1)
+    first_line_y = -0.06 - (hook_rows - 1) * pitch / 2
+    positions = [row for count in reels_chunk_sizes(len(verse_pages)) for row in range(count)]
+    for c, row in zip(verse_pages, positions):
+        c["text"]["content"] = wrap_to_width(c["text"]["content"], box_width * width)
+        c["text"].update(fontSize=size, maxWidth=box_width, align="left", italic=False,
                          lineHeight=1.38)
-        c.update(offsetX=-0.39, offsetY=-0.06)
-        # Keep the first line at a fixed height as each new line is added.
-        rows = len(c["text"]["content"].splitlines())
-        c["offsetY"] += (rows - 1) * size * 1.38 / 2
+        # Separate lanes retain the exact same raster and position while the
+        # following lines appear; no cumulative redraw or opacity animation.
+        c.update(trackId=f"T2.line.{row}", offsetX=offset_x,
+                 offsetY=first_line_y + row * pitch, scale=1.0,
+                 keys=[], fadeIn=0.0, fadeOut=0.0, opacity=1.0)
 
     for c in hook_pages:
         # Mở đầu dùng cùng cỡ chữ với phần thơ và khổ rộng hơn trước.
-        c["text"]["content"] = wrap_to_width(c["text"]["content"], 0.94 * width)
-        c["text"].update(fontSize=size, maxWidth=0.94, align="left", italic=False,
+        c["text"]["content"] = wrap_to_width(c["text"]["content"], box_width * width)
+        c["text"].update(fontSize=size, maxWidth=box_width, align="left", italic=False,
                          lineHeight=1.38)
-        c.update(offsetX=-0.39, offsetY=-0.06)
+        rows = len(c["text"]["content"].splitlines())
+        c.update(offsetX=offset_x, offsetY=first_line_y + (rows - 1) * pitch / 2, scale=1.0)
 
     # Tên bài và tác giả cũng dùng đúng cỡ chữ của phần thơ.
     for c in clips:
         if c.get("trackId") in ("T3", "T3.2") and c.get("kind") == "text":
-            c["text"]["content"] = wrap_to_width(c["text"]["content"], 0.94 * width)
-            c["text"].update(fontSize=size, maxWidth=0.94)
+            c["text"]["content"] = wrap_to_width(c["text"]["content"], box_width * width)
+            c["text"].update(fontSize=size, maxWidth=box_width, align="center")
+            c["offsetX"] = 0.0
 
     page_end = max((start + dur for _, start, dur in page_items), default=total - 2.7)
     outro_start = min(max(page_end + 0.12, total - REELS_TAIL), total - 1.1)
@@ -543,7 +601,7 @@ def layout_reels_doc_nhanh(doc, clips, total, page_items):
 
 def build_from_template(tdir, total, slots, pages, title, author, audio):
     """slots: [(duration, speed)]; pages: [(text, start, duration)]; audio: [dict(path,name,duration,lane,start,dur,volume,fade_in,fade_out)]."""
-    doc = json.load(open(Path(tdir) / "template.json", encoding="utf-8"))
+    doc = json.loads((Path(tdir) / "template.json").read_text(encoding="utf-8"))
     clips = doc["clips"]
     old_total = max(c["start"] + c["duration"] for c in clips)
     delta = total - old_total
@@ -629,7 +687,9 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
     lanes = {c["trackId"] for c in keep}
     have = {tr["id"] for tr in doc["tracks"]}
     for lane in sorted(lanes - have):
-        doc["tracks"].insert(0, dict(id=lane, name=lane, visible=True, muted=False))
+        index = (next(i for i, tr in enumerate(doc["tracks"]) if tr["id"] == "T2") + 1
+                 if lane.startswith("T2.line.") else 0)
+        doc["tracks"].insert(index, dict(id=lane, name=lane, visible=True, muted=False))
     return doc, extra_fills
 
 
@@ -651,35 +711,83 @@ def dubbed_state():
 
 
 def validate_dub_request(poem_id, voice_id):
+    if not isinstance(poem_id, str) or not isinstance(voice_id, str):
+        return "Bài hoặc giọng đọc không hợp lệ", 400
     if poem_id not in load_poems():
         return "Không tìm thấy bài", 404
     if voice_id not in DUB_VOICES:
         return "Giọng đọc không hợp lệ", 400
-    if poem_id in dubbed_state():
+    if not load_poems()[poem_id].get("tts"):
+        return "Bài chưa có kịch bản lồng tiếng", 400
+    if list_audio().get(poem_id):
         return "Bài này đã được lồng tiếng", 409
+    if not tts_key():
+        return "Chưa có API key ElevenLabs. Lưu key theo README.md.", 400
     return None
 
 
-def dub(job_id, poem_id, voice_id):
-    """Gọi công cụ ElevenLabs hiện có; công cụ sẽ lưu MP3 và đánh dấu bài đã lồng tiếng."""
-    job = DUB_JOBS[job_id]
+def tts_key():
+    key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
+    f = Path.home() / ".config/elevenlabs/key"
+    return key or (f.read_text().strip() if f.is_file() else "")
+
+
+def dub(jid, poem, voice_id):
+    """Tạo một file giọng đọc; chỉ đánh dấu sau khi nhận đủ âm thanh."""
+    tmp = None
     try:
-        job.update(status="running", message="Đang gửi kịch bản tới ElevenLabs")
-        result = subprocess.run(
-            [sys.executable, str(ROOT / "elevenlabs-tts.py"), "--voice-id", voice_id, "--ids", poem_id],
-            cwd=ROOT, capture_output=True, text=True, timeout=180,
-        )
-        output = "\n".join(x.strip() for x in (result.stdout, result.stderr) if x.strip())
-        state = dubbed_state().get(poem_id)
-        if result.returncode or not state:
-            raise RuntimeError(output[-600:] or "ElevenLabs không tạo được file giọng đọc")
-        job.update(status="done", message="Đã lồng tiếng và đánh dấu hoàn tất",
-                   done=state, audio=list_audio().get(poem_id, []))
-    except subprocess.TimeoutExpired:
-        job.update(status="error", message="ElevenLabs xử lý quá 3 phút, hãy thử lại")
+        DUB_JOBS[jid].update(status="running", message="Đang tạo giọng đọc ElevenLabs…")
+        key = tts_key()
+        if not key:
+            raise ValueError("Chưa có API key ElevenLabs. Lưu key theo README.md.")
+        folder = ROOT / "Long-tieng/elevenlabs"
+        folder.mkdir(parents=True, exist_ok=True)
+        dest = folder / f"{poem['id']}_{slug(poem['title'])}.mp3"
+        # Kiểm tra lại để không gọi API hai lần cho cùng một bài.
+        if not list_audio().get(poem["id"]):
+            req = urllib.request.Request(
+                f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+                data=json.dumps(dict(text=poem["tts"], model_id="eleven_v4", language_code="vi",
+                                     voice_settings=dict(stability=0.5, similarity_boost=0.75))).encode(),
+                headers={"xi-api-key": key, "Content-Type": "application/json", "Accept": "audio/mpeg"})
+            with urllib.request.urlopen(req, timeout=120) as response:
+                data = response.read()
+            if not data:
+                raise ValueError("ElevenLabs trả về âm thanh trống. Thử lại.")
+            with tempfile.NamedTemporaryFile(dir=folder, suffix=".part", delete=False) as f:
+                tmp = Path(f.name)
+                f.write(data)
+            if duration(tmp) <= 0:
+                raise ValueError("File giọng đọc không hợp lệ. Thử lại.")
+            tmp.replace(dest)
+            state_file = ROOT / "Thơ/da-long-tieng.json"
+            state = json.loads(state_file.read_text()) if state_file.is_file() else {}
+            state[poem["id"]] = dict(voice_id=voice_id, model="eleven_v4", chars=len(poem["tts"]),
+                                     file=str(dest.relative_to(ROOT)), date=time.strftime("%Y-%m-%d"))
+            state_file.parent.mkdir(parents=True, exist_ok=True)
+            state_tmp = state_file.with_suffix(".json.part")
+            state_tmp.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+            state_tmp.replace(state_file)
+        DUB_JOBS[jid].update(status="done", pct=100, message="Đã lồng tiếng", audio=list_audio().get(poem["id"], []))
+    except urllib.error.HTTPError as e:
+        messages = {401: "API key thiếu quyền Text to Speech hoặc không hợp lệ.",
+                    403: "Key chưa được phép dùng giọng hoặc model này.",
+                    402: "Không đủ credit ElevenLabs.", 429: "ElevenLabs đang giới hạn yêu cầu. Thử lại sau."}
+        try:
+            detail = json.loads(e.read()).get("detail", {})
+            quota = isinstance(detail, dict) and detail.get("status") == "quota_exceeded"
+        except (ValueError, OSError):
+            quota = False
+        DUB_JOBS[jid].update(status="error", message=f"ElevenLabs HTTP {e.code}: " +
+                         ("Đã hết hạn mức credit của key ElevenLabs." if quota else
+                          messages.get(e.code, "Không tạo được giọng; kiểm tra giọng, model và hạn mức key.")))
     except Exception as e:
-        job.update(status="error", message=str(e))
+        # Không đưa chi tiết request hoặc key vào thông báo cho trình duyệt.
+        message = str(e) if isinstance(e, ValueError) else "Không tạo được giọng đọc. Kiểm tra kết nối và thử lại."
+        DUB_JOBS[jid].update(status="error", message=message)
     finally:
+        if tmp:
+            tmp.unlink(missing_ok=True)
         DUB_LOCK.release()
 
 
@@ -746,10 +854,7 @@ def render(job_id, req):
                 e0 = starts[k + per_page] if k + per_page < len(lines) else min(total - 0.5, pe + 0.8)
                 pages.append(("\n".join(chunk), round(s0, 2), round(e0 - s0, 2)))
         if tname in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE) and has_hook and p.get("hook"):
-            hook_start = 0.35
-            hook_end = max(hook_start + 1.0, ps - 0.12)
-            pages.insert(0, (reels_hook_text(p["hook"]), hook_start,
-                             round(hook_end - hook_start, 2)))
+            pages = reels_with_hook(pages, p["hook"])
         # clip video
         if tname == STILL_BG_TEMPLATE:
             plan = [(0, total, 1.0)]
@@ -792,7 +897,20 @@ def render(job_id, req):
         shutil.move(tmp_out, OUT / name)
         upd(status="done", pct=100, message=f"Xong · {tlabel}", output=f"Vid_completed/{name}")
     except Exception as e:
-        upd(status="error", message=str(e))
+        message = f"{type(e).__name__}: {e}"
+        print(f"LỖI xuất {job_id}: {message}", file=sys.stderr, flush=True)
+        try:
+            log_dir = ROOT / ".tao-video-logs"
+            log_dir.mkdir(exist_ok=True)
+            log = log_dir / f"{job_id}.log"
+            detail = traceback.format_exc()
+            if api:
+                detail += "\nConcat stderr:\n" + api.stderr_text()
+            log.write_text(detail, encoding="utf-8")
+            message += f" · Log: {log.relative_to(ROOT)}"
+        except OSError:
+            pass
+        upd(status="error", message=message)
     finally:
         if api:
             api.close()
@@ -828,6 +946,9 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_json(dict(root=str(ROOT)))
         if path == "/api/audio":
             return self.send_json(list_audio())
+        if path == "/api/dub/voices":
+            return self.send_json(dict(voices=[dict(id=k, name=v) for k, v in DUB_VOICES.items()],
+                                       configured=bool(tts_key()), poems=list(load_poems())))
         if path == "/api/template":
             pid = (u.query.split("poemId=")[-1] if "poemId=" in u.query else "")
             p = load_poems().get(unquote(pid))
@@ -877,10 +998,20 @@ class Handler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
         if path not in ("/api/render", "/api/dub"):
             return self.send_json(dict(error="not found"), 404)
-        n = int(self.headers.get("Content-Length") or 0)
+        if path == "/api/dub":
+            origin = self.headers.get("Origin")
+            if origin and urlparse(origin).netloc != self.headers.get("Host"):
+                return self.send_json(dict(error="Yêu cầu phải gửi từ giao diện trên máy này"), 403)
+            if self.headers.get("Content-Type", "").split(";")[0] != "application/json":
+                return self.send_json(dict(error="Yêu cầu JSON không hợp lệ"), 400)
         try:
+            n = int(self.headers.get("Content-Length") or 0)
+            if not 0 < n <= 10000:
+                raise ValueError()
             req = json.loads(self.rfile.read(n) or b"{}")
-        except json.JSONDecodeError:
+            if not isinstance(req, dict):
+                raise ValueError()
+        except (ValueError, TypeError):
             return self.send_json(dict(error="Dữ liệu JSON không hợp lệ"), 400)
         if path == "/api/dub":
             poem_id, voice_id = req.get("poemId"), req.get("voiceId")
@@ -892,7 +1023,7 @@ class Handler(BaseHTTPRequestHandler):
             jid = "dub-" + str(int(time.time() * 1000))
             DUB_JOBS[jid] = dict(status="queued", message="Chuẩn bị lồng tiếng", poemId=poem_id,
                                  voiceId=voice_id, voiceName=DUB_VOICES[voice_id])
-            threading.Thread(target=dub, args=(jid, poem_id, voice_id), daemon=True).start()
+            threading.Thread(target=dub, args=(jid, load_poems()[poem_id], voice_id), daemon=True).start()
             return self.send_json(dict(job=jid))
         template = req.get("template")
         if template not in LABELS:

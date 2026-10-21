@@ -669,7 +669,7 @@
       "fadeIn": 0.0,
       "fadeOut": 0.0,
       "scale": 1.0,
-      "offsetX": -0.39,
+      "offsetX": -0.08,
       "offsetY": -0.06,
       "rotation": 0.0,
       "opacity": 1.0,
@@ -688,58 +688,13 @@
         "opacity": 1.0,
         "shadow": true,
         "tracking": 0.0,
-        "maxWidth": 0.94,
+        "maxWidth": 0.84,
         "background": "",
         "strokeWidth": 0.0,
         "strokeColor": "#000000",
         "lineHeight": 1.38
       },
-      "keys": [
-        {
-          "property": "opacity",
-          "at": 0.0,
-          "value": 0.0,
-          "ease": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        },
-        {
-          "property": "opacity",
-          "at": 0.06,
-          "value": 1.0,
-          "ease": [
-            0.16,
-            0.84,
-            0.44,
-            1.0
-          ]
-        },
-        {
-          "property": "opacity",
-          "at": 0.94,
-          "value": 1.0,
-          "ease": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        },
-        {
-          "property": "opacity",
-          "at": 1.0,
-          "value": 0.0,
-          "ease": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        }
-      ]
+      "keys": []
     },
     {
       "id": "c16",
@@ -754,7 +709,7 @@
       "fadeIn": 0.0,
       "fadeOut": 0.0,
       "scale": 1.0,
-      "offsetX": -0.39,
+      "offsetX": 0.0,
       "offsetY": -0.015,
       "rotation": 0.0,
       "opacity": 1.0,
@@ -773,7 +728,7 @@
         "opacity": 1.0,
         "shadow": true,
         "tracking": 0.0,
-        "maxWidth": 0.94,
+        "maxWidth": 0.84,
         "background": "",
         "strokeWidth": 0.0,
         "strokeColor": "#000000"
@@ -816,7 +771,7 @@
       "fadeIn": 0.0,
       "fadeOut": 0.0,
       "scale": 1.0,
-      "offsetX": -0.39,
+      "offsetX": 0.0,
       "offsetY": 0.04,
       "rotation": 0.0,
       "opacity": 1.0,
@@ -835,7 +790,7 @@
         "opacity": 1.0,
         "shadow": true,
         "tracking": 0.006,
-        "maxWidth": 0.94,
+        "maxWidth": 0.84,
         "background": "",
         "strokeWidth": 0.0,
         "strokeColor": "#000000"

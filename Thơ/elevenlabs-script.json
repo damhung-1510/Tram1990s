@@ -18,14 +18,14 @@
   "id": "Q040",
   "title": "Nước non nặng một lời thề",
   "voice": "Nam",
-  "hook": "Lời thề ngày ấy, người còn nhớ không? Cụ Tản Đà nhắc giùm bạn đây:",
-  "tts": "[softly] Lời thề ngày ấy, người còn nhớ không? Cụ Tản Đà nhắc giùm bạn đây. [long pause]\nNước non nặng một lời thề, [pause]\nNước đi đi mãi không về cùng non. [pause]\nNhớ lời nguyện nước thề non, [pause]\nNước đi chưa lại, [short pause] non còn đứng không. [pause]\nNon cao những ngóng cùng trông, [pause]\nSuối khô dòng lệ chờ mong tháng ngày. [pause]\nXương mai một nắm hao gầy, [pause]\nTóc mây một mái đã đầy tuyết sương. [pause]\nTrời tây ngả bóng tà dương, [pause]\nCàng phơi vẻ ngọc nét vàng phôi pha.",
+  "hook": "Có người chỉ hứa một câu, mà mình chờ cả một thanh xuân. Nếu bạn từng như thế, thì nghe mấy câu này của cụ Tản Đà nhé.",
+  "tts": "[natural, reflective, steady pace]\nCó người chỉ hứa một câu, mà mình chờ cả một thanh xuân. [short pause]\nNếu bạn từng như thế, thì nghe mấy câu này của cụ Tản Đà nhé. [pause]\n\nNước non [short pause] nặng một lời thề, [pause]\nNước đi đi mãi [short pause] không về cùng non. [pause]\nNhớ lời [short pause] nguyện nước thề non, [pause]\nNước đi chưa lại, [short pause] non còn đứng không. [pause]\n\nNon cao [short pause] những ngóng cùng trông, [pause]\nSuối khô dòng lệ [short pause] chờ mong tháng ngày. [pause]\nXương mai [short pause] một nắm hao gầy, [pause]\nTóc mây một mái [short pause] đã đầy tuyết sương. [pause]\n\nTrời tây [short pause] ngả bóng tà dương, [pause]\nCàng phơi vẻ ngọc [short pause] nét vàng phôi pha.",
   "da_long_tieng": {
    "voice_id": "qn4pQo7kIjvZ1a7SowZE",
    "model": "eleven_v4",
-   "chars": 500,
+   "chars": 716,
    "file": "Long-tieng/elevenlabs/Q040_Nuoc-non-nang-mot-loi-the.mp3",
-   "date": "2026-10-16"
+   "date": "2026-10-21"
   },
   "template": "tho-hoai-co-chay-chu-nhieu-trang"
  },

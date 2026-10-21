@@ -2,6 +2,7 @@
 (() => {
   const S = { poem: null, voice: '', videos: [], music: '', template: '', suggestedTemplate: '', vol: 1.0, busy: false, note: '' };
   let audio = {}, music = [], templates = [], online = false;
+  let ttsVoices = [], ttsPoems = new Set(), ttsConfigured = false, ttsBusy = false, ttsTarget = null;
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const base = p => p.split('/').pop();
@@ -43,7 +44,14 @@
   #tvM2 .it.on{border-color:var(--acc)} #tvM2 .it img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover}
   #tvM2 .it i{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.65);color:#fff;border-radius:6px;padding:0 6px;font-style:normal;font-size:12px}
   #tvM2 .it .nm{font-size:10px;padding:2px 4px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  #tvM2 .it a{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.65);color:#fff;border-radius:6px;padding:0 6px;font-size:12px;text-decoration:none}`;
+  #tvM2 .it a{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.65);color:#fff;border-radius:6px;padding:0 6px;font-size:12px;text-decoration:none}
+  .tv-tts{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;font-size:13px}
+  .tv-tts select{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px}
+  .tv-tts button:disabled{opacity:.5;cursor:wait}
+  #tvSpeech{color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;width:min(620px,94vw);max-height:85vh}
+  #tvSpeech::backdrop{background:rgba(0,0,0,.6)}
+  #tvSpeech pre{white-space:pre-wrap;max-height:40vh;overflow:auto;font:inherit;padding:12px;background:var(--bg)}
+  #tvSpeech .actions{display:flex;gap:10px;justify-content:flex-end}`;
   document.head.appendChild(style);
 
   const panel = document.createElement('div');
@@ -55,7 +63,7 @@
      <span id="tvClipGroup">🎞 <b id="tvMediaLabel">Clip:</b> <span class="vl" id="tvC">chưa chọn</span> <button class="tv-pick" id="tvAll">＋ Tất cả clip</button></span></div>
    <div class="r"><span id="tvMusicGroup">🎵 <b>Nhạc nền:</b> <select id="tvM"><option value="">— chọn nhạc —</option></select>
        <button class="tv-pick" id="tvMP">▶ nghe nhạc</button>
-       <label>nhỏ <input type="range" id="tvVol" min="0.05" max="1.5" step="0.05" value="1"> to</label>
+       <label>nhỏ <input type="range" id="tvVol" min="0.05" max="1" step="0.05" value="1"> to nhất (≈ 15 dB dưới giọng)</label>
        <span id="tvDb" style="color:var(--mut)"></span></span>
      <span id="tvPreviewGroup"><button class="tv-pick" id="tvVP">▶ nghe giọng</button> <button class="tv-pick" id="tvMix">🎧 Nghe thử giọng + nhạc</button></span>
      <button class="tv-pick" id="tvReset" title="Bỏ chọn bài, giọng, clip, nhạc và đưa mọi thứ về mặc định" style="margin-left:auto">↺ Reset</button>
@@ -63,6 +71,84 @@
    <div class="bar"><i id="tvBar"></i></div><div class="msg" id="tvMsg">Chọn thơ, giọng đọc, clip và nhạc nền để bật nút Tạo video.</div>`;
   document.body.appendChild(panel);
   const prev = new Audio(), vA = new Audio(), mA = new Audio();
+  const speech = document.createElement('dialog');
+  speech.id = 'tvSpeech';
+  speech.innerHTML = `<h3>Lồng tiếng ElevenLabs</h3><p id="tvSpeechInfo"></p><pre id="tvSpeechText"></pre>
+    <p>Nội dung trên sẽ được gửi tới ElevenLabs và dùng credit của tài khoản.</p>
+    <p id="tvSpeechStatus" role="status" aria-live="polite"></p>
+    <div class="actions"><button class="tv-pick" id="tvSpeechClose">Đóng</button>
+    <button class="act" id="tvSpeechGo">Tạo giọng đọc</button></div>`;
+  document.body.appendChild(speech);
+
+  function syncAudio() {
+    D.poems.concat(D.combos).forEach(p => {
+      const items = audio[p.id] || [];
+      p.done = items.length > 0;
+      p.audio = items.map(a => ({ file: a.file, voice: a.label, dur: a.dur }));
+    });
+    render();
+  }
+  function decorateSpeech(card, id) {
+    const needed = ttsPoems.has(id) && !(audio[id] || []).length;
+    let row = card.querySelector('.tv-tts');
+    if (!needed) { row?.remove(); return; }
+    if (!row) {
+      row = document.createElement('div'); row.className = 'tv-tts';
+      const p = findP(id), preferred = p?.kind?.includes('Trích dẫn') ? 'O4GJDPajhRb6MxWUMf7V' : 'qn4pQo7kIjvZ1a7SowZE';
+      row.innerHTML = `<label>Giọng lồng <select aria-label="Giọng lồng tiếng cho ${esc(id)}">${ttsVoices.map(v =>
+        `<option value="${esc(v.id)}"${v.id === preferred ? ' selected' : ''}>${esc(v.name)}</option>`).join('')}</select></label>
+        <button class="act" data-tts="${esc(id)}">🎙 Lồng tiếng</button><span class="tv-tts-note"></span>`;
+      card.querySelector('.hd').after(row);
+    }
+    row.querySelector('button').disabled = !online || !ttsConfigured || ttsBusy;
+    const note = row.querySelector('.tv-tts-note');
+    const message = !ttsConfigured ? 'Chưa lưu API key ElevenLabs' : ttsBusy ? 'Đang lồng tiếng…' : '';
+    if (note.textContent !== message) note.textContent = message;
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-tts]');
+    if (!b || ttsBusy) return;
+    e.preventDefault();
+    const p = findP(b.dataset.tts), voiceId = b.closest('.tv-tts').querySelector('select').value;
+    ttsTarget = { poemId: p.id, voiceId };
+    $('#tvSpeechInfo').textContent = `${p.id} · ${p.title} · ${ttsVoices.find(v => v.id === voiceId)?.name} · ${p.tts.length} ký tự`;
+    $('#tvSpeechText').textContent = p.tts;
+    $('#tvSpeechStatus').textContent = '';
+    $('#tvSpeechGo').disabled = false;
+    speech.showModal();
+  });
+  $('#tvSpeechClose').onclick = () => speech.close();
+  $('#tvSpeechGo').onclick = async () => {
+    if (ttsBusy || !ttsTarget) return;
+    const target = { ...ttsTarget };
+    ttsBusy = true; $('#tvSpeechGo').disabled = true; decorate();
+    const status = $('#tvSpeechStatus');
+    status.textContent = 'Đang gửi yêu cầu…';
+    try {
+      const r = await fetch('/api/dub', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(target) });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error || 'Không gửi được yêu cầu');
+      for (;;) {
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        const response = await fetch('/api/dub/job/' + j.job);
+        const job = await response.json();
+        if (!response.ok || job.status === 'error') throw new Error(job.message || 'Không đọc được trạng thái');
+        status.textContent = job.message;
+        if (job.status === 'done') {
+          audio = await (await fetch('/api/audio')).json();
+          if (S.poem !== target.poemId) S.template = '';
+          S.poem = target.poemId;
+          S.voice = (audio[target.poemId] || [])[0]?.file || '';
+          syncAudio(); refresh();
+          status.textContent = 'Đã lồng tiếng. Bài đã được chọn để ghép video.';
+          break;
+        }
+      }
+    } catch (err) { status.textContent = 'Lỗi: ' + err.message; }
+    finally { ttsBusy = false; $('#tvSpeechGo').disabled = false; decorate(); }
+  };
+
+
   let info = null, mixing = false, startT = null, fadeT = null;
   const effGain = () => (info ? info.gain : 0.1) * S.vol;
   function showDb() {
@@ -183,7 +269,8 @@
     for (const el of [$('#tvV'), $('#tvM'), $('#tvVol'), $('#tvAll'), $('#tvMP'), $('#tvVP'), $('#tvMix')]) el.disabled = imageMode || S.busy;
     $('#tvGo').disabled = S.busy || !online || miss.length > 0;
     $('#tvReset').disabled = S.busy;
-    if (!S.busy && S.note) { $('#tvMsg').className = 'msg'; $('#tvMsg').innerHTML = S.note; }
+    if (!S.busy && S.renderError) { $('#tvMsg').className = 'msg err'; $('#tvMsg').textContent = S.renderError; }
+    else if (!S.busy && S.note) { $('#tvMsg').className = 'msg'; $('#tvMsg').innerHTML = S.note; }
     else if (!S.busy) {
       $('#tvMsg').className = 'msg';
       $('#tvMsg').textContent = !online ? 'Chưa kết nối máy chủ: chạy python3 tao_video.py rồi mở http://127.0.0.1:8787/'
@@ -199,6 +286,7 @@
     document.querySelectorAll('#list .card').forEach(card => {
       const id = card.querySelector('.id')?.textContent;
       const hd = card.querySelector('.hd');
+      if (id && hd) decorateSpeech(card, id);
       if (id && hd && !hd.querySelector('.tv-pick')) {
         const b = document.createElement('button');
         b.className = 'tv-pick'; b.dataset.tvPoem = id; b.textContent = '🎬 Chọn bài này';
@@ -262,14 +350,14 @@
   $('#tvReset').onclick = () => {
     if (S.busy) return;          // đang tạo video thì không reset
     stopAll();
-    Object.assign(S, { poem: null, voice: '', videos: [], music: '', template: '', suggestedTemplate: '', vol: 1.0, note: '', tplFor: null });
+    Object.assign(S, { poem: null, voice: '', videos: [], music: '', template: '', suggestedTemplate: '', vol: 1.0, note: '', renderError: '', tplFor: null });
     $('#tvM').value = ''; $('#tvVol').value = '1'; $('#tvT').innerHTML = '<option value="">—</option>'; info = null; showDb();
     $('#tvBar').style.width = '0';
     refresh();
   };
 
   $('#tvGo').onclick = async () => {
-    S.busy = true; refresh();
+    S.busy = true; S.renderError = ''; S.note = ''; refresh();
     const msg = $('#tvMsg'); msg.className = 'msg'; msg.textContent = 'Gửi yêu cầu...'; $('#tvBar').style.width = '1%';
     try {
       const r = await fetch('/api/render', { method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -279,7 +367,9 @@
       if (!r.ok) throw new Error(j.error || 'lỗi');
       for (;;) {
         await new Promise(res => setTimeout(res, 1500));
-        const s = await (await fetch('/api/job/' + j.job)).json();
+        const response = await fetch('/api/job/' + j.job);
+        const s = await response.json();
+        if (!response.ok) throw new Error(s.message || 'Không đọc được trạng thái xuất video');
         $('#tvBar').style.width = (s.pct || 0) + '%';
         msg.textContent = `${s.message || ''} ${s.pct || 0}%`;
         if (s.status === 'done') {
@@ -290,7 +380,7 @@
         }
         if (s.status === 'error') throw new Error(s.message);
       }
-    } catch (err) { msg.className = 'msg err'; msg.textContent = 'Lỗi: ' + err.message; $('#tvBar').style.width = '0'; }
+    } catch (err) { S.renderError = 'Lỗi: ' + err.message; $('#tvBar').style.width = '0'; }
     S.busy = false; refresh();
   };
 
@@ -344,6 +434,9 @@
       online = (await fetch('/api/ping')).ok;
       templates = await (await fetch('/api/templates')).json();
       audio = await (await fetch('/api/audio')).json();
+      const tts = await (await fetch('/api/dub/voices')).json();
+      ttsVoices = tts.voices || []; ttsConfigured = tts.configured; ttsPoems = new Set(tts.poems || []);
+      syncAudio();
       music = await (await fetch('/api/music')).json();
       const groups = {};
       music.forEach(m => (groups[m.folder] = groups[m.folder] || []).push(m));

@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
+import tao_video as T  # cũng nhận PATH của bản FFmpeg cài riêng trong dự án
 bad = 0
 
 
@@ -19,8 +20,12 @@ v = sys.version_info
 (ok if v >= (3, 9) else fail)(f"Python {v.major}.{v.minor}.{v.micro}" + ("" if v >= (3, 9) else " (cần 3.9 trở lên)"))
 for tool in ("ffmpeg", "ffprobe"):
     (ok(f"{tool}: {shutil.which(tool)}") if shutil.which(tool) else fail(f"thiếu {tool}  →  brew install ffmpeg"))
+try:
+    import PIL
+    ok(f"Pillow {PIL.__version__}")
+except ImportError:
+    fail("Thiếu Pillow → python3 -m pip install --target .tools/python Pillow")
 
-import tao_video as T
 if T.CLI:
     try:
         binary = subprocess.run(["file", T.CLI], capture_output=True, text=True, timeout=20).stdout.strip()

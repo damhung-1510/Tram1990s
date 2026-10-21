@@ -1,32 +1,24 @@
 import unittest
-from PIL import ImageFont
-
 import tao_video as video
+from PIL import ImageFont
 
 
 class PoemLayoutTests(unittest.TestCase):
-    def test_reels_reveal_has_no_gaps_overlaps_or_fades(self):
+    def test_reels_lines_are_persistent_and_do_not_fade(self):
         lines = ["Một câu thơ dài", "Câu thứ hai", "Câu thứ ba", "Câu thứ tư"] * 2
         starts = [1 + i * 2 for i in range(8)]
         pages = video.reels_reveal_pages(lines, starts, 17)
-        for current, following in zip(pages, pages[1:]):
-            self.assertAlmostEqual(current[1] + current[2], following[1])
-        self.assertEqual(pages[0][0], "Một")
-        self.assertEqual(next(p[0] for p in pages if p[1] == 3), lines[0] + "\nCâu")
-        self.assertEqual(next(p[0] for p in pages if p[1] == 9), "Một")
         for template in ("tho-reels-doc-nhanh", "tho-reels-anh-mo"):
             doc = video.build_from_template(video.TEMPLATES / template, 21,
                                            [(21, 1)], pages, "Tên bài", "Tác giả", [])[0]
-            clips = [c for c in doc["clips"] if c["trackId"] == "T2"]
-            tops = []
+            clips = [c for c in doc["clips"] if c["trackId"].startswith("T2.line.")]
+            self.assertEqual([c["text"]["content"] for c in clips], lines)
             for c in clips:
                 self.assertEqual(c["keys"], [])
-                self.assertEqual(c["fadeIn"], 0)
-                self.assertEqual(c["fadeOut"], 0)
-                tops.append(self.bounds(c)[0])
-            self.assertLess(max(tops) - min(tops), 1e-8)
-            for current, following in zip(clips, clips[1:]):
-                self.assertAlmostEqual(current["start"] + current["duration"], following["start"])
+                self.assertEqual((c["fadeIn"], c["fadeOut"]), (0, 0))
+            first = clips[0]
+            self.assertEqual(first['start'], starts[0])
+            self.assertAlmostEqual(first['start'] + first['duration'], starts[4])
 
     def build(self, pages, template="tho-hoai-co"):
         return video.build_from_template(
@@ -91,10 +83,11 @@ class PoemLayoutTests(unittest.TestCase):
         sample = video.load_poems()["Q052"]
         self.assertEqual(video.template_per_page("tho-reels-doc-nhanh", sample), 4)
         poem = video.poem_lines(sample)
-        pages = ["\n".join(poem[i:i + 4]) for i in range(0, len(poem), 4)]
-        doc = self.build(pages, "tho-reels-doc-nhanh")
+        pages = video.reels_reveal_pages(poem, [1 + i * 2 for i in range(len(poem))], 40)
+        doc = video.build_from_template(video.TEMPLATES / "tho-reels-doc-nhanh", 45, [(45, 1)], pages, "Tên bài", "Tác giả", [])[0]
         text = [c for c in doc["clips"] if c["kind"] == "text"]
-        poem_clips = [c for c in text if c["trackId"] == "T2"]
+        poem_clips = [c for c in text if c["trackId"].startswith("T2.line.")]
+        self.assertTrue(poem_clips)
         self.assertTrue(all(c["text"]["align"] == "left" for c in poem_clips))
         self.assertTrue(all(not c["text"]["italic"] for c in poem_clips))
         self.assertTrue(all(len(c["text"]["content"].splitlines()) <= 4 for c in poem_clips))
@@ -131,15 +124,16 @@ class PoemLayoutTests(unittest.TestCase):
         doc = video.build_from_template(
             video.TEMPLATES / "tho-reels-doc-nhanh", 30, [(30, 1)],
             [(video.reels_hook_text(sample["hook"]), 0.35, 5.0),
-             ("\n".join(video.poem_lines(sample)[:4]), 6.0, 10.0)],
+             *video.reels_reveal_pages(video.poem_lines(sample)[:4], [6, 8, 10, 12], 16)],
             "Yêu", "Xuân Diệu", [],
         )[0]
         pages = sorted((c for c in doc["clips"] if c.get("trackId") == "T2"),
                        key=lambda c: c["start"])
         self.assertEqual(pages[0]["text"]["align"], "left")
-        self.assertEqual(pages[0]["offsetX"], -0.39)
-        self.assertEqual(pages[1]["text"]["align"], "left")
-        self.assertEqual(pages[1]["text"]["maxWidth"], 0.94)
+        self.assertAlmostEqual(pages[0]["offsetX"], -0.08)
+        verse = next(c for c in doc["clips"] if c["trackId"].startswith("T2.line."))
+        self.assertEqual(verse["text"]["align"], "left")
+        self.assertEqual(verse["text"]["maxWidth"], 0.84)
 
     def test_reels_blurred_image_template(self):
         sample = video.load_poems()["Q052"]

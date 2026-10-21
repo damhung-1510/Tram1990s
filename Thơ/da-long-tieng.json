@@ -9,9 +9,9 @@
  "Q040": {
   "voice_id": "qn4pQo7kIjvZ1a7SowZE",
   "model": "eleven_v4",
-  "chars": 500,
+  "chars": 716,
   "file": "Long-tieng/elevenlabs/Q040_Nuoc-non-nang-mot-loi-the.mp3",
-  "date": "2026-10-16"
+  "date": "2026-10-21"
  },
  "Q041": {
   "voice_id": "qn4pQo7kIjvZ1a7SowZE",

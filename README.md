@@ -9,7 +9,7 @@ Nếu chuyển sang Mac Intel, xem mục **Chuyển dự án sang Mac Intel** �
 
 | Cần | Cách có |
 |---|---|
-| macOS, Python 3.9 trở lên (không cần cài thư viện nào) | `python3 --version` |
+| macOS, Python 3.9 trở lên và Pillow để dàn chữ | `python3 --version`, `python3 -m pip install --target .tools/python Pillow` |
 | ffmpeg và ffprobe | `brew install ffmpeg` |
 | **Concat CLI** (`concat-cli`, bản 0.2.7 trở lên) | build từ mã nguồn Concat (cần Rust, xem README của Concat). Trên máy gốc nó nằm ở `…/ConCat/concat/src/target/quick/concat-cli`, build bằng profile `quick` |
 | Tài khoản ElevenLabs có API key | elevenlabs.io → API Keys |
@@ -36,6 +36,12 @@ Sáu template (`Thơ Hoài Cổ`, `… Chạy Chữ 2 Trang`, `… Chạy Chữ 
 3. **Voice ID**: Voices → My Voices → bấm giọng → chép ID. Giọng phải nằm trong My Voices.
 
 ## Bước 2. Lồng tiếng (giọng đọc gồm câu mở đầu + bài thơ; riêng **trích dẫn** không có lời mở, chỉ đọc nội dung)
+
+Trên giao diện, bài chưa có file âm thanh ở máy này có nút **Lồng tiếng** và
+lựa chọn **Giọng thơ / Giọng trích dẫn**. Xem kịch bản rồi bấm **Tạo giọng đọc**
+để gửi tới ElevenLabs bằng model `eleven_v4` (dùng credit tài khoản).
+Khi xong, giọng đọc tự xuất hiện trong thẻ bài và bài được chọn để ghép video.
+Dấu đã lồng tiếng từ Git không thay thế file MP3: nếu thiếu file, nút vẫn hiện.
 
 ```bash
 python3 elevenlabs-tts.py --voice-id MÃ_GIỌNG --ids Q044 L10 --dry-run   # chỉ đếm ký tự, không tốn credit
@@ -70,7 +76,12 @@ Mở **http://127.0.0.1:8787/** (phải mở qua địa chỉ này, mở file HT
 5. Đủ bốn thứ thì nút **Tạo video** sáng lên. Bấm rồi chờ khoảng 1–2 phút. Link mở video hiện khi xong.
 
 Template **Thơ Reels · Đọc Nhanh** dành cho thử nghiệm giữ chân: tự hiện câu mở đầu ngay,
-chia thơ thành 4 dòng/trang, căn trái trong vùng an toàn và chỉ hiện tên bài–tác giả ở đoạn kết.
+chia thơ thành 4–5 dòng/trang, căn trái trong vùng an toàn và chỉ hiện tên bài–tác giả ở đoạn kết.
+Ở cả Reels Đọc Nhanh và Reels Ảnh Mờ, mỗi câu xuất hiện trọn vẹn trên một lớp riêng
+và giữ nguyên đến hết khổ; câu mới không làm mờ hoặc dời các câu trước.
+Khối thơ có lề 8% hai bên.
+Lời mở và dòng thơ đầu dùng chung điểm bắt đầu ở góc trái phía trên của khối chữ;
+lời mở kết thúc đúng lúc dòng thơ đầu xuất hiện để chuyển đổi liền mạch.
 
 **Cách B, dòng lệnh** (không cần mở trang):
 ```bash
@@ -100,7 +111,7 @@ python3 tao-anh-tho.py --id Q038 --title "Vầng trăng ai xẻ làm đôi"
 
 Ảnh được lưu trong `Anh_completed/`. Template nằm ở `templates/anh-tho-giay-hoai-co/template.json`.
 
-Âm lượng nhạc nền tự cân theo giọng đọc: mỗi lần tạo video, script đo độ lớn (LUFS) của giọng và của bài nhạc rồi hạ nhạc xuống thấp hơn giọng khoảng **20 dB** (đã tăng 2 dB so với trước), nên bài nhạc nào cũng vừa. Thanh to/nhỏ trong giao diện (và `--music-volume` ở dòng lệnh) chỉ chỉnh thêm quanh mức đó (1,0 = mặc định). Muốn nhạc nhỏ hơn hoặc to hơn cho mọi video: `MUSIC_BELOW_DB=26 python3 tao_video.py` (số lớn = nhạc nhỏ hơn).
+Âm lượng nhạc nền tự cân theo giọng đọc: mỗi lần tạo video, script đo độ lớn (LUFS) của giọng và của bài nhạc rồi hạ nhạc xuống thấp hơn giọng khoảng **15 dB**, nên bài nhạc nào cũng vừa. Thanh to/nhỏ trong giao diện (và `--music-volume` ở dòng lệnh) chỉ giảm từ mức đó (1,0 = to nhất, mặc định; không vượt mức 15 dB dưới giọng). Muốn nhạc nhỏ hơn hoặc to hơn cho mọi video: `MUSIC_BELOW_DB=26 python3 tao_video.py` (số lớn = nhạc nhỏ hơn).
 
 Quy tắc thời lượng: video dài **0,5 giây + giọng đọc + 3 giây**. Giọng đọc bắt đầu ở giây 0,5, nhạc và clip bị cắt đúng mốc này (nhạc ngắn thì lặp lại, clip ngắn thì chạy chậm). Tên bài, tên tác giả (hoặc "Thơ dân gian", "Trích dẫn dân gian", "Không rõ", "Tự biên") và chữ chạy theo giọng đều tự điền vào template.
 
@@ -116,6 +127,9 @@ Nhạc mới hiện trong hộp chọn nhạc sau khi tải lại trang. Thư m�
 
 ## Lỗi thường gặp
 
+Lỗi xuất video được giữ trên giao diện, in trong Terminal và lưu chi tiết vào
+`.tao-video-logs/<mã-tác-vụ>.log`. Nếu Concat không phản hồi, tác vụ sẽ báo hết thời gian chờ.
+
 | Thông báo | Cách xử lý |
 |---|---|
 | `Thiếu biến môi trường ELEVENLABS_API_KEY` | làm bước 1.2, hoặc export key trong đúng tab đang chạy |
@@ -123,6 +137,8 @@ Nhạc mới hiện trong hộp chọn nhạc sau khi tải lại trang. Thư m�
 | `Bài … chưa có giọng đọc` | chạy bước 2 cho bài đó |
 | `không thấy template …` | thư mục `templates/` thiếu một trong 6 template (xem bước 0) |
 | `Không thấy concat-cli` | đặt `CONCAT_CLI` hoặc build Concat |
+| `No module named 'PIL'` | cài `python3 -m pip install --target .tools/python Pillow`, rồi khởi động lại server |
+| PNG báo `Decoder not found` | FFmpeg cần giải mã PNG; nếu tự build với `--disable-autodetect`, bổ sung `--enable-zlib` |
 | Nút Tạo video xám | còn thiếu một trong: thơ, giọng, clip, nhạc. Panel ghi rõ còn thiếu gì |
 | Không chọn được clip/bài mới trong trang | trang liệt kê clip và bài từ dữ liệu đã dựng sẵn. Xem ghi chú dưới |
 

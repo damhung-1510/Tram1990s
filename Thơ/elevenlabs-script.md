@@ -16,20 +16,25 @@ Vầng trăng ai xẻ làm đôi, [pause]
 Nửa in gối chiếc, [short pause] nửa soi dặm trường.
 ```
 
-## Q040. Nước non nặng một lời thề    ✅ ĐÃ LỒNG TIẾNG (2026-10-16)
+## Q040. Nước non nặng một lời thề    ✅ ĐÃ LỒNG TIẾNG (2026-10-21)
 Giọng: Nam
 ```
-[softly] Lời thề ngày ấy, người còn nhớ không? Cụ Tản Đà nhắc giùm bạn đây. [long pause]
-Nước non nặng một lời thề, [pause]
-Nước đi đi mãi không về cùng non. [pause]
-Nhớ lời nguyện nước thề non, [pause]
+[natural, reflective, steady pace]
+Có người chỉ hứa một câu, mà mình chờ cả một thanh xuân. [short pause]
+Nếu bạn từng như thế, thì nghe mấy câu này của cụ Tản Đà nhé. [pause]
+
+Nước non [short pause] nặng một lời thề, [pause]
+Nước đi đi mãi [short pause] không về cùng non. [pause]
+Nhớ lời [short pause] nguyện nước thề non, [pause]
 Nước đi chưa lại, [short pause] non còn đứng không. [pause]
-Non cao những ngóng cùng trông, [pause]
-Suối khô dòng lệ chờ mong tháng ngày. [pause]
-Xương mai một nắm hao gầy, [pause]
-Tóc mây một mái đã đầy tuyết sương. [pause]
-Trời tây ngả bóng tà dương, [pause]
-Càng phơi vẻ ngọc nét vàng phôi pha.
+
+Non cao [short pause] những ngóng cùng trông, [pause]
+Suối khô dòng lệ [short pause] chờ mong tháng ngày. [pause]
+Xương mai [short pause] một nắm hao gầy, [pause]
+Tóc mây một mái [short pause] đã đầy tuyết sương. [pause]
+
+Trời tây [short pause] ngả bóng tà dương, [pause]
+Càng phơi vẻ ngọc [short pause] nét vàng phôi pha.
 ```
 
 ## Q041. Sao anh không về chơi thôn Vĩ?    ✅ ĐÃ LỒNG TIẾNG (2026-10-16)
