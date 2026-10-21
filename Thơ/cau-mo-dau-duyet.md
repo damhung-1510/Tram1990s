@@ -35,3 +35,25 @@ mấy sông cũng lội, mấy ngàn cũng qua!
 | C02 | Vào vườn hái quả cau xanh | Các cụ nhà ta không nhắn "anh ăn cơm chưa", mà têm sẵn miếng trầu mời người thương: |
 | C03 | Trèo lên cây bưởi hái hoa | Có những người, gặp nhau lúc đã muộn màng. Các cụ nhà ta tiếc thế này: |
 | C04 | Đôi duyên ta như loan với phượng | Thà không biết nhau còn hơn biết rồi phải xa. Các cụ nhà ta nói thế này: |
+| Q051 | Thương vợ | Có một người vợ tảo tần, đi qua bao nắng mưa mà chẳng một lời than. Tú Xương thương vợ mình như thế này: |
+| Q052 | Yêu | Có những tình yêu cho đi rất nhiều, nhưng chẳng biết mình có được yêu lại hay không. |
+| Q071 | Người ta | Có những lúc mình chỉ muốn được sống thật với lòng mình |
+| Q072 | Đời sợ lắm những ngày im tiếng gió | Có những ngày bình yên đến mức nghe rõ cả nỗi buồn |
+| Q053 | Đò Lèn | Có những yêu thương, đến khi hiểu ra thì đã muộn |
+| Q054 | Có những ngày | Có những ngày người ta chỉ muốn trở về nhà |
+| Q055 | Người đàn bà ngồi đan | Có những bình yên được làm nên từ những điều rất nhỏ |
+| Q056 | Thơ tình cuối mùa thu | Mùa thu thường khiến người ta nhớ một người |
+| Q057 | Tràng giang | Có những buổi chiều chỉ cần nhìn dòng nước là thấy lòng mình |
+| Q058 | Qua Đèo Ngang | Một khung cảnh đẹp đôi khi lại làm nỗi nhớ rõ hơn |
+| Q059 | Tiếng thu | Mùa thu không chỉ có lá vàng, còn có những điều chưa nói |
+| Q060 | Khi ta ở | Có những nơi chỉ khi rời xa ta mới biết mình thương đến thế nào |
+| Q061 | Sau này chúng ta | Có những cuộc chia tay không cần ai nói lời tạm biệt |
+| Q062 | Gặp lại trong ký ức | Không phải cuộc gặp nào cũng nên có lần thứ hai |
+| Q063 | Một phần thanh xuân | Có những người rời đi nhưng ký ức thì ở lại |
+| Q064 | Đúng người | Bình yên trong tình yêu đôi khi rất dễ nhận ra |
+| Q065 | Một ngày chỉ muốn yên | Nếu hôm nay bạn mệt, hãy cho mình một ngày được nghỉ |
+| Q066 | Còn yêu chưa đủ | Có những điều tình yêu cũng không thể giữ lại |
+| Q067 | Bình yên | Sau cùng, điều ai cũng cần là một lòng mình thật nhẹ |
+| Q068 | Một đoạn đường đẹp | Không phải chuyện tình nào cũng cần một cái kết ở bên nhau |
+| Q069 | Đà Lạt lạnh | Đà Lạt có một kiểu lạnh rất giống nỗi nhớ |
+| Q070 | Cơn mưa | Có người đến để chữa lành, cũng có người đến để lại một mùa mưa |

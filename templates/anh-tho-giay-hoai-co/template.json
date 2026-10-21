@@ -14,7 +14,8 @@
     "pageName": "TRẠM 1990s",
     "pageTagline": "THƠ & NHỮNG MIỀN KÝ ỨC",
     "showTitle": false,
-    "showAuthor": true
+    "showAuthor": true,
+    "showQuotes": true
   },
   "typography": {
     "fontRegular": "/System/Library/Fonts/Supplemental/Georgia.ttf",
@@ -22,6 +23,7 @@
     "fontBold": "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
     "ink": "#3f3429",
     "mutedInk": "#826d57",
+    "taglineInk": "#624d3e",
     "accent": "#9a604b"
   }
 }

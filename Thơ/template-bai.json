@@ -136,5 +136,137 @@
   "per_page": 1,
   "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
   "tieu_de": "Gửi những người phụ nữ Việt Nam ngày 20/10"
+ },
+ "Q051": {
+  "template": "tho-hoai-co-chay-chu-2-trang",
+  "per_page": 4,
+  "ghi_chu": "8 dòng, 2 trang × 4 dòng",
+  "tieu_de": "Thương vợ"
+ },
+ "Q052": {
+  "template": "tho-hoai-co-chay-chu-nhieu-trang",
+  "per_page": 6,
+  "ghi_chu": "13 dòng, mỗi trang 6 dòng",
+  "tieu_de": "Yêu"
+ },
+ "Q071": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Người ta"
+ },
+ "Q072": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Đời sợ lắm những ngày im tiếng gió"
+ },
+ "Q053": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Đò Lèn"
+ },
+ "Q054": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Có những ngày"
+ },
+ "Q055": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Người đàn bà ngồi đan"
+ },
+ "Q056": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Thơ tình cuối mùa thu"
+ },
+ "Q057": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Tràng giang"
+ },
+ "Q058": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Qua Đèo Ngang"
+ },
+ "Q059": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Tiếng thu"
+ },
+ "Q060": {
+  "template": "tho-hoai-co",
+  "per_page": 4,
+  "ghi_chu": "4 dòng, chữ tĩnh 1 trang",
+  "tieu_de": "Khi ta ở"
+ },
+ "Q061": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Sau này chúng ta"
+ },
+ "Q062": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Gặp lại trong ký ức"
+ },
+ "Q063": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Một phần thanh xuân"
+ },
+ "Q064": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Đúng người"
+ },
+ "Q065": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Một ngày chỉ muốn yên"
+ },
+ "Q066": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Còn yêu chưa đủ"
+ },
+ "Q067": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Bình yên"
+ },
+ "Q068": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Một đoạn đường đẹp"
+ },
+ "Q069": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Đà Lạt lạnh"
+ },
+ "Q070": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
+  "tieu_de": "Cơn mưa"
  }
 }

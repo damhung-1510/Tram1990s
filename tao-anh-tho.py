@@ -60,6 +60,11 @@ def fit_poem_font(draw, lines, path, max_width, max_height):
     return font(path, 56), 85
 
 
+def quote_size(block_height):
+    """Kích thước dấu nháy tăng theo chiều cao khổ thơ, nhưng có giới hạn."""
+    return max(132, min(260, round(block_height * 0.14)))
+
+
 def paper_background(width, height, base_color, seed=1990):
     """Tạo giấy trắng ngà có hạt, sợi giấy và phần rìa cũ rất nhẹ."""
     random.seed(seed)
@@ -115,16 +120,18 @@ def render(poem, title_override=None, output=None):
     ink = rgb(type_cfg["ink"])
     muted = rgb(type_cfg["mutedInk"])
     accent = rgb(type_cfg["accent"])
+    tagline_ink = rgb(type_cfg.get("taglineInk", type_cfg["mutedInk"]))
 
     # Khung giấy và dấu trang tối giản.
     draw.rounded_rectangle((132, 132, width - 132, height - 132), radius=10, outline=(*muted, 88), width=3)
     draw.rounded_rectangle((158, 158, width - 158, height - 158), radius=8, outline=(*muted, 38), width=1)
     brand_font = font(type_cfg["fontBold"], 94)
     tag_font = font(type_cfg["fontRegular"], 34)
-    centered(draw, (width // 2, 340), content_cfg["pageName"], brand_font, accent)
-    centered(draw, (width // 2, 435), content_cfg["pageTagline"], tag_font, muted)
-    draw.line((width // 2 - 150, 510, width // 2 + 150, 510), fill=(*accent, 135), width=3)
-    draw.ellipse((width // 2 - 6, 504, width // 2 + 6, 516), fill=accent)
+    # Đưa nhận diện vào vùng 4:5 trung tâm để vẫn thấy trên Facebook Home.
+    centered(draw, (width // 2, 650), content_cfg["pageName"], brand_font, accent)
+    centered(draw, (width // 2, 745), content_cfg["pageTagline"], tag_font, tagline_ink)
+    draw.line((width // 2 - 150, 820, width // 2 + 150, 820), fill=(*accent, 135), width=3)
+    draw.ellipse((width // 2 - 6, 814, width // 2 + 6, 826), fill=accent)
 
     title = title_override or poem["title"]
     if content_cfg.get("showTitle", True):
@@ -138,16 +145,26 @@ def render(poem, title_override=None, output=None):
         draw, lines, type_cfg["fontRegular"], width - 520, 2050
     )
     block_height = len(lines) * line_height
-    poem_area_top = 700 if not content_cfg.get("showTitle", True) else 1030
-    poem_area_height = 2050 if not content_cfg.get("showTitle", True) else 1760
-    top = poem_area_top + max(0, (poem_area_height - block_height) // 2)
+    # Căn giữa cả cụm dấu nháy + khổ thơ trong khoảng giữa tên page và tác giả.
+    # Khổ thơ vẫn căn trái theo yêu cầu trước đó.
+    content_top = 860 if not content_cfg.get("showTitle", True) else 1150
+    content_bottom = 2640
+    content_center = (content_top + content_bottom) / 2
+    group_offset_from_poem = ((len(lines) - 1.5) * line_height) / 2
+    top = round(content_center - group_offset_from_poem)
+    poem_left = 300
+    if content_cfg.get("showQuotes", True):
+        quote_font = font(type_cfg["fontBold"], round(quote_size(block_height) * 3.0))
+        draw.text((poem_left, top - line_height * 1.0), "“", font=quote_font,
+                  fill=accent, anchor="lm")
     for index, line in enumerate(lines):
-        centered(draw, (width // 2, top + index * line_height), line, poem_font, ink)
+        draw.text((poem_left, top + index * line_height), line, font=poem_font,
+                  fill=ink, anchor="lm")
 
     # Tên tác giả/nguồn nằm riêng để không lẫn vào phần thơ.
     author = poem.get("author") or "Không rõ tác giả"
-    author_font = font(type_cfg["fontItalic"], 47)
-    author_y = 2985
+    author_font = font(type_cfg["fontItalic"], 56)
+    author_y = 2780
     author_text = f"— {author} —"
     centered(draw, (width // 2, author_y), author_text, author_font, muted)
 

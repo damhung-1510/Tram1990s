@@ -6,6 +6,17 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const base = p => p.split('/').pop();
   const isImage = () => S.template === 'anh-tho-giay-hoai-co';
+  const isStillBackground = () => S.template === 'tho-reels-anh-mo';
+  function markVideoDone() {
+    if (isImage() || !S.poem) return;
+    try {
+      if (typeof used === 'object') {
+        used[S.poem] = true;
+        if (typeof save === 'function') save();
+        if (typeof render === 'function') render();
+      }
+    } catch (e) {}
+  }
 
   const style = document.createElement('style');
   style.textContent = `
@@ -41,7 +52,7 @@
    <div class="r"><span>🎬 <b>Thơ:</b> <span id="tvP">chưa chọn</span></span>
      <span id="tvVoiceGroup">🎙 <b>Giọng:</b> <select id="tvV"><option value="">—</option></select></span>
      <span>📄 <b>Template:</b> <select id="tvT"><option value="">—</option></select></span>
-     <span id="tvClipGroup">🎞 <b>Clip:</b> <span class="vl" id="tvC">chưa chọn</span> <button class="tv-pick" id="tvAll">＋ Tất cả clip</button></span></div>
+     <span id="tvClipGroup">🎞 <b id="tvMediaLabel">Clip:</b> <span class="vl" id="tvC">chưa chọn</span> <button class="tv-pick" id="tvAll">＋ Tất cả clip</button></span></div>
    <div class="r"><span id="tvMusicGroup">🎵 <b>Nhạc nền:</b> <select id="tvM"><option value="">— chọn nhạc —</option></select>
        <button class="tv-pick" id="tvMP">▶ nghe nhạc</button>
        <label>nhỏ <input type="range" id="tvVol" min="0.05" max="1.5" step="0.05" value="1"> to</label>
@@ -132,7 +143,7 @@
       return miss;
     }
     if (S.poem && !S.voice) miss.push('giọng đọc');
-    if (!S.videos.length) miss.push('clip');
+    if (!S.videos.length) miss.push(isStillBackground() ? 'ảnh nền' : 'clip');
     if (!S.music) miss.push('nhạc nền');
     return miss;
   }
@@ -157,6 +168,9 @@
     }
     loadInfo();
     const imageMode = isImage();
+    const stillMode = isStillBackground();
+    $('#tvMediaLabel').textContent = stillMode ? 'Ảnh nền:' : 'Clip:';
+    $('#tvAll').textContent = stillMode ? '＋ Chọn ảnh' : '＋ Tất cả clip';
     const miss = ready();
     $('#tvGo').textContent = imageMode ? 'Ghép ảnh' : 'Tạo video';
     $('#pageTitle').textContent = imageMode ? 'Ghép Thơ – Ảnh' : 'Ghép Thơ – Video';
@@ -217,6 +231,7 @@
       const vs = audio[S.poem] || [];
       S.voice = (vs.find(v => v.hook) || vs[0] || {}).file || '';
     } else if (t.classList.contains('tv-cb')) {
+      if (isStillBackground()) { S.note = 'Template Ảnh Mờ: bấm “Chọn ảnh” để chọn một ảnh nền.'; refresh(); return; }
       const i = S.videos.indexOf(t.dataset.path);
       if (i >= 0) S.videos.splice(i, 1); else S.videos.push(t.dataset.path);
     } else if (t.dataset.tvrm !== undefined) S.videos.splice(+t.dataset.tvrm, 1);
@@ -225,7 +240,9 @@
 
   $('#tvV').onchange = e => { S.voice = e.target.value; refresh(); };
   $('#tvT').onchange = e => {
+    const wasStill = isStillBackground();
     S.template = e.target.value;
+    if (wasStill !== isStillBackground()) S.videos = [];
     const chosen = templates.find(t => t.template === S.template);
     const suggested = templates.find(t => t.template === S.suggestedTemplate);
     S.note = S.template === S.suggestedTemplate
@@ -267,6 +284,7 @@
         msg.textContent = `${s.message || ''} ${s.pct || 0}%`;
         if (s.status === 'done') {
           const folder = isImage() ? 'Anh_completed' : 'Vid_completed';
+          markVideoDone();
           S.note = `✅ Xong: <a href="/${encodeURI(s.output)}" target="_blank">${esc(s.output)}</a> (đã lưu trong thư mục ${folder})`;
           break;
         }
@@ -280,27 +298,32 @@
   let allClips = null, folderSel = '', qSel = '';
   const modal = document.createElement('div');
   modal.id = 'tvM2';
-  modal.innerHTML = `<div class="box"><div class="top"><b>🎞 Chọn clip từ tất cả thư mục</b>
+  modal.innerHTML = `<div class="box"><div class="top"><b id="tvPickerTitle">🎞 Chọn clip từ tất cả thư mục</b>
       <select id="tvF"></select><input id="tvQ" type="search" placeholder="Tìm tên clip…" style="flex:1;min-width:140px">
       <span id="tvN" style="color:var(--mut)"></span><button class="tv-pick" id="tvDone">Xong</button></div>
     <div class="grid" id="tvG"></div></div>`;
   document.body.appendChild(modal);
   function drawGrid() {
     if (!allClips) return;
-    const q = qSel.toLowerCase(), items = [];
+    const q = qSel.toLowerCase(), items = [], wanted = isStillBackground() ? 'image' : 'video';
     for (const [f, L] of Object.entries(allClips)) if (!folderSel || f === folderSel)
-      for (const c of L) if (!q || c.name.toLowerCase().includes(q)) items.push(c);
-    $('#tvN').textContent = `${items.length} clip · đã chọn ${S.videos.length}`;
+      for (const c of L) if (c.kind === wanted && (!q || c.name.toLowerCase().includes(q))) items.push(c);
+    $('#tvN').textContent = `${items.length} ${wanted === 'image' ? 'ảnh' : 'clip'} · đã chọn ${S.videos.length}`;
     $('#tvG').innerHTML = items.map(c => `<div class="it${S.videos.includes(c.file) ? ' on' : ''}" data-file="${esc(c.file)}">
       <img loading="lazy" src="/api/thumb?path=${encodeURIComponent(c.file)}" alt=""><i>${S.videos.includes(c.file) ? '☑ ' + (S.videos.indexOf(c.file) + 1) : '☐'}</i>
       <a href="/${encodeURI(c.file)}" target="_blank" data-tvprev title="Xem clip">▶</a><div class="nm" title="${esc(c.name)}">${esc(c.name)}</div></div>`).join('');
   }
   $('#tvAll').onclick = async () => {
     modal.style.display = 'flex';
-    if (!allClips) {
-      allClips = await (await fetch('/api/clips')).json();
-      $('#tvF').innerHTML = '<option value="">Tất cả thư mục</option>' + Object.entries(allClips).map(([f, L]) => `<option value="${esc(f)}">${esc(f)} (${L.length})</option>`).join('');
-    }
+    // Quét lại mỗi lần mở để clip vừa tải vào Videos/ hiện ngay.
+    allClips = await (await fetch('/api/clips?refresh=' + Date.now())).json();
+    const wanted = isStillBackground() ? 'image' : 'video';
+    $('#tvPickerTitle').textContent = wanted === 'image' ? '🖼 Chọn một ảnh nền' : '🎞 Chọn clip từ tất cả thư mục';
+    $('#tvQ').placeholder = wanted === 'image' ? 'Tìm tên ảnh…' : 'Tìm tên clip…';
+    const folders = Object.entries(allClips).map(([f, L]) => [f, L.filter(c => c.kind === wanted)]).filter(([, L]) => L.length);
+    if (!folders.some(([f]) => f === folderSel)) folderSel = '';
+    $('#tvF').innerHTML = '<option value="">Tất cả thư mục</option>' + folders.map(([f, L]) => `<option value="${esc(f)}">${esc(f)} (${L.length})</option>`).join('');
+    $('#tvF').value = folderSel;
     drawGrid();
   };
   $('#tvF').onchange = e => { folderSel = e.target.value; drawGrid(); };
@@ -311,7 +334,8 @@
     if (e.target.closest('[data-tvprev]')) return;            // ▶ mở clip ở tab mới
     const it = e.target.closest('.it'); if (!it) return;
     const f = it.dataset.file, i = S.videos.indexOf(f);
-    if (i >= 0) S.videos.splice(i, 1); else S.videos.push(f);
+    if (isStillBackground()) S.videos = i >= 0 ? [] : [f];
+    else if (i >= 0) S.videos.splice(i, 1); else S.videos.push(f);
     S.note = ''; refresh(); drawGrid();
   });
 

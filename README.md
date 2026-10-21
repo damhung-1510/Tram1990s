@@ -69,6 +69,9 @@ Mở **http://127.0.0.1:8787/** (phải mở qua địa chỉ này, mở file HT
 4. Chọn **Nhạc nền** trong hộp chọn (có nút nghe thử, chỉnh to nhỏ).
 5. Đủ bốn thứ thì nút **Tạo video** sáng lên. Bấm rồi chờ khoảng 1–2 phút. Link mở video hiện khi xong.
 
+Template **Thơ Reels · Đọc Nhanh** dành cho thử nghiệm giữ chân: tự hiện câu mở đầu ngay,
+chia thơ thành 4 dòng/trang, căn trái trong vùng an toàn và chỉ hiện tên bài–tác giả ở đoạn kết.
+
 **Cách B, dòng lệnh** (không cần mở trang):
 ```bash
 python3 tao_video.py --make Q044 \
@@ -97,7 +100,7 @@ python3 tao-anh-tho.py --id Q038 --title "Vầng trăng ai xẻ làm đôi"
 
 Ảnh được lưu trong `Anh_completed/`. Template nằm ở `templates/anh-tho-giay-hoai-co/template.json`.
 
-Âm lượng nhạc nền tự cân theo giọng đọc: mỗi lần tạo video, script đo độ lớn (LUFS) của giọng và của bài nhạc rồi hạ nhạc xuống thấp hơn giọng khoảng **22 dB**, nên bài nhạc nào cũng vừa. Thanh to/nhỏ trong giao diện (và `--music-volume` ở dòng lệnh) chỉ chỉnh thêm quanh mức đó (1,0 = mặc định). Muốn nhạc nhỏ hơn hoặc to hơn cho mọi video: `MUSIC_BELOW_DB=26 python3 tao_video.py` (số lớn = nhạc nhỏ hơn).
+Âm lượng nhạc nền tự cân theo giọng đọc: mỗi lần tạo video, script đo độ lớn (LUFS) của giọng và của bài nhạc rồi hạ nhạc xuống thấp hơn giọng khoảng **20 dB** (đã tăng 2 dB so với trước), nên bài nhạc nào cũng vừa. Thanh to/nhỏ trong giao diện (và `--music-volume` ở dòng lệnh) chỉ chỉnh thêm quanh mức đó (1,0 = mặc định). Muốn nhạc nhỏ hơn hoặc to hơn cho mọi video: `MUSIC_BELOW_DB=26 python3 tao_video.py` (số lớn = nhạc nhỏ hơn).
 
 Quy tắc thời lượng: video dài **0,5 giây + giọng đọc + 3 giây**. Giọng đọc bắt đầu ở giây 0,5, nhạc và clip bị cắt đúng mốc này (nhạc ngắn thì lặp lại, clip ngắn thì chạy chậm). Tên bài, tên tác giả (hoặc "Thơ dân gian", "Trích dẫn dân gian", "Không rõ", "Tự biên") và chữ chạy theo giọng đều tự điền vào template.
 
@@ -142,7 +145,7 @@ Mỗi bài trong file JSON gồm: `id, title, kind, author, text, hook, mood, vo
 
 ## Giới hạn cần biết
 
-- Bài thêm hoặc xóa bằng `quan-ly-bai.py` hiện ngay trong trang. Clip mới thêm vào `Videos/` thì chọn được trong giao diện bằng nút **＋ Tất cả clip** (tự quét thư mục), hoặc bằng cách B (`--videos`).
+- Bài thêm hoặc xóa bằng `quan-ly-bai.py` hiện ngay trong trang. Clip mới tải vào `Videos/` sẽ mặc định được quét lại và hiện trong giao diện mỗi lần mở nút **＋ Tất cả clip** (không cần cập nhật danh sách thủ công), hoặc có thể truyền trực tiếp bằng cách B (`--videos`).
 - Nhạc trong các thư mục con được máy chủ tự quét. Sau khi thêm hoặc cắt nhạc trong `Nhạc nền/Piano radio 40s/`, chạy `python3 cap-nhat-nhac.py` để đồng bộ tab Nhạc nền trong `GHEP_THO_VIDEO.html`.
 - Đã thử trọn luồng trên một máy macOS (Apple M1). Chưa kiểm tra trên máy khác hoặc Windows.
 

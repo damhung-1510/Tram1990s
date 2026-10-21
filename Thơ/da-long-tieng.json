@@ -89,5 +89,19 @@
   "chars": 941,
   "file": "Long-tieng/elevenlabs/K13_Gui-nhung-nguoi-phu-nu-Viet-Nam-ngay-20-.mp3",
   "date": "2026-10-20"
+ },
+ "Q052": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 763,
+  "file": "Long-tieng/elevenlabs/Q052_Yeu.mp3",
+  "date": "2026-10-21"
+ },
+ "Q051": {
+  "voice_id": "qn4pQo7kIjvZ1a7SowZE",
+  "model": "eleven_v4",
+  "chars": 429,
+  "file": "Long-tieng/elevenlabs/Q051_Thuong-vo.mp3",
+  "date": "2026-10-21"
  }
 }

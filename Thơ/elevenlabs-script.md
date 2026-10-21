@@ -282,3 +282,236 @@ Bạn cũng có quyền mệt mỏi, có quyền nghỉ ngơi và có quyền l�
 Nhân ngày Phụ nữ Việt Nam 20 tháng 10, chúc bạn luôn giữ được sự dịu dàng trong trái tim, sự kiên định trong từng bước chân và lòng tin vào những điều tốt đẹp phía trước. [pause]
 Mong bạn được yêu thương thật nhiều. Và hơn hết, mong bạn đừng bao giờ quên yêu thương chính mình.
 ```
+
+## Q051. Thương vợ    ✅ ĐÃ LỒNG TIẾNG (2026-10-21)
+Giọng: Nam
+```
+[softly] Có một người vợ tảo tần, đi qua bao nắng mưa mà chẳng một lời than. Tú Xương thương vợ mình như thế này. [long pause]
+Quanh năm buôn bán ở mom sông, [pause]
+Nuôi đủ năm con với một chồng. [pause]
+Lặn lội thân cò khi quãng vắng, [pause]
+Eo sèo mặt nước buổi đò đông. [pause]
+Một duyên hai nợ âu đành phận, [pause]
+Năm nắng mười mưa dám quản công. [pause]
+Cha mẹ thói đời ăn ở bạc, [pause]
+Có chồng hờ hững cũng như không.
+```
+
+## Q052. Yêu    ✅ ĐÃ LỒNG TIẾNG (2026-10-21)
+Giọng: Nữ
+```
+[softly] Có những tình yêu cho đi rất nhiều, nhưng chẳng biết mình có được yêu lại hay không. [long pause]
+Yêu, [short pause] là chết ở trong lòng một ít, [pause]
+Vì mấy khi yêu mà chắc được yêu? [pause]
+Cho rất nhiều, [short pause] song nhận chẳng bao nhiêu, [pause]
+Người ta phụ, [short pause] hoặc thờ ơ, [short pause] chẳng biết. [long pause]
+Phút gần gũi cũng như giờ chia biệt, [pause]
+Tưởng trăng tàn, [short pause] hoa tạ với hồn tiêu, [pause]
+Vì mấy khi yêu mà chắc được yêu. [pause]
+Yêu, [short pause] là chết ở trong lòng một ít. [long pause]
+Họ lạc lối giữa u sầu mù mịt, [pause]
+Những người si theo dõi dấu chân yêu, [pause]
+Và cảnh đời là sa mạc cô liêu. [pause]
+Và tình ái là sợi dây vấn vít. [pause]
+Yêu, [short pause] là chết ở trong lòng một ít.
+```
+
+## Q071. Người ta  
+Giọng: Nữ
+```
+[softly] Có những lúc mình chỉ muốn được sống thật với lòng mình. [long pause]
+Những hoang mang không nói được cùng thật thà. [pause]
+Có những ngày lòng mình đầy câu hỏi. [pause]
+Ta muốn bình yên nhưng lại sợ im lặng. [pause]
+Nên cứ bước đi, [short pause] dù chưa biết về đâu.
+```
+
+## Q072. Đời sợ lắm những ngày im tiếng gió  
+Giọng: Nữ
+```
+[softly] Có những ngày bình yên đến mức nghe rõ cả nỗi buồn. [long pause]
+Đời sợ lắm những ngày im tiếng gió. [pause]
+Sợ căn phòng không còn ai hỏi han. [pause]
+Sợ bình minh đi qua ô cửa nhỏ. [pause]
+Mà trong lòng vẫn chưa kịp sang trang.
+```
+
+## Q053. Đò Lèn  
+Giọng: Nữ
+```
+[softly] Có những yêu thương, đến khi hiểu ra thì đã muộn. [long pause]
+Tôi nhớ một người bà đi qua tuổi nhỏ, [pause]
+Gánh cả nhọc nhằn lặng lẽ trên vai. [pause]
+Đến lúc lớn mới hiểu điều đã mất, [pause]
+Thương một đời người mà chẳng nói thành lời.
+```
+
+## Q054. Có những ngày  
+Giọng: Nữ
+```
+[softly] Có những ngày người ta chỉ muốn trở về nhà. [long pause]
+Có những ngày chỉ muốn về quê, [pause]
+Nghe gió đi qua hàng song cửa. [pause]
+Không cần ai hỏi mình đang mệt mỏi, [pause]
+Chỉ cần một mái nhà và bữa cơm xưa.
+```
+
+## Q055. Người đàn bà ngồi đan  
+Giọng: Nữ
+```
+[softly] Có những bình yên được làm nên từ những điều rất nhỏ. [long pause]
+Người đàn bà ngồi đan bên cửa sổ, [pause]
+Mỗi mũi len gom một chút bình yên. [pause]
+Ngoài kia gió vẫn đi qua rất vội, [pause]
+Trong căn nhà, [short pause] thời gian bỗng dịu hiền.
+```
+
+## Q056. Thơ tình cuối mùa thu  
+Giọng: Nữ
+```
+[softly] Mùa thu thường khiến người ta nhớ một người. [long pause]
+Cuối trời mây trắng bay. [pause]
+Lá vàng thưa thớt quá. [pause]
+Mình ngồi nghe gió chạm hiên nhà, [pause]
+Nhớ một người xa đến thiết tha.
+```
+
+## Q057. Tràng giang  
+Giọng: Nam
+```
+[softly] Có những buổi chiều chỉ cần nhìn dòng nước là thấy lòng mình. [long pause]
+Sóng gợn tràng giang buồn điệp điệp. [pause]
+Con thuyền xuôi mái nước song song. [pause]
+Chiều rơi xuống giữa đôi bờ vắng, [pause]
+Một nỗi riêng trôi mãi giữa dòng.
+```
+
+## Q058. Qua Đèo Ngang  
+Giọng: Nữ
+```
+[softly] Một khung cảnh đẹp đôi khi lại làm nỗi nhớ rõ hơn. [long pause]
+Bước tới Đèo Ngang bóng xế tà. [pause]
+Cỏ cây chen đá, [short pause] lá chen hoa. [pause]
+Một mình đứng lại bên sườn núi, [pause]
+Nghe bóng chiều rơi xuống mái nhà.
+```
+
+## Q059. Tiếng thu  
+Giọng: Nam
+```
+[softly] Mùa thu không chỉ có lá vàng, còn có những điều chưa nói. [long pause]
+Em không nghe mùa thu. [pause]
+Dưới trăng mờ thổn thức? [pause]
+Lá rơi đầy trên lối cũ, [pause]
+Ai đứng chờ ai giữa heo may?
+```
+
+## Q060. Khi ta ở  
+Giọng: Nam
+```
+[softly] Có những nơi chỉ khi rời xa ta mới biết mình thương đến thế nào. [long pause]
+Khi ta ở, [short pause] chỉ là nơi đất ở. [pause]
+Khi ta đi, [short pause] đất đã hóa tâm hồn. [pause]
+Một miền xa bỗng thành thương nhớ, [pause]
+Một con đường hóa tiếng gọi trong tim.
+```
+
+## Q061. Sau này chúng ta  
+Giọng: Nữ
+```
+[softly] Có những cuộc chia tay không cần ai nói lời tạm biệt. [long pause]
+Sau này chúng ta cái gì cũng có, [short pause] chỉ là không có chúng ta. [pause]
+Có thể vẫn đi qua những con đường cũ, [pause]
+Vẫn nghe bài hát từng nghe cùng nhau, [pause]
+Chỉ là chẳng còn ai quay sang mỉm cười.
+```
+
+## Q062. Gặp lại trong ký ức  
+Giọng: Nữ
+```
+[softly] Không phải cuộc gặp nào cũng nên có lần thứ hai. [long pause]
+Có những người chỉ nên gặp trong ký ức, [short pause] không nên gặp lại trong đời. [pause]
+Không phải vì họ xấu, [short pause] cũng chẳng phải vì ta hận. [pause]
+Chỉ là sau rất nhiều lần tổn thương, [pause]
+Bình yên đôi khi cần một cánh cửa khép lại.
+```
+
+## Q063. Một phần thanh xuân  
+Giọng: Nữ
+```
+[softly] Có những người rời đi nhưng ký ức thì ở lại. [long pause]
+Người rời đi thường mang theo cả một phần thanh xuân của người ở lại. [pause]
+Họ mang theo những buổi chiều ta từng chờ đợi, [pause]
+những câu chuyện chẳng bao giờ kể hết, [pause]
+và một phiên bản rất dịu dàng của chính ta.
+```
+
+## Q064. Đúng người  
+Giọng: Nữ
+```
+[softly] Bình yên trong tình yêu đôi khi rất dễ nhận ra. [long pause]
+Đúng người thì im lặng cũng thấy bình yên. [pause]
+Sai người thì nói gì cũng thành tổn thương. [pause]
+Tình yêu không làm ta phải đoán mãi, [pause]
+không bắt ta xin một chút dịu dàng.
+```
+
+## Q065. Một ngày chỉ muốn yên  
+Giọng: Nữ
+```
+[softly] Nếu hôm nay bạn mệt, hãy cho mình một ngày được nghỉ. [long pause]
+Có những ngày chẳng muốn đi đâu, [short pause] chỉ muốn ngồi yên để lòng mình tự nguôi. [pause]
+Không cần phải mạnh mẽ trước tất cả mọi người. [pause]
+Một tách trà, [short pause] một ô cửa, [short pause] một buổi chiều chậm, [pause]
+đôi khi cũng đủ cứu mình khỏi một ngày dài.
+```
+
+## Q066. Còn yêu chưa đủ  
+Giọng: Nữ
+```
+[softly] Có những điều tình yêu cũng không thể giữ lại. [long pause]
+Mình từng nghĩ chỉ cần còn yêu là đủ. [pause]
+Sau này mới hiểu, [short pause] còn yêu không có nghĩa là còn thuộc về nhau. [pause]
+Có những người ta thương bằng tất cả dịu dàng, [pause]
+nhưng chỉ có thể tiễn nhau về hai phía.
+```
+
+## Q067. Bình yên  
+Giọng: Nữ
+```
+[softly] Sau cùng, điều ai cũng cần là một lòng mình thật nhẹ. [long pause]
+Bình yên không phải là không có chuyện gì xảy ra. [pause]
+Bình yên là sau tất cả, [short pause] lòng mình vẫn nhẹ nhàng. [pause]
+Là không còn muốn thắng trong mọi cuộc tranh luận, [pause]
+và biết thương mình trước khi chờ người khác thương.
+```
+
+## Q068. Một đoạn đường đẹp  
+Giọng: Nữ
+```
+[softly] Không phải chuyện tình nào cũng cần một cái kết ở bên nhau. [long pause]
+Nếu đã không thể cùng nhau đi đến cuối con đường, [pause]
+mong chúng ta từng là một đoạn đường đẹp của nhau. [pause]
+Đừng biến những ngày vui thành lý do để oán trách, [pause]
+có người đi qua đời ta chỉ để dạy ta biết yêu.
+```
+
+## Q069. Đà Lạt lạnh  
+Giọng: Nữ
+```
+[softly] Đà Lạt có một kiểu lạnh rất giống nỗi nhớ. [long pause]
+Đà Lạt lạnh vì sương, [short pause] lòng người lạnh vì điều chưa nói. [pause]
+Có những buổi chiều mây trôi rất thấp, [pause]
+ta ngồi bên cửa kính nhìn thành phố lên đèn, [pause]
+và nhớ một người chẳng biết mình đang nhớ.
+```
+
+## Q070. Cơn mưa  
+Giọng: Nữ
+```
+[softly] Có người đến để chữa lành, cũng có người đến để lại một mùa mưa. [long pause]
+Có người đến như một cơn mưa, [short pause] làm dịu cả mùa hè. [pause]
+Có người đi như cơn mưa, [short pause] để lại một khoảng trời buốt lạnh. [pause]
+Sau cùng, [short pause] ta học cách yêu những ngày nắng, [pause]
+và không trách mùa mưa vì đã từng ghé qua.
+```

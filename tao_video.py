@@ -7,7 +7,7 @@
 Mỗi video: dựng template "Hoài Cổ - Mở Mờ" (tao-template-hoai-co.py) với dòng thơ chạy theo giọng đọc,
 tên tác giả, clip đã chọn, giọng đọc + nhạc nền, rồi xuất bằng concat-cli vào Vid_completed/.
 """
-import argparse, importlib.util, json, math, mimetypes, os, re, shutil, subprocess, sys, tempfile
+import argparse, importlib.util, json, math, mimetypes, os, re, shutil, subprocess, sys, tempfile, textwrap
 import threading, time, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -31,8 +31,9 @@ _APP_TEMPLATES = Path.home() / "Library" / "Application Support" / "app.concat.e
 TEMPLATES = ROOT / "templates" if (ROOT / "templates").is_dir() else _APP_TEMPLATES   # template đi kèm dự án
 USE_EDITED = False        # templates của bạn đã có màu/mờ, nên dùng clip gốc; đặt True để ưu tiên clip *_edited
 
-MUSIC_BELOW_VOICE_DB = float(os.environ.get("MUSIC_BELOW_DB", 22))   # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB
-LEAD, TAIL = 0.5, 3.0     # giọng đọc bắt đầu sau 0.5s; video kết thúc 3s sau khi giọng đọc xong
+MUSIC_BELOW_VOICE_DB = float(os.environ.get("MUSIC_BELOW_DB", 20))   # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB (+2 dB so với trước)
+LEAD, TAIL = 0.5, 3.0     # giọng đọc bắt đầu sau 0.5s; template thường kết thúc 3s sau giọng đọc
+REELS_TAIL = 4.0           # Reels dành 4s cho phần kết tên bài + tác giả
 _dur_cache = {}
 _music_cache_lock = threading.Lock()
 _music_cache_sig = None
@@ -108,13 +109,21 @@ def list_audio():
 
 
 def list_clips():
-    """{thư mục: [{file, name}]} — mọi clip dọc trong Videos/ (bỏ Ban_goc và bản _edited)."""
+    """Video và ảnh nền có thể chọn trong cửa sổ media."""
     out = {}
     for f in sorted((ROOT / "Videos").rglob("*.mp4")):
         if "Ban_goc" in f.parts or f.stem.endswith("_edited") or f.name.startswith("."):
             continue
-        out.setdefault(str(f.parent.relative_to(ROOT / "Videos")), []).append(
-            dict(file=str(f.relative_to(ROOT)), name=f.stem.replace("TramCamXuc_", "")))
+        out.setdefault("Video / " + str(f.parent.relative_to(ROOT / "Videos")), []).append(
+            dict(file=str(f.relative_to(ROOT)), name=f.stem.replace("TramCamXuc_", ""), kind="video"))
+    image_root = ROOT / "Ảnh nền"
+    for ext in ("*.jpg", "*.jpeg", "*.png", "*.webp"):
+        for f in sorted(image_root.rglob(ext)):
+            if f.name.startswith("."):
+                continue
+            folder = str(f.parent.relative_to(image_root))
+            out.setdefault("Ảnh nền" + (" / " + folder if folder != "." else ""), []).append(
+                dict(file=str(f.relative_to(ROOT)), name=f.stem, kind="image"))
     return out
 
 
@@ -124,8 +133,11 @@ THUMBS = ROOT / ".thumbs"
 def thumb(rel):
     """Ảnh xem trước (JPEG, tạo một lần rồi lưu cache) hoặc None."""
     f = (ROOT / rel).resolve()
-    if (ROOT / "Videos") not in f.parents or not f.is_file():
+    allowed = (ROOT / "Videos") in f.parents or (ROOT / "Ảnh nền") in f.parents
+    if not allowed or not f.is_file():
         return None
+    if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"):
+        return f
     THUMBS.mkdir(exist_ok=True)
     out = THUMBS / (hashlib.md5(str(f).encode()).hexdigest() + ".jpg")
     if not out.exists():
@@ -293,13 +305,51 @@ def poem_lines(p):
     return [x.strip() for x in p["text"].split("\n") if x.strip()]
 
 
+def reels_hook_text(hook):
+    """Chia câu mở đầu thành tối đa bốn dòng ngắn, dễ đọc trên điện thoại."""
+    return "\n".join(textwrap.wrap(hook.strip(), width=31, break_long_words=False,
+                                    break_on_hyphens=False)[:4])
+
+
+def reels_chunk_sizes(n):
+    """Chia thơ thành các khổ 4–5 câu, cân đối nhất có thể."""
+    if n <= 0:
+        return []
+    groups = max(1, round(n / 4.5))
+    while groups > 1 and n / groups < 4:
+        groups -= 1
+    base, extra = divmod(n, groups)
+    return [base + (1 if i < extra else 0) for i in range(groups)]
+
+
+def reels_reveal_pages(lines, starts, finish):
+    """Reveal words cumulatively; adjacent states share exactly one boundary."""
+    pages = []
+    cursor = 0
+    for count in reels_chunk_sizes(len(lines)):
+        end = cursor + count
+        for row in range(cursor, end):
+            words = lines[row].split()
+            row_end = starts[row + 1] if row + 1 < len(lines) else finish
+            for i in range(len(words)):
+                begin = starts[row] + (row_end - starts[row]) * i / len(words)
+                stop = starts[row] + (row_end - starts[row]) * (i + 1) / len(words)
+                text = "\n".join(lines[cursor:row] + [" ".join(words[:i + 1])])
+                pages.append((text, begin, stop - begin))
+        cursor = end
+    return pages
+
+
 TEMPLATE_KEYS = ROOT / "Thơ" / "template-bai.json"      # khóa template gắn vào từng bài (sửa tay được)
 LABELS = {"tho-hoai-co": "Thơ Hoài Cổ", "trich-dan-khong-chu": "Trích Dẫn Không Chữ",
           "trich-dan": "Trích dẫn",
+          "tho-reels-doc-nhanh": "Thơ Reels · Đọc Nhanh",
+          "tho-reels-anh-mo": "Thơ Reels · Ảnh Mờ",
           "tho-hoai-co-chay-chu-2-trang": "Thơ Hoài Cổ Chạy Chữ 2 Trang",
           "tho-hoai-co-chay-chu-nhieu-trang": "Thơ Hoài Cổ Chạy Chữ Nhiều Trang",
           "anh-tho-giay-hoai-co": "Ảnh Thơ Giấy Hoài Cổ · PNG 4K"}
 IMAGE_TEMPLATE = "anh-tho-giay-hoai-co"
+STILL_BG_TEMPLATE = "tho-reels-anh-mo"
 
 
 def auto_template(p):
@@ -336,6 +386,8 @@ def template_per_page(name, p):
         return max(1, math.ceil(n / 2))
     if name == "tho-hoai-co-chay-chu-nhieu-trang":
         return 6
+    if name in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE):
+        return 4
     return 1
 
 
@@ -359,6 +411,136 @@ CLIP_DEFAULTS = dict(sourceStart=0.0, volume=1.0, fadeIn=0.0, fadeOut=0.0, scale
                      rotation=0.0, opacity=1.0, speed=1.0, preservePitch=True, filters=[], videoEffects=[])
 
 
+def layout_hoai_co(doc, clips):
+    """Fit original verse lines, then reserve real space above and below them.
+
+    Use one size/position for all pages so labels do not jump between stanzas.
+    Font sizes and Y positions are fractions of frame height, widths of width.
+    """
+    from PIL import ImageFont
+
+    poems = [c for c in clips if c.get("trackId") == "T2" and c.get("kind") == "text"]
+    if not poems:
+        return
+    width, height = doc["video"]["width"], doc["video"]["height"]
+    fonts = Path("/System/Library/Fonts/Supplemental")
+
+    def metrics(c):
+        style = c["text"]
+        variant = (" Bold" if style.get("fontWeight", 400) >= 600 else "")
+        variant += " Italic" if style.get("italic") else ""
+        font = ImageFont.truetype(str(fonts / f"Georgia{variant}.ttf"), 1000)
+        lines = style["content"].splitlines() or [""]
+        # Match Concat: (rows - 1) * pitch + ascent + descent.
+        unit_height = ((len(lines) - 1) * style.get("lineHeight", 1.2)
+                       + sum(font.getmetrics()) / 1000)
+        unit_width = max(font.getlength(line) / 1000 for line in lines)
+        return unit_width, unit_height
+
+    # Leave room for the brand/rule above and two footer labels below.
+    top = max([0.22] + [0.5 + c.get("offsetY", 0) + 0.035
+                       for c in clips if c.get("trackId") == "T1"
+                       or c.get("name") == "page rule"])
+    size = min(c["text"]["fontSize"] for c in poems)
+    measurements = [metrics(c) for c in poems]
+    for c, (unit_w, unit_h) in zip(poems, measurements):
+        scale = c.get("scale", 1.0)
+        # A little extra horizontal room protects italic overhangs/rounding.
+        size = min(size, 0.92 * width / height * 0.96 / max(unit_w * scale, 0.001),
+                   (0.82 - top) / (unit_h * scale))
+    if size < 0.005:
+        raise ValueError("Bài thơ quá dài cho một trang; hãy chọn template chia nhiều trang.")
+    block_height = max(unit_h * size * c.get("scale", 1.0)
+                       for c, (_, unit_h) in zip(poems, measurements))
+    center = max(0.45, top + block_height / 2)
+    for c in poems:
+        c["text"].update(maxWidth=0.92, fontSize=size)
+        c["offsetY"] = center - 0.5
+
+    bottom = center + block_height / 2
+    for track, gap in (("T3", 0.025), ("T3.2", 0.012)):
+        labels = [c for c in clips if c.get("trackId") == track and c.get("kind") == "text"]
+        for c in labels:
+            _, unit_h = metrics(c)
+            half = unit_h * c["text"]["fontSize"] * c.get("scale", 1.0) / 2
+            y = max(0.5 + c.get("offsetY", 0), bottom + gap + half)
+            c["offsetY"] = y - 0.5
+            bottom = y + half
+
+
+def layout_reels_doc_nhanh(doc, clips, total, page_items):
+    """Giữ từng dòng thơ trên một dòng và dành đoạn kết riêng cho tên bài."""
+    from PIL import ImageFont
+
+    poems = [c for c in clips if c.get("trackId") == "T2" and c.get("kind") == "text"]
+    if not poems:
+        return
+    width, height = doc["video"]["width"], doc["video"]["height"]
+    font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia.ttf", 1000)
+    hook_pages = [c for c in poems if float(c.get("start", 1.0)) < 0.5]
+    verse_pages = [c for c in poems if c not in hook_pages]
+    line_units = [[font.getlength(line) / 1000 for line in c["text"]["content"].splitlines()]
+                  for c in verse_pages]
+    max_units = max((units for page in line_units for units in page), default=1.0)
+    # Reels: chữ thơ nhỏ hơn 1,5 lần, nằm trong khổ gần full màn hình và căn trái.
+    size = min(0.025, 0.94 * width / height * 0.97 / max(max_units, 0.001))
+
+    def wrap_to_width(text, max_px):
+        """Bẻ các câu quá dài theo pixel để Concat không cắt ở mép phải."""
+        result = []
+        for raw in text.splitlines():
+            words = raw.split()
+            if not words:
+                result.append("")
+                continue
+            line = words[0]
+            for word in words[1:]:
+                candidate = f"{line} {word}"
+                if font.getlength(candidate) / 1000 * size * height <= max_px:
+                    line = candidate
+                else:
+                    result.append(line)
+                    line = word
+            result.append(line)
+        return "\n".join(result)
+
+    for c in verse_pages:
+        c["text"]["content"] = wrap_to_width(c["text"]["content"], 0.94 * width)
+        c["text"].update(fontSize=size, maxWidth=0.94, align="left", italic=False,
+                         lineHeight=1.38)
+        c.update(offsetX=-0.39, offsetY=-0.06)
+        # Keep the first line at a fixed height as each new line is added.
+        rows = len(c["text"]["content"].splitlines())
+        c["offsetY"] += (rows - 1) * size * 1.38 / 2
+
+    for c in hook_pages:
+        # Mở đầu dùng cùng cỡ chữ với phần thơ và khổ rộng hơn trước.
+        c["text"]["content"] = wrap_to_width(c["text"]["content"], 0.94 * width)
+        c["text"].update(fontSize=size, maxWidth=0.94, align="left", italic=False,
+                         lineHeight=1.38)
+        c.update(offsetX=-0.39, offsetY=-0.06)
+
+    # Tên bài và tác giả cũng dùng đúng cỡ chữ của phần thơ.
+    for c in clips:
+        if c.get("trackId") in ("T3", "T3.2") and c.get("kind") == "text":
+            c["text"]["content"] = wrap_to_width(c["text"]["content"], 0.94 * width)
+            c["text"].update(fontSize=size, maxWidth=0.94)
+
+    page_end = max((start + dur for _, start, dur in page_items), default=total - 2.7)
+    outro_start = min(max(page_end + 0.12, total - REELS_TAIL), total - 1.1)
+    # The ending card is the final four-second block; the fade overlay still
+    # softens its last second without shortening the author display.
+    outro_end = max(outro_start + 0.8, total)
+    for c in clips:
+        if c.get("trackId") == "T3":
+            c.update(start=round(outro_start, 3), duration=round(outro_end - outro_start, 3),
+                     offsetY=-0.015)
+        elif c.get("trackId") == "T3.2":
+            author_start = outro_start
+            c.update(start=round(author_start, 3), duration=round(outro_end - author_start, 3),
+                     offsetY=0.04)
+
+
 def build_from_template(tdir, total, slots, pages, title, author, audio):
     """slots: [(duration, speed)]; pages: [(text, start, duration)]; audio: [dict(path,name,duration,lane,start,dur,volume,fade_in,fade_out)]."""
     doc = json.load(open(Path(tdir) / "template.json", encoding="utf-8"))
@@ -369,15 +551,16 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
     def nid():
         n[0] += 1; return f"x{n[0]}"
     protos = {c["id"]: c for c in clips}
-    bg0 = next(c for c in clips if c["trackId"] == "BG" and c["kind"] == "video")
-    fg0 = next(c for c in clips if c["trackId"] == "FG" and c["kind"] == "video")
+    visual_kinds = ("video", "image")
+    bg0 = next(c for c in clips if c["trackId"] == "BG" and c["kind"] in visual_kinds)
+    fg0 = next(c for c in clips if c["trackId"] == "FG" and c["kind"] in visual_kinds)
     page0 = next((c for c in clips if c["trackId"] == "T2" and c["kind"] == "text"), None)
     media0 = doc["media"][0]
     extra_media = list(doc["media"][1:])        # ô media khác ngoài clip video
     extra_fills = {}
     keep = []
     for c in clips:
-        if c["trackId"] in ("BG", "FG") and c["kind"] == "video" or (c["trackId"] == "T2" and c["kind"] == "text"):
+        if c["trackId"] in ("BG", "FG") and c["kind"] in visual_kinds or (c["trackId"] == "T2" and c["kind"] == "text"):
             continue
         if c["name"] == "fade out":
             c["start"] = round(total - c["duration"], 3)
@@ -401,9 +584,33 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
             keep.append(c)
         t += seg
     doc["media"].extend(extra_media)
-    for txt, start, dur in (pages if page0 else []):
+    page_items = list(pages if page0 else [])
+    # Chữ bài thơ phải nằm đúng trong cùng khung thời gian với tên page
+    # (track T1: “TRẠM 1990s”) ở các template Thơ Hoài Cổ.
+    if page_items and page0 and Path(tdir).name.startswith("tho-hoai-co"):
+        page_name = next((c for c in keep if c.get("trackId") == "T1" and c.get("kind") == "text"), None)
+        if page_name:
+            window_start = float(page_name["start"])
+            window_dur = max(float(page_name["duration"]), 1.0)
+            weights = [max(float(dur), 1.0) for _, _, dur in page_items]
+            scale = window_dur / sum(weights)
+            t_page = window_start
+            aligned = []
+            for (txt, _, _), weight in zip(page_items, weights):
+                dur = window_dur if len(page_items) == 1 else weight * scale
+                aligned.append((txt, t_page, dur))
+                t_page += dur
+            page_items = aligned
+    for txt, start, dur in page_items:
         c = copy.deepcopy(page0)
-        c.update(id=nid(), name=txt, start=round(start, 3), duration=round(max(dur, 1.0), 3))
+        is_reels = Path(tdir).name in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE)
+        c.update(id=nid(), name=txt, start=round(start, 6),
+                 duration=round(start + dur, 6) - round(start, 6) if is_reels else round(max(dur, 1.0), 3))
+        if is_reels:
+            # A new word must not fade the entire stanza out/in or overlap it.
+            c.update(keys=[], fadeIn=0.0, fadeOut=0.0, opacity=1.0)
+            c.pop("transitionIn", None)
+            c.pop("transitionOut", None)
         c["text"]["content"] = txt
         keep.append(c)
     for k, a in enumerate(audio):
@@ -414,6 +621,10 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
                  kind="audio", start=a["start"], duration=a["dur"])
         c.update(volume=a.get("volume", 1.0), fadeIn=a.get("fade_in", 0.0), fadeOut=a.get("fade_out", 0.0))
         keep.append(c)
+    if Path(tdir).name.startswith("tho-hoai-co"):
+        layout_hoai_co(doc, keep)
+    elif Path(tdir).name in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE):
+        layout_reels_doc_nhanh(doc, keep, total, page_items)
     doc["clips"] = keep
     lanes = {c["trackId"] for c in keep}
     have = {tr["id"] for tr in doc["tracks"]}
@@ -500,6 +711,11 @@ def render(job_id, req):
             return
         voice = ROOT / req["voice"]
         vids = [edited(ROOT / v)[0] if USE_EDITED else ROOT / v for v in req["videos"]]
+        if tname == STILL_BG_TEMPLATE:
+            image_root = (ROOT / "Ảnh nền").resolve()
+            if len(vids) != 1 or image_root not in vids[0].resolve().parents \
+                    or vids[0].suffix.lower() not in (".jpg", ".jpeg", ".png", ".webp"):
+                raise ValueError("Template Ảnh Mờ cần đúng một ảnh trong thư mục Ảnh nền")
         music = ROOT / req["music"] if req.get("music") else None
         for f in [voice, *vids] + ([music] if music else []):
             if not f.exists():
@@ -507,7 +723,8 @@ def render(job_id, req):
         upd(status="running", pct=1, message=f"Template: {tlabel} ({why})")
         has_hook = "/elevenlabs/" in str(voice) and bool(p.get("hook"))
         vdur = duration(voice)
-        total = round(LEAD + vdur + TAIL, 2)       # mọi thứ cắt theo thời lượng giọng đọc
+        tail = REELS_TAIL if tname in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE) else TAIL
+        total = round(LEAD + vdur + tail, 2)       # mọi thứ cắt theo thời lượng giọng đọc
         ps, pe = timing(voice, has_hook, vdur)
         ps, pe = ps + LEAD, pe + LEAD
         # thời điểm từng dòng theo giọng đọc (chia theo số âm tiết), rồi gom thành trang
@@ -518,14 +735,27 @@ def render(job_id, req):
         for x in w:
             starts.append(max(0.0, ps - 0.1) + span * c / sum(w)); c += x
         pages = []
-        for k in range(0, len(lines), per_page):
-            chunk = lines[k:k + per_page]
-            s0 = starts[k]
-            e0 = starts[k + per_page] if k + per_page < len(lines) else min(total - 0.5, pe + 0.8)
-            pages.append(("\n".join(chunk), round(s0, 2), round(e0 - s0, 2)))
+        if tname in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE):
+            # Mỗi câu đã đọc vẫn nằm trên màn hình; câu mới xuất hiện bên dưới.
+            # Khi đủ một khổ 4–5 câu, chuyển sang khổ mới và lặp lại cách hiển thị.
+            pages = reels_reveal_pages(lines, starts, min(total - tail, pe + 0.1))
+        else:
+            for k in range(0, len(lines), per_page):
+                chunk = lines[k:k + per_page]
+                s0 = starts[k]
+                e0 = starts[k + per_page] if k + per_page < len(lines) else min(total - 0.5, pe + 0.8)
+                pages.append(("\n".join(chunk), round(s0, 2), round(e0 - s0, 2)))
+        if tname in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE) and has_hook and p.get("hook"):
+            hook_start = 0.35
+            hook_end = max(hook_start + 1.0, ps - 0.12)
+            pages.insert(0, (reels_hook_text(p["hook"]), hook_start,
+                             round(hook_end - hook_start, 2)))
         # clip video
-        vd = [duration(v) for v in vids]
-        plan = plan_slots(vd, total)
+        if tname == STILL_BG_TEMPLATE:
+            plan = [(0, total, 1.0)]
+        else:
+            vd = [duration(v) for v in vids]
+            plan = plan_slots(vd, total)
         slots = [(l, sp) for _, l, sp in plan]
         audio = [dict(path=str(voice), name=voice.stem, duration=vdur, lane="A", start=LEAD, dur=round(vdur, 2),
                       volume=1.0, fade_in=0.05, fade_out=0.3)]
