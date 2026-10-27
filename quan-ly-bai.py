@@ -8,6 +8,7 @@ File JSON để thêm là một danh sách; mỗi bài gồm:
   id, title, kind ("Thơ" | "Ca dao" | "Trích dẫn"), author, text (các dòng cách nhau bằng \\n),
   hook (câu mở đầu), mood (nho-que | doi-cho | tinh-yeu | co-don | thu-hoai-niem | binh-yen | nghi-luc | biet-on | me | tung-trai),
   voice ("Nữ" | "Nam" | "Cả hai"), note (nhãn ngắn), source (đường dẫn nguồn, không bắt buộc).
+  tts (kịch bản có tag riêng), voice_why (chỉ dẫn giọng đọc) là tùy chọn.
 Sau khi thêm bài mới: lồng tiếng bằng elevenlabs-tts.py --ids <id>.
 """
 import argparse, csv, json, re, sys
@@ -155,26 +156,37 @@ def them(file):
     md_script, md_hook = [], []
     n_new = 0
     D["moods"]["tung-trai"] = "Trích dẫn · từng trải"
+    morning_folder = "Vid/hello_morning"
+    morning_root = R / morning_folder
+    if morning_root.is_dir():
+        D["folders"][morning_folder] = sorted(
+            p.name for p in morning_root.glob("*.mp4") if not p.name.startswith(".")
+        )
     for it in items:
         if it["id"] in have:
             print("bỏ qua (đã có):", it["id"]); continue
         mood = it["mood"]
-        fo, ex = MOOD_FOLDERS.get(mood, MOOD_FOLDERS["binh-yen"])
+        if it["kind"] == "Trích dẫn Ngày mới" and morning_folder in D["folders"]:
+            fo, ex = [morning_folder], []
+        else:
+            fo, ex = MOOD_FOLDERS.get(mood, MOOD_FOLDERS["binh-yen"])
         fo = [x for x in fo if x in D["folders"]]; ex = [x for x in ex if x in D["folders"]]
         hook = it.get("hook", "")
         est = round(syl(it["text"]) / 2.8 + (10 if hook else 3.5))      # có lời mở: +10s; không: 0,5s đầu + 3s cuối
-        if it["kind"] == "Trích dẫn" and not hook:
+        if it["kind"].startswith("Trích dẫn") and not hook:
             tts = fmt_quote(it["text"])
         else:
             tts = (hookfmt(hook) + "\n" if hook else "[softly] ") + fmt(it["text"])
+        tts = it.get("tts") or tts
+        voice_why = it.get("voice_why") or "giọng đọc gợi ý"
         D["poems"].append(dict(id=it["id"], kind=it["kind"], title=it["title"], text=it["text"], author=it["author"],
                                note=it.get("note", ""), mood=mood, folders=fo, extra=ex, exact=None, files=None,
                                url=it.get("source"), vnote=it.get("vnote"), voice=it["voice"],
-                               voice_why="giọng đọc gợi ý", audio=[], est=est, hook=hook, tts=tts))
+                               voice_why=voice_why, audio=[], est=est, hook=hook, tts=tts))
         label = D["moods"].get(mood, mood)
         like = next((r for r in rows[1:] if len(r) > 7 and r[3] == label), None)
         row = [it["id"], it["kind"], it["title"], label, it.get("note", ""), " | ".join(fo), " | ".join(ex),
-               like[7] if like else "", it["voice"], "giọng đọc gợi ý", str(est), hook, tts]
+               like[7] if like else "", it["voice"], voice_why, str(est), hook, tts]
         if rows:
             hdr = rows[0]
             row += [""] * (len(hdr) - len(row))

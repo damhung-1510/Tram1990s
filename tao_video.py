@@ -28,7 +28,14 @@ _LOCAL_BIN = ROOT / ".tools/ffmpeg/bin"
 if _LOCAL_BIN.is_dir():
     os.environ["PATH"] = str(_LOCAL_BIN) + os.pathsep + os.environ.get("PATH", "")
 OUT = ROOT / "Vid_completed"
+MORNING_OUT = ROOT / "Vid_chao_ngay_moi"
 WORK = ROOT / ".tao-video-tmp"
+
+
+def video_output_dir(poem):
+    """Chọn nơi lưu theo category, độc lập với template được sử dụng."""
+    return MORNING_OUT if poem.get("kind") == "Trích dẫn Ngày mới" else OUT
+
 def find_cli():
     """concat-cli: biến môi trường CONCAT_CLI, rồi PATH, rồi các chỗ build mặc định."""
     cands = [os.environ.get("CONCAT_CLI"), shutil.which("concat-cli"),
@@ -46,7 +53,10 @@ USE_EDITED = False        # templates của bạn đã có màu/mờ, nên dùng
 MUSIC_BELOW_VOICE_DB = float(os.environ.get("MUSIC_BELOW_DB", 15))   # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB
 LEAD, TAIL = 0.5, 3.0     # giọng đọc bắt đầu sau 0.5s; template thường kết thúc 3s sau giọng đọc
 REELS_TAIL = 4.0           # Reels dành 4s cho phần kết tên bài + tác giả
+MIN_VIDEO_SPEED = 0.5      # Clip mới chỉ kéo dài tối đa hai lần; thiếu thì ghép thêm clip.
+QUOTE_VIDEO_SPEED = 0.85   # Clip dư thời lượng vẫn chạy chậm nhẹ và cắt phần dư.
 _dur_cache = {}
+_video_info_cache = {}
 _music_cache_lock = threading.Lock()
 _music_cache_sig = None
 _music_cache_data = None
@@ -66,6 +76,54 @@ def duration(path):
                            capture_output=True, text=True).stdout.strip()
         _dur_cache[path] = float(o) if o else 0.0
     return _dur_cache[path]
+
+
+def video_info(path):
+    """Đo luồng hình, không lấy nhầm thời lượng audio dài hơn trong cùng container."""
+    path = Path(path)
+    stat = path.stat()
+    key = str(path.resolve())
+    signature = (stat.st_mtime_ns, stat.st_size)
+    cached = _video_info_cache.get(key)
+    if cached and cached[0] == signature:
+        return dict(cached[1])
+    result = subprocess.run([
+        'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
+        'stream=duration,avg_frame_rate,width,height:format=duration', '-of', 'json', str(path),
+    ], capture_output=True, text=True, timeout=20)
+    if result.returncode:
+        raise ValueError(f'Không đọc được video: {path.name}')
+    data = json.loads(result.stdout)
+    streams = data.get('streams') or []
+    if not streams:
+        raise ValueError(f'Không có luồng hình: {path.name}')
+    stream = streams[0]
+    raw = stream.get('duration')
+    if raw in (None, 'N/A'):
+        raw = data.get('format', {}).get('duration')
+    dur = float(raw or 0)
+    if not math.isfinite(dur) or dur <= 0:
+        raise ValueError(f'Thời lượng video không hợp lệ: {path.name}')
+    rate = stream.get('avg_frame_rate') or '0/1'
+    numerator, denominator = rate.split('/') if '/' in rate else (rate, '1')
+    fps = float(numerator) / float(denominator) if float(denominator) else 0
+    info = dict(dur=dur, fps=round(fps, 3), width=stream.get('width'), height=stream.get('height'),
+                min_speed=MIN_VIDEO_SPEED, max_speed=QUOTE_VIDEO_SPEED)
+    _video_info_cache[key] = (signature, info)
+    return dict(info)
+
+
+def is_quote(poem):
+    return (poem.get('kind') or '').startswith('Trích dẫn')
+
+
+def render_timing(poem, template, voice_duration):
+    """Trích dẫn: bắt đầu giọng ngay, kết thúc đúng ba giây sau file giọng đọc."""
+    if not math.isfinite(voice_duration) or voice_duration <= 0:
+        raise ValueError('Không đọc được thời lượng giọng đọc')
+    lead = 0.0 if is_quote(poem) else LEAD
+    tail = TAIL if is_quote(poem) else REELS_TAIL if template in ('tho-reels-doc-nhanh', STILL_BG_TEMPLATE) else TAIL
+    return lead, tail, lead + voice_duration + tail
 
 
 _lufs_cache = {}
@@ -123,11 +181,21 @@ def list_audio():
 def list_clips():
     """Video và ảnh nền có thể chọn trong cửa sổ media."""
     out = {}
-    for f in sorted((ROOT / "Videos").rglob("*.mp4")):
-        if "Ban_goc" in f.parts or f.stem.endswith("_edited") or f.name.startswith("."):
+    for video_root in (ROOT / "Videos", ROOT / "Vid"):
+        if not video_root.is_dir():
             continue
-        out.setdefault("Video / " + str(f.parent.relative_to(ROOT / "Videos")), []).append(
-            dict(file=str(f.relative_to(ROOT)), name=f.stem.replace("TramCamXuc_", ""), kind="video"))
+        for f in sorted(video_root.rglob("*.mp4")):
+            if "Ban_goc" in f.parts or f.stem.endswith("_edited") or f.name.startswith("."):
+                continue
+            folder = str(f.parent.relative_to(video_root))
+            label = video_root.name + (" / " + folder if folder != "." else "")
+            item = dict(file=str(f.relative_to(ROOT)), name=f.stem.replace("TramCamXuc_", ""), kind="video")
+            if video_root.name == 'Vid':
+                try:
+                    item.update(video_info(f))
+                except (ValueError, OSError, subprocess.TimeoutExpired) as exc:
+                    item['error'] = str(exc)
+            out.setdefault(label, []).append(item)
     image_root = ROOT / "Ảnh nền"
     for ext in ("*.jpg", "*.jpeg", "*.png", "*.webp"):
         for f in sorted(image_root.rglob(ext)):
@@ -145,7 +213,7 @@ THUMBS = ROOT / ".thumbs"
 def thumb(rel):
     """Ảnh xem trước (JPEG, tạo một lần rồi lưu cache) hoặc None."""
     f = (ROOT / rel).resolve()
-    allowed = (ROOT / "Videos") in f.parents or (ROOT / "Ảnh nền") in f.parents
+    allowed = any(folder.resolve() in f.parents for folder in (ROOT / "Videos", ROOT / "Vid", ROOT / "Ảnh nền"))
     if not allowed or not f.is_file():
         return None
     if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"):
@@ -231,30 +299,36 @@ def timing(voice_path, has_hook, dur):
     return poem_start, max(speech_end, poem_start + 1.0)
 
 
-def plan_slots(vdurs, total):
-    """Chia thời lượng cho từng clip; clip ngắn thì chạy chậm (tối đa 0.5x), thiếu thì lặp lại danh sách clip."""
+def plan_slots(vdurs, total, *, repeat=True, max_speed=1.0):
+    """Chia thời lượng; trích dẫn dùng repeat=False để tránh lặp clip thiếu thời lượng."""
+    if not vdurs or any(not math.isfinite(d) or d <= 0 for d in vdurs):
+        raise ValueError('Chọn ít nhất một clip có thời lượng hợp lệ')
+    if not math.isfinite(total) or total <= 0:
+        raise ValueError('Thời lượng video đích không hợp lệ')
+    if not MIN_VIDEO_SPEED <= max_speed <= 1:
+        raise ValueError('Tốc độ video phải nằm trong khoảng 0,5–1×')
     n = len(vdurs)
-    lens = [total / n] * n
-    caps = [d / 0.5 for d in vdurs]
-    for _ in range(6):
-        lens = [min(l, c) for l, c in zip(lens, caps)]
+    caps = [d / MIN_VIDEO_SPEED for d in vdurs]
+    if not repeat and sum(caps) + 1e-8 < total:
+        raise ValueError(f'Clip quá ngắn: ở tốc độ 0,5× chỉ đủ {sum(caps):.1f}s, '
+                         f'cần {total:.1f}s (giọng đọc + 3s). Chọn thêm clip hoặc clip dài hơn.')
+    lens = [0.0] * n
+    for _ in range(n + 1):
         left = total - sum(lens)
         room = [i for i in range(n) if lens[i] < caps[i] - 1e-6]
-        if left < 0.05 or not room:
+        if left < 1e-8 or not room:
             break
         add = left / len(room)
         for i in room:
-            lens[i] += add
+            lens[i] = min(lens[i] + add, caps[i])
     slots = list(zip(range(n), lens))
     left = total - sum(lens)
     k = 0
-    while left > 0.05 and k < 12:
+    while repeat and left > 1e-8:
         i = k % n
         l = min(caps[i], left)
         slots.append((i, l)); left -= l; k += 1
-    if left > 0.05 and slots:           # còn dư rất ít: kéo dài clip cuối
-        i, l = slots[-1]; slots[-1] = (i, l + left)
-    return [(i, l, min(1.0, vdurs[i] / l)) for i, l in slots]
+    return [(i, l, min(max_speed, vdurs[i] / l)) for i, l in slots if l > 0]
 
 
 # ───────────────────────── Concat API ─────────────────────────
@@ -395,12 +469,17 @@ LABELS = {"tho-hoai-co": "Thơ Hoài Cổ", "trich-dan-khong-chu": "Trích Dẫn
           "anh-tho-giay-hoai-co": "Ảnh Thơ Giấy Hoài Cổ · PNG 4K"}
 IMAGE_TEMPLATE = "anh-tho-giay-hoai-co"
 STILL_BG_TEMPLATE = "tho-reels-anh-mo"
+RAW_VIDEO_TEMPLATE = "trich-dan-khong-chu"
+
+
+def requires_music(template):
+    return template not in (IMAGE_TEMPLATE, RAW_VIDEO_TEMPLATE)
 
 
 def auto_template(p):
     """Gợi ý theo nội dung: (khóa, số dòng mỗi trang, ghi chú)."""
     n = len(poem_lines(p))
-    if (p.get("kind") or "") == "Trích dẫn":
+    if (p.get("kind") or "").startswith("Trích dẫn"):
         return "trich-dan", 1, "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài"
     if n <= 7:
         return "tho-hoai-co", max(n, 1), f"{n} dòng, chữ tĩnh 1 trang"
@@ -610,7 +689,7 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
         n[0] += 1; return f"x{n[0]}"
     protos = {c["id"]: c for c in clips}
     visual_kinds = ("video", "image")
-    bg0 = next(c for c in clips if c["trackId"] == "BG" and c["kind"] in visual_kinds)
+    bg0 = next((c for c in clips if c["trackId"] == "BG" and c["kind"] in visual_kinds), None)
     fg0 = next(c for c in clips if c["trackId"] == "FG" and c["kind"] in visual_kinds)
     page0 = next((c for c in clips if c["trackId"] == "T2" and c["kind"] == "text"), None)
     media0 = doc["media"][0]
@@ -634,10 +713,12 @@ def build_from_template(tdir, total, slots, pages, title, author, audio):
     for i, (seg, speed) in enumerate(slots):
         m = copy.deepcopy(media0); m.update(id=f"m{i+1}", name=f"Clip {i+1}", duration=round(seg, 3)); doc["media"].append(m)
         for proto in (bg0, fg0):
+            if proto is None:
+                continue
             c = copy.deepcopy(proto)
-            c.update(id=nid(), mediaId=f"m{i+1}", start=round(t, 3), duration=round(seg, 3), speed=round(speed, 4))
+            c.update(id=nid(), mediaId=f"m{i+1}", start=round(t, 3), duration=round(seg, 3), speed=speed)
             c["name"] = f"{proto['name'].split(' backdrop')[0].split(' nền')[0]} {i+1}" + (" backdrop" if proto is bg0 else "")
-            if i > 0:
+            if i > 0 and Path(tdir).name != RAW_VIDEO_TEMPLATE:
                 c["transitionIn"] = dict(id="concat.dissolve", duration=0.8)
             keep.append(c)
         t += seg
@@ -818,7 +899,7 @@ def render(job_id, req):
                 output=str(image_out.relative_to(ROOT)))
             return
         voice = ROOT / req["voice"]
-        vids = [edited(ROOT / v)[0] if USE_EDITED else ROOT / v for v in req["videos"]]
+        vids = [edited(ROOT / v)[0] if USE_EDITED and tname != RAW_VIDEO_TEMPLATE else ROOT / v for v in req["videos"]]
         if tname == STILL_BG_TEMPLATE:
             image_root = (ROOT / "Ảnh nền").resolve()
             if len(vids) != 1 or image_root not in vids[0].resolve().parents \
@@ -831,10 +912,9 @@ def render(job_id, req):
         upd(status="running", pct=1, message=f"Template: {tlabel} ({why})")
         has_hook = "/elevenlabs/" in str(voice) and bool(p.get("hook"))
         vdur = duration(voice)
-        tail = REELS_TAIL if tname in ("tho-reels-doc-nhanh", STILL_BG_TEMPLATE) else TAIL
-        total = round(LEAD + vdur + tail, 2)       # mọi thứ cắt theo thời lượng giọng đọc
+        lead, tail, total = render_timing(p, tname, vdur)
         ps, pe = timing(voice, has_hook, vdur)
-        ps, pe = ps + LEAD, pe + LEAD
+        ps, pe = ps + lead, pe + lead
         # thời điểm từng dòng theo giọng đọc (chia theo số âm tiết), rồi gom thành trang
         lines = poem_lines(p)
         w = [syllables(x) for x in lines]
@@ -859,10 +939,11 @@ def render(job_id, req):
         if tname == STILL_BG_TEMPLATE:
             plan = [(0, total, 1.0)]
         else:
-            vd = [duration(v) for v in vids]
-            plan = plan_slots(vd, total)
+            vd = [video_info(v)['dur'] for v in vids]
+            plan = plan_slots(vd, total, repeat=not is_quote(p),
+                              max_speed=QUOTE_VIDEO_SPEED if is_quote(p) else 1.0)
         slots = [(l, sp) for _, l, sp in plan]
-        audio = [dict(path=str(voice), name=voice.stem, duration=vdur, lane="A", start=LEAD, dur=round(vdur, 2),
+        audio = [dict(path=str(voice), name=voice.stem, duration=vdur, lane="A", start=lead, dur=vdur,
                       volume=1.0, fade_in=0.05, fade_out=0.3)]
         if music:
             md = duration(music); t = 0.0; k = 0
@@ -892,10 +973,12 @@ def render(job_id, req):
         ev = api.wait_event(("export.done", "export.failed"), on_event)
         if ev["method"] == "export.failed":
             raise RuntimeError("Xuất video lỗi: " + json.dumps(ev["params"], ensure_ascii=False)[:300])
-        OUT.mkdir(exist_ok=True)
+        output_dir = video_output_dir(p)
+        output_dir.mkdir(parents=True, exist_ok=True)
         name = f"{p['id']}_{slug(p['title'])}_{time.strftime('%Y%m%d-%H%M%S')}.mp4"
-        shutil.move(tmp_out, OUT / name)
-        upd(status="done", pct=100, message=f"Xong · {tlabel}", output=f"Vid_completed/{name}")
+        output_file = output_dir / name
+        shutil.move(tmp_out, output_file)
+        upd(status="done", pct=100, message=f"Xong · {tlabel}", output=str(output_file.relative_to(ROOT)))
     except Exception as e:
         message = f"{type(e).__name__}: {e}"
         print(f"LỖI xuất {job_id}: {message}", file=sys.stderr, flush=True)
@@ -1031,7 +1114,7 @@ class Handler(BaseHTTPRequestHandler):
         is_image = template == IMAGE_TEMPLATE
         required = ("poemId",) if is_image else ("poemId", "voice", "videos")
         miss = [k for k in required if not req.get(k)]
-        if not is_image and not req.get("music"):
+        if requires_music(template) and not req.get("music"):
             miss.append("music")
         if miss:
             return self.send_json(dict(error="Thiếu: " + ", ".join(miss)), 400)
@@ -1092,11 +1175,13 @@ def make_cli(a):
             sys.exit(f"Bài {a.make} chưa có giọng đọc. Chạy elevenlabs-tts.py --ids {a.make} trước.")
         voice = str(found[0].relative_to(ROOT))
     rel = lambda x: str(Path(x).resolve().relative_to(ROOT)) if Path(x).is_absolute() else x
-    req = dict(poemId=a.make, voice=rel(voice), videos=[rel(v) for v in a.videos], music=rel(a.music),
+    req = dict(poemId=a.make, voice=rel(voice), videos=[rel(v) for v in a.videos], music=rel(a.music) if a.music else None,
                template=a.template,
                musicVolume=a.music_volume)
-    if not a.videos or not a.music:
-        sys.exit("Cần --videos (một hoặc nhiều clip) và --music")
+    if not a.videos:
+        sys.exit("Cần --videos (một hoặc nhiều clip)")
+    if requires_music(a.template) and not a.music:
+        sys.exit("Template này cần --music")
     if not CLI:
         sys.exit("Không thấy concat-cli (đặt biến CONCAT_CLI)")
     RENDER_LOCK.acquire()
@@ -1143,6 +1228,7 @@ def main():
                  f"luôn, hoặc tắt nó bằng:  pkill -f tao_video.py  rồi chạy lại, hoặc dùng cổng khác: python3 tao_video.py --port 8788")
     threading.Thread(target=preload_thumbs, daemon=True).start()
     print(f"Mở http://127.0.0.1:{a.port}/  (Ctrl+C để dừng). Video lưu ở {OUT}")
+    print(f"Video category Trích dẫn Ngày mới lưu ở {MORNING_OUT}")
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

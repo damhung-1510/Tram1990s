@@ -493,5 +493,275 @@
   "tts": "[softly] Có người đến để chữa lành, cũng có người đến để lại một mùa mưa. [long pause]\nCó người đến như một cơn mưa, [short pause] làm dịu cả mùa hè. [pause]\nCó người đi như cơn mưa, [short pause] để lại một khoảng trời buốt lạnh. [pause]\nSau cùng, [short pause] ta học cách yêu những ngày nắng, [pause]\nvà không trách mùa mưa vì đã từng ghé qua.",
   "da_long_tieng": null,
   "template": "trich-dan"
+ },
+ {
+  "id": "Q075",
+  "title": "Ngày mới 28/10 — Bắt đầu từ điều nhỏ",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 28/10",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi tám tháng mười. [pause]\n[reflective] Đi qua những ngày chật vật, [short pause] ta mới quý một buổi sáng lòng mình bớt nặng. [pause]\nCó bữa cơm để ăn, có công việc để làm, [short pause] có người còn đợi mình về. [long pause]\nNhững điều từng thấy quá bình thường, [short pause] đến một lúc lại thành mong ước. [pause]\n[warmly] Nếu hôm qua chưa được như ý, [short pause] sáng nay cứ bắt đầu từ một việc nhỏ. [pause]\nĂn một bữa đàng hoàng, làm việc vừa sức, [short pause] nói với nhau một câu dễ nghe. [pause]\n[softly] Đời còn nhiều lo toan, [short pause] mong bạn vẫn tìm được một điều để mỉm cười.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q076",
+  "title": "Ngày mới 29/10 — Những đổi thay thầm lặng",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 29/10",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi chín tháng mười. [pause]\n[reflective] Có những đổi thay chỉ mình ta biết, [short pause] chẳng ai đứng bên để vỗ tay. [pause]\nNgày trước một lời chê đủ làm mất ngủ, [short pause] giờ ta biết nghe rồi chọn điều cần sửa. [pause]\nNgày trước cứ nhận lỗi về mình, giờ đã biết điều gì nằm ngoài sức. [long pause]\n[warmly] Sống thêm một đoạn, [short pause] ta học được cách bớt khắt khe với bản thân. [pause]\nĐừng vì chưa có thành tựu lớn mà quên những lần mình đã đứng dậy. [pause]\n[softly] Bạn của sáng nay đã đi qua nhiều chuyện, [short pause] xứng đáng được đối xử dịu dàng.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q077",
+  "title": "Ngày mới 30/10 — Giữ lại một chút dịu dàng",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 30/10",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày ba mươi tháng mười. [pause]\n[reflective] Có hôm ta mang một chuyện buồn đi suốt ngày, [short pause] rồi vô tình làm đau người chẳng có lỗi. [pause]\nĐến khi bình tâm, [short pause] điều tiếc nhất lại là câu nói với người thương mình. [long pause]\n[warmly] Cuộc sống đã đủ nhiều va chạm, [short pause] về bên nhau hãy nhẹ lời một chút. [pause]\nNếu đang mệt, [short pause] bạn có thể nói rằng mình cần được yên một lát. [pause]\nNgười gần gũi cũng cần được nâng niu như những điều ta sợ mất. [pause]\n[softly] Sáng nay, [short pause] mong bạn giữ được chút dịu dàng cho mình và cho người bên cạnh.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q078",
+  "title": "Ngày mới 31/10 — Can đảm bước qua nỗi sợ",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 31/10",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày ba mươi mốt tháng mười. [pause]\n[reflective] Từng thất vọng, [short pause] ta dễ chần chừ trước một cơ hội giống điều đã làm mình đau. [pause]\nSợ tin nhầm người, [short pause] sợ cố gắng rồi lại trở về tay trắng. [long pause]\n[reassuring] Những dè dặt ấy có lý do, [short pause] bạn chẳng cần trách mình yếu lòng. [pause]\nCứ tìm hiểu kỹ hơn, bước chậm hơn, cho bản thân một đường lui an toàn. [pause]\nChuyện cũ có thể nhắc ta cẩn trọng, [short pause] nhưng vẫn còn điều mới đáng để thử. [pause]\n[softly] Mong sáng nay bạn đủ an tâm để bước một bước nhỏ về phía mình muốn.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q079",
+  "title": "Ngày mới 01/11 — Mở trang tháng mới",
+  "voice": "Nam",
+  "hook": "Chào tháng mới, Hôm nay là ngày 01/11. Chúc bạn một tháng bình an và nhiều khởi sắc",
+  "tts": "[calm] [low-pitched] [deliberate] Chào tháng mới. [short pause] Hôm nay là ngày mùng một tháng mười một. [short pause] Chúc bạn một tháng bình an và nhiều khởi sắc. [pause]\n[reflective] Tháng vừa rồi, [short pause] có lẽ bạn đã có những ngày chỉ mong mình đủ sức đi qua. [pause]\nCó việc còn dang dở, có lời hẹn chưa thành, [short pause] có nỗi buồn chưa biết kể cùng ai. [long pause]\n[warmly] Bước sang tháng mới, [short pause] chẳng cần ép lòng phải vui ngay. [pause]\nCứ thu xếp từng việc, chăm lại giấc ngủ, dành thời gian cho người mình quý. [pause]\nNhững gì đã qua, [short pause] mong bạn giữ được bài học mà bớt mang theo lời tự trách. [pause]\n[softly] Tháng này, [short pause] chúc bạn có thêm những tối ngủ yên và những sáng thấy lòng nhẹ nhõm.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q080",
+  "title": "Ngày mới 02/11 — Nuôi dưỡng bình yên",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 02/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng hai tháng mười một. [pause]\n[reflective] Có một thời ta muốn giải thích mọi hiểu lầm, [short pause] giữ bằng được mọi mối quan hệ. [pause]\nSau nhiều đêm trằn trọc, [short pause] mới nhận ra lòng mình cũng cần được nghỉ. [pause]\nCó người nghe một câu đã hiểu, [short pause] có người nói mãi vẫn chẳng chịu nghe. [long pause]\n[calm] Bạn được phép dừng cuộc trò chuyện khiến mình tổn thương và giữ một khoảng cách cần thiết. [pause]\nThời gian còn lại, [short pause] dành cho bữa cơm ngon và những người khiến bạn thấy dễ chịu. [pause]\n[softly] Bình yên đôi khi bắt đầu từ việc thôi cố có mặt trong lòng tất cả.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q081",
+  "title": "Ngày mới 03/11 — Giữ lời với chính mình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 03/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng ba tháng mười một. [pause]\n[reflective] Ta thường nhớ lời đã hứa với người khác, [short pause] còn lời hứa với mình cứ hẹn lần sau. [pause]\nHẹn ngủ sớm, hẹn bớt ôm việc, [short pause] hẹn dành thời gian cho điều mình thích. [pause]\nRồi ngày tháng trôi qua, [short pause] người bị bỏ quên lại là chính mình. [long pause]\n[warmly] Hôm nay, [short pause] thử giữ một lời hứa nhỏ, vừa với sức và hoàn cảnh đang có. [pause]\nMột buổi đi bộ, vài trang sách, hay tắt điện thoại để ăn cho trọn bữa. [pause]\n[softly] Chăm chút đều đặn như thế, [short pause] bạn sẽ thấy đời mình có phần do mình quyết định.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q082",
+  "title": "Ngày mới 04/11 — Đừng so sánh hành trình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 04/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng bốn tháng mười một. [pause]\n[reflective] Nhìn người cùng tuổi đi xa, [short pause] đôi khi ta chạnh lòng vì mình vẫn còn loay hoay. [pause]\nNhưng có những năm bạn đã dành để chăm người ốm, giữ gia đình, [short pause] hoặc tự chữa lành. [pause]\nNhững đoạn đường ấy ít ai nhìn thấy, [short pause] chỉ bạn biết mình đã vất vả thế nào. [long pause]\n[reassuring] Đừng lấy phần rực rỡ của người khác để phủ nhận cả hành trình mình. [pause]\nCứ làm điều phù hợp với sức lực và trách nhiệm đang mang. [pause]\n[softly] Một cuộc sống vừa vặn với bạn cũng là điều đáng để kiên nhẫn xây dựng.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q083",
+  "title": "Ngày mới 05/11 — Biết ơn điều đang có",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 05/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng năm tháng mười một. [pause]\n[reflective] Lúc còn đủ đầy, [short pause] ta dễ nghĩ một cuộc gọi hỏi thăm ngày nào cũng sẽ có. [pause]\nĐến khi có những số điện thoại không còn ai trả lời, [short pause] mới hiểu sự bình thường quý giá thế nào. [long pause]\nMột người nhớ giờ ăn, một mái nhà còn tiếng nói, [short pause] một cuộc hẹn vẫn kịp trở về. [pause]\n[warmly] Những điều ấy đáng được để tâm ngay khi còn trong tay. [pause]\nSáng nay, nếu nhớ ai, [short pause] hãy nhắn cho họ một lời. [pause]\n[softly] Thương nhau khi còn có thể, [short pause] để sau này bớt một lần ước giá như.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q084",
+  "title": "Ngày mới 06/11 — Đi qua một ngày khó",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 06/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng sáu tháng mười một. [pause]\n[reflective] Có những ngày đã làm hết sức mà mọi chuyện vẫn chẳng theo ý mình. [pause]\nBuồn là điều dễ hiểu, [short pause] bạn không cần vội tìm một ý nghĩa đẹp cho từng mất mát. [long pause]\n[reassuring] Trước mắt, cứ lo bữa ăn, giấc ngủ, [short pause] rồi xem việc nào còn có thể thu xếp. [pause]\nĐiều vượt quá sức, [short pause] hãy thử nhờ một người đáng tin cùng nghĩ. [pause]\nMột ngày khó chỉ nói rằng bạn đang gặp khó, [short pause] đâu đủ để kết luận cả cuộc đời. [pause]\n[softly] Sáng nay còn đây, [short pause] mong bạn có thêm chút sức để bước tiếp từng việc một.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q085",
+  "title": "Ngày mới 07/11 — Nghỉ ngơi không phải bỏ cuộc",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 07/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng bảy tháng mười một. [pause]\n[reflective] Có thời ta tưởng cứ làm thêm một chút là cuộc sống sẽ bớt lo. [pause]\nRồi công việc nối công việc, [short pause] đến bữa cơm cũng ăn trong vội vã. [pause]\nChỉ khi người mệt rã rời mới thấy giấc ngủ yên đã xa mình quá lâu. [long pause]\n[warmly] Nếu hôm nay đuối sức, [short pause] hãy bớt một việc chưa cần gấp và cho mình nghỉ. [pause]\nBạn còn một chặng đường dài, [short pause] còn người muốn ngồi cùng bạn thật lâu bên mâm cơm. [pause]\n[softly] Giữ sức cho mình cũng là giữ lại những ngày được sống trọn vẹn bên họ.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q086",
+  "title": "Ngày mới 08/11 — Tử tế tạo nên ngày đẹp",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 08/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng tám tháng mười một. [pause]\n[warmly] Đi qua một quãng chật vật, [short pause] ta thường nhớ người đã đối xử nhẹ nhàng với mình. [pause]\nCó khi chỉ là cô bán hàng cho nợ, [short pause] người đồng nghiệp lặng lẽ làm giúp một việc. [pause]\nHọ có thể đã quên, [short pause] còn ta mang theo hơi ấm ấy rất lâu. [long pause]\n[reflective] Bởi vậy, gặp ai đang lúng túng, nếu có thể [short pause] hãy cho họ thêm chút kiên nhẫn. [pause]\nMột câu nói dễ nghe cũng đủ giúp người khác bớt thấy mình đơn độc. [pause]\n[softly] Mong ngày mới của bạn có những cuộc gặp khiến lòng người được ấm lên như thế.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q087",
+  "title": "Ngày mới 09/11 — Sống có nguyên tắc",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 09/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mùng chín tháng mười một. [pause]\n[reflective] Đã từng vì cả nể mà nhận một việc trái lòng, [short pause] ta mới hiểu cái giá của chữ đồng ý. [pause]\nCó lợi trước mắt nhưng tối về lại khó ngủ, [short pause] có lời khen nghe xong chẳng thấy vui. [long pause]\n[calm] Sống lâu hơn một chút, [short pause] ta cần biết điều gì mình có thể đánh đổi. [pause]\nGiữ lời đã hứa, nhận lỗi khi sai, [short pause] từ chối điều khiến mình day dứt. [pause]\nNhững lựa chọn ấy đôi khi làm đường đi khó hơn, [short pause] nhưng giúp lòng bớt nặng. [pause]\n[softly] Mong bạn kiếm được bình yên từ chính cách mình sống hôm nay.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q088",
+  "title": "Ngày mới 10/11 — Một buổi sáng dành cho mình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 10/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười tháng mười một. [pause]\n[reflective] Có những sáng vừa mở mắt, [short pause] ta đã nghĩ đến tiền nhà, công việc và bao điều chưa xong. [pause]\nChưa kịp uống ngụm nước đã thấy một ngày thật dài. [long pause]\n[calm] Nếu có thể, [short pause] hãy dành vài phút ngồi yên trước khi bước vào những bận rộn ấy. [pause]\nNhìn ánh sáng ngoài cửa, ăn miếng bánh, [short pause] hỏi mình hôm nay cần làm điều gì trước. [pause]\nNhững lo toan vẫn ở đó, [short pause] nhưng bạn cũng cần một chỗ cho mình trong ngày. [pause]\n[softly] Mong buổi sáng này đủ chậm để bạn nghe được lòng mình và bắt đầu thong thả hơn.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q089",
+  "title": "Ngày mới 11/11 — Dám tin vào mình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 11/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười một tháng mười một. [pause]\n[reflective] Sau một lần làm không được, [short pause] điều đau nhất đôi khi là mình thôi tin vào mình. [pause]\nTa nhớ mãi lỗi sai, [short pause] rồi quên những việc từng làm tốt và những người từng được mình giúp. [long pause]\nMột kết quả chưa như ý chỉ cho thấy có điều cần học thêm hoặc làm khác. [pause]\n[reassuring] Bạn có thể thử lại, đổi cách, [short pause] hay chọn một hướng phù hợp hơn. [pause]\nĐừng để tiếng nói nghi ngờ trở thành lời duy nhất mình nghe mỗi sáng. [pause]\n[softly] Trong bạn vẫn còn khả năng chưa dùng hết, [short pause] hãy cho nó thêm một cơ hội.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q090",
+  "title": "Ngày mới 12/11 — Buông điều không thể đổi",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 12/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười hai tháng mười một. [pause]\n[reflective] Có lời giải thích ta đã đợi rất lâu, [short pause] cuối cùng vẫn chẳng nhận được. [pause]\nCó người rời đi để lại những câu hỏi mà một mình ta cứ trả lời rồi lại nghi ngờ. [long pause]\n[reassuring] Bạn không cần hiểu hết mọi chuyện mới được phép sống tiếp ngày của mình. [pause]\nCứ cất bớt một kỷ vật, thôi đọc lại một tin nhắn, [short pause] trở về với việc đang làm. [pause]\nNỗi nhớ có thể còn, [short pause] nhưng cuộc sống cũng cần được chăm nom. [pause]\n[softly] Sáng nay, [short pause] mong bạn dành cho hiện tại một chút tình thương từng để hết trong chuyện cũ.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q091",
+  "title": "Ngày mới 13/11 — Gánh vừa sức mình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 13/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười ba tháng mười một. [pause]\n[reflective] Người quen gánh vác thường nói mình ổn, [short pause] ngay cả khi đã mệt đến chẳng muốn nói gì. [pause]\nSợ người nhà lo, sợ đồng nghiệp thất vọng, [short pause] rồi việc nào cũng cố ôm vào. [long pause]\n[reassuring] Nhưng sức người có hạn, [short pause] có việc cần được chia ra mới đi được đường dài. [pause]\nHôm nay, [short pause] bạn có thể nói thật rằng mình cần giúp đỡ hoặc cần thêm thời gian. [pause]\nNgười thương bạn cũng cần được biết lúc nào nên đưa một bàn tay. [pause]\n[softly] Mong bạn làm xong việc cần làm, [short pause] và vẫn còn đủ sức để vui khi trở về.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q092",
+  "title": "Ngày mới 14/11 — Yêu thương chính mình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 14/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười bốn tháng mười một. [pause]\n[reflective] Ta có thể tha thứ cho người khác rất nhanh, [short pause] nhưng một lỗi của mình lại nhắc mãi. [pause]\nĐêm xuống, những câu giá như cứ quay về, [short pause] khiến việc đã qua vẫn làm lòng nhức nhối. [long pause]\nNếu có điều cần sửa, [short pause] hãy nhận trách nhiệm và sửa trong phần mình còn làm được. [pause]\n[warmly] Rồi cho bản thân cơ hội sống khác đi từ hôm nay. [pause]\nCon người lúc ấy đã lựa chọn bằng những gì lúc ấy hiểu và có. [pause]\n[softly] Mong bạn đủ nghiêm túc để trưởng thành, [short pause] cũng đủ dịu dàng để thôi làm đau mình.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q093",
+  "title": "Ngày mới 15/11 — Đừng vội với đời mình",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 15/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười lăm tháng mười một. [pause]\n[reflective] Càng lớn, [short pause] ta càng hiểu có những việc sốt ruột mấy cũng chẳng thể nhanh hơn. [pause]\nMột món nợ cần thời gian trả, một nghề cần thời gian giỏi, [short pause] một vết buồn cần thời gian nguôi. [pause]\nNgày nào cũng đếm xem mình còn thiếu bao nhiêu, [short pause] lòng sẽ khó có lúc được yên. [long pause]\n[reassuring] Thỉnh thoảng hãy nhìn lại phần đường đã đi và điều đã bớt làm mình sợ. [pause]\nBạn vẫn có thể điều chỉnh kế hoạch mà không xem mình là kẻ thất bại. [pause]\n[softly] Cứ đi từng đoạn vừa sức, [short pause] cho đời mình thêm thời gian để đổi thay.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q094",
+  "title": "Ngày mới 16/11 — Khác biệt vẫn có thể đồng hành",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 16/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười sáu tháng mười một. [pause]\n[reflective] Ngày còn trẻ, [short pause] ta dễ nghĩ điều mình thấy là toàn bộ câu chuyện. [pause]\nQua vài lần bị hiểu lầm, [short pause] mới biết có những nỗi khó nói người ngoài chẳng nhìn ra. [pause]\nAi cũng mang theo một tuổi thơ, một hoàn cảnh [short pause] và những lần vấp ngã khác nhau. [long pause]\n[warmly] Trước khi kết luận về ai, [short pause] thử nghe họ nói hết một lần. [pause]\nBạn vẫn có quyền không đồng ý, [short pause] vẫn được giữ giới hạn để bảo vệ mình. [pause]\n[softly] Chỉ mong hôm nay ta bớt một lời phán xét, [short pause] để có thêm chỗ cho sự cảm thông.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q095",
+  "title": "Ngày mới 17/11 — Tập trung vào hôm nay",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 17/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười bảy tháng mười một. [pause]\n[reflective] Có khi ngồi cùng người thân mà lòng ta đã đi hết những lo lắng của tháng sau. [pause]\nBữa cơm qua rồi vẫn chẳng nhớ người trước mặt vừa kể chuyện gì. [pause]\nLo cho tương lai là điều cần thiết, [short pause] nhưng những phút đang sống cũng sẽ thành kỷ niệm. [long pause]\n[calm] Hôm nay, [short pause] thử ăn trọn một bữa và nghe trọn một câu chuyện. [pause]\nViệc ngày mai, [short pause] dành một lúc để tính rồi trở về với điều trước mắt. [pause]\n[softly] Mong sau này nhìn lại, [short pause] bạn còn nhớ được những ngày mình đã sống, bên cạnh những ngày chỉ mải lo.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q096",
+  "title": "Ngày mới 18/11 — Có người cùng đi",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 18/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười tám tháng mười một. [pause]\n[reflective] Sau những lần tự xoay xở đến kiệt sức, [short pause] ta mới quý một người chịu ngồi lại cùng mình. [pause]\nHọ có thể chẳng giải quyết được chuyện gì, [short pause] chỉ lắng nghe và hỏi bạn đã ăn chưa. [pause]\n[warmly] Vậy mà lòng nhẹ hơn, [short pause] vì biết có người quan tâm cả lúc mình chẳng có gì để khoe. [long pause]\nNếu đang có một người như thế, [short pause] hãy giữ liên lạc bằng những điều giản dị. [pause]\nMột lời hỏi thăm cũng cần được gửi lại từ phía mình. [pause]\n[softly] Mong hôm nay bạn có người để chia sẻ, [short pause] và cũng là chỗ dựa vừa sức cho ai đó.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q097",
+  "title": "Ngày mới 19/11 — Những điều đừng để muộn",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 19/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày mười chín tháng mười một. [pause]\n[reflective] Ta từng nghĩ đợi bớt bận sẽ học điều mình thích, [short pause] đợi dư dả sẽ sống cho mình hơn. [pause]\nNhưng hết việc này lại đến việc khác, [short pause] những mong muốn nhỏ cứ lùi về phía sau. [long pause]\n[reassuring] Có điều chẳng cần đợi một ngày hoàn hảo mới bắt đầu được. [pause]\nDành mười phút tập viết, đăng ký buổi học thử, [short pause] hỏi thăm một công việc mình muốn làm. [pause]\nBắt đầu vừa sức để điều mong mỏi có một chỗ trong cuộc sống thật. [pause]\n[softly] Mong nhiều năm nữa, bạn nhớ sáng nay là lúc mình đã thử, [short pause] thay vì lại hẹn lần sau.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q098",
+  "title": "Ngày mới 20/11 — Luôn giữ tinh thần học hỏi",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 20/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi tháng mười một. [pause]\n[reflective] Có những bài học phải đi qua một lần mất mát ta mới chịu hiểu. [pause]\nHiểu lời hứa cần được giữ, [short pause] hiểu người im lặng chưa chắc đã hết buồn. [pause]\nCũng có điều may mắn được nghe từ người đi trước, [short pause] để mình bớt một lần vấp ngã. [long pause]\n[warmly] Sống từng ấy năm, [short pause] vẫn còn nhiều chuyện ta cần hỏi và nhiều điều cần học lại. [pause]\nThừa nhận mình chưa biết giúp cuộc trò chuyện có chỗ cho một cách nhìn khác. [pause]\n[softly] Mong sáng nay bạn gặp một điều đáng học, [short pause] rồi dùng nó để sống dễ chịu hơn với người và với mình.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q099",
+  "title": "Ngày mới 21/11 — Lắng nghe tiếng nói bên trong",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 21/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi mốt tháng mười một. [pause]\n[reflective] Có thời ta chọn mọi thứ theo lời người khác, [short pause] rồi một ngày thấy mình xa lạ với cuộc sống đang có. [pause]\nCông việc được khen là tốt, con đường được bảo là đúng, [short pause] nhưng lòng cứ mỏi mệt. [long pause]\nLời khuyên đáng nghe, [short pause] còn hoàn cảnh và sức chịu đựng của mình cũng cần được tính đến. [pause]\n[reassuring] Trước một quyết định, [short pause] hãy hỏi điều ấy có hợp với cuộc sống mình muốn giữ. [pause]\nBạn được phép suy nghĩ kỹ và thay đổi từng chút khi có điều kiện. [pause]\n[softly] Mong những lựa chọn từ hôm nay giúp bạn thấy gần với chính mình hơn.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q100",
+  "title": "Ngày mới 22/11 — Cho đi điều tốt đẹp",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 22/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi hai tháng mười một. [pause]\n[warmly] Khi từng được giúp lúc túng thiếu, [short pause] ta hiểu một chút sẻ chia có thể quý đến thế nào. [pause]\nMột bữa ăn, một chỗ nghỉ, [short pause] một người chỉ cách vượt qua buổi đầu bỡ ngỡ. [pause]\nSau này khá hơn, [short pause] ta lại có dịp đưa tay cho một người đang cần. [long pause]\n[calm] Cứ giúp trong khả năng, [short pause] đủ để lòng vui mà cuộc sống mình vẫn được chăm lo. [pause]\nCó những ân tình được nối dài qua những người chẳng quen biết nhau. [pause]\n[softly] Mong hôm nay bạn trao được chút ấm áp, [short pause] và cũng đón nhận khi ai đó muốn giúp mình.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q101",
+  "title": "Ngày mới 23/11 — Trân trọng điều làm nên bạn",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 23/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi ba tháng mười một. [pause]\n[reflective] Có những lúc chênh vênh, [short pause] ta lại nhớ căn bếp cũ hoặc một giọng gọi tên mình. [pause]\nNhững ký ức nhỏ ấy nhắc rằng đã có người thương ta từ khi chưa làm được gì lớn lao. [pause]\nNếu tuổi thơ nhiều thiếu thốn, [short pause] có lẽ bạn đã tự học cách chăm mình qua từng năm tháng. [long pause]\n[reassuring] Nhìn lại để nhận ra điều gì từng nâng đỡ, [short pause] điều gì mình muốn sống khác đi. [pause]\nBạn được mang theo phần ấm áp và đặt xuống những điều làm mình đau. [pause]\n[softly] Mong ngày mới có thêm một kỷ niệm lành để sau này nhớ về.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q102",
+  "title": "Ngày mới 24/11 — Lan tỏa cách sống đẹp",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 24/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi bốn tháng mười một. [pause]\n[reflective] Qua nhiều cuộc gặp, [short pause] ta thường nhớ cách một người cư xử lúc họ chẳng cần gì ở mình. [pause]\nHọ nói với người phục vụ ra sao, [short pause] có nhận phần sai khi chẳng ai buộc phải nhận. [pause]\nNhững điều nhỏ ấy khiến ta biết có thể yên tâm ở gần. [long pause]\n[warmly] Trong một ngày bận rộn, [short pause] ai cũng có lúc sơ suất và khó chịu. [pause]\nNếu lỡ nặng lời, [short pause] mình vẫn còn cơ hội xin lỗi và làm lại cho tử tế. [pause]\n[softly] Mong những người gặp bạn hôm nay có thể rời đi với lòng nhẹ hơn một chút.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q103",
+  "title": "Ngày mới 25/11 — Tôn trọng là nền tảng yêu thương",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 25/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi lăm tháng mười một. [pause]\n[reflective] Từng sợ mất một người, [short pause] có khi ta đã im lặng cả trước những điều làm mình tổn thương. [pause]\nLâu dần, [short pause] ở cạnh nhau mà chẳng còn dám nói điều mình nghĩ. [long pause]\n[calm] Một mối quan hệ cần có chỗ cho cả hai được lắng nghe và nói lời từ chối. [pause]\nNếu có chuyện chưa ổn, [short pause] hãy chọn lúc bình tâm để nói rõ điều mình cần. [pause]\nGần gũi cũng cần được chăm bằng sự tôn trọng mỗi ngày, [short pause] từ cả hai phía. [pause]\n[softly] Mong bạn có người để thương mà vẫn được sống thật với lòng mình.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
+ },
+ {
+  "id": "Q104",
+  "title": "Ngày mới 26/11 — Lựa chọn nhỏ tạo tương lai",
+  "voice": "Nam",
+  "hook": "Chào ngày mới, Hôm nay là ngày 26/11",
+  "tts": "[calm] [low-pitched] [deliberate] Chào ngày mới. [short pause] Hôm nay là ngày hai mươi sáu tháng mười một. [pause]\n[reflective] Nhìn lại một quãng đời, [short pause] ta mới thấy nhiều đổi thay bắt đầu từ một việc rất nhỏ. [pause]\nMột lần nhận lời đi học, một buổi chịu ngồi nói thật, [short pause] một tối quyết định ngủ sớm hơn. [pause]\nLúc ấy chẳng có gì lớn lao, [short pause] chỉ là mình thử sống khác đi một chút. [long pause]\n[warmly] Rồi những lựa chọn được lặp lại dần thành nếp sống. [pause]\nHôm nay, [short pause] chọn một việc khiến ngày mai bớt mệt và làm trong sức mình đang có. [pause]\n[softly] Mong sau này nhìn lại, [short pause] bạn thấy mình đã biết chăm chút cuộc đời từ những ngày bình thường như thế.",
+  "da_long_tieng": null,
+  "template": "trich-dan"
  }
 ]

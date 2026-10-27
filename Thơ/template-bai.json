@@ -268,5 +268,185 @@
   "per_page": 1,
   "ghi_chu": "trích dẫn: hình ảnh trong, chỉ làm mờ khi mở bài",
   "tieu_de": "Cơn mưa"
+ },
+ "Q075": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 28/10 — Bắt đầu từ điều nhỏ"
+ },
+ "Q076": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 29/10 — Những đổi thay thầm lặng"
+ },
+ "Q077": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 30/10 — Giữ lại một chút dịu dàng"
+ },
+ "Q078": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 31/10 — Can đảm bước qua nỗi sợ"
+ },
+ "Q079": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 01/11 — Mở trang tháng mới"
+ },
+ "Q080": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 02/11 — Nuôi dưỡng bình yên"
+ },
+ "Q081": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 03/11 — Giữ lời với chính mình"
+ },
+ "Q082": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 04/11 — Đừng so sánh hành trình"
+ },
+ "Q083": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 05/11 — Biết ơn điều đang có"
+ },
+ "Q084": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 06/11 — Đi qua một ngày khó"
+ },
+ "Q085": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 07/11 — Nghỉ ngơi không phải bỏ cuộc"
+ },
+ "Q086": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 08/11 — Tử tế tạo nên ngày đẹp"
+ },
+ "Q087": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 09/11 — Sống có nguyên tắc"
+ },
+ "Q088": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 10/11 — Một buổi sáng dành cho mình"
+ },
+ "Q089": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 11/11 — Dám tin vào mình"
+ },
+ "Q090": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 12/11 — Buông điều không thể đổi"
+ },
+ "Q091": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 13/11 — Gánh vừa sức mình"
+ },
+ "Q092": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 14/11 — Yêu thương chính mình"
+ },
+ "Q093": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 15/11 — Đừng vội với đời mình"
+ },
+ "Q094": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 16/11 — Khác biệt vẫn có thể đồng hành"
+ },
+ "Q095": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 17/11 — Tập trung vào hôm nay"
+ },
+ "Q096": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 18/11 — Có người cùng đi"
+ },
+ "Q097": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 19/11 — Những điều đừng để muộn"
+ },
+ "Q098": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 20/11 — Luôn giữ tinh thần học hỏi"
+ },
+ "Q099": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 21/11 — Lắng nghe tiếng nói bên trong"
+ },
+ "Q100": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 22/11 — Cho đi điều tốt đẹp"
+ },
+ "Q101": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 23/11 — Trân trọng điều làm nên bạn"
+ },
+ "Q102": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 24/11 — Lan tỏa cách sống đẹp"
+ },
+ "Q103": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 25/11 — Tôn trọng là nền tảng yêu thương"
+ },
+ "Q104": {
+  "template": "trich-dan",
+  "per_page": 1,
+  "ghi_chu": "chỉ định khi thêm bài",
+  "tieu_de": "Ngày mới 26/11 — Lựa chọn nhỏ tạo tương lai"
  }
 }

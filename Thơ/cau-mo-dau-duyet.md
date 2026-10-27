@@ -57,3 +57,33 @@ mấy sông cũng lội, mấy ngàn cũng qua!
 | Q068 | Một đoạn đường đẹp | Không phải chuyện tình nào cũng cần một cái kết ở bên nhau |
 | Q069 | Đà Lạt lạnh | Đà Lạt có một kiểu lạnh rất giống nỗi nhớ |
 | Q070 | Cơn mưa | Có người đến để chữa lành, cũng có người đến để lại một mùa mưa |
+| Q075 | Ngày mới 28/10 — Bắt đầu từ điều nhỏ | Chào ngày mới, Hôm nay là ngày 28/10 |
+| Q076 | Ngày mới 29/10 — Những đổi thay thầm lặng | Chào ngày mới, Hôm nay là ngày 29/10 |
+| Q077 | Ngày mới 30/10 — Giữ lại một chút dịu dàng | Chào ngày mới, Hôm nay là ngày 30/10 |
+| Q078 | Ngày mới 31/10 — Can đảm bước qua nỗi sợ | Chào ngày mới, Hôm nay là ngày 31/10 |
+| Q079 | Ngày mới 01/11 — Mở trang tháng mới | Chào tháng mới, Hôm nay là ngày 01/11. Chúc bạn một tháng bình an và nhiều khởi sắc |
+| Q080 | Ngày mới 02/11 — Nuôi dưỡng bình yên | Chào ngày mới, Hôm nay là ngày 02/11 |
+| Q081 | Ngày mới 03/11 — Giữ lời với chính mình | Chào ngày mới, Hôm nay là ngày 03/11 |
+| Q082 | Ngày mới 04/11 — Đừng so sánh hành trình | Chào ngày mới, Hôm nay là ngày 04/11 |
+| Q083 | Ngày mới 05/11 — Biết ơn điều đang có | Chào ngày mới, Hôm nay là ngày 05/11 |
+| Q084 | Ngày mới 06/11 — Đi qua một ngày khó | Chào ngày mới, Hôm nay là ngày 06/11 |
+| Q085 | Ngày mới 07/11 — Nghỉ ngơi không phải bỏ cuộc | Chào ngày mới, Hôm nay là ngày 07/11 |
+| Q086 | Ngày mới 08/11 — Tử tế tạo nên ngày đẹp | Chào ngày mới, Hôm nay là ngày 08/11 |
+| Q087 | Ngày mới 09/11 — Sống có nguyên tắc | Chào ngày mới, Hôm nay là ngày 09/11 |
+| Q088 | Ngày mới 10/11 — Một buổi sáng dành cho mình | Chào ngày mới, Hôm nay là ngày 10/11 |
+| Q089 | Ngày mới 11/11 — Dám tin vào mình | Chào ngày mới, Hôm nay là ngày 11/11 |
+| Q090 | Ngày mới 12/11 — Buông điều không thể đổi | Chào ngày mới, Hôm nay là ngày 12/11 |
+| Q091 | Ngày mới 13/11 — Gánh vừa sức mình | Chào ngày mới, Hôm nay là ngày 13/11 |
+| Q092 | Ngày mới 14/11 — Yêu thương chính mình | Chào ngày mới, Hôm nay là ngày 14/11 |
+| Q093 | Ngày mới 15/11 — Đừng vội với đời mình | Chào ngày mới, Hôm nay là ngày 15/11 |
+| Q094 | Ngày mới 16/11 — Khác biệt vẫn có thể đồng hành | Chào ngày mới, Hôm nay là ngày 16/11 |
+| Q095 | Ngày mới 17/11 — Tập trung vào hôm nay | Chào ngày mới, Hôm nay là ngày 17/11 |
+| Q096 | Ngày mới 18/11 — Có người cùng đi | Chào ngày mới, Hôm nay là ngày 18/11 |
+| Q097 | Ngày mới 19/11 — Những điều đừng để muộn | Chào ngày mới, Hôm nay là ngày 19/11 |
+| Q098 | Ngày mới 20/11 — Luôn giữ tinh thần học hỏi | Chào ngày mới, Hôm nay là ngày 20/11 |
+| Q099 | Ngày mới 21/11 — Lắng nghe tiếng nói bên trong | Chào ngày mới, Hôm nay là ngày 21/11 |
+| Q100 | Ngày mới 22/11 — Cho đi điều tốt đẹp | Chào ngày mới, Hôm nay là ngày 22/11 |
+| Q101 | Ngày mới 23/11 — Trân trọng điều làm nên bạn | Chào ngày mới, Hôm nay là ngày 23/11 |
+| Q102 | Ngày mới 24/11 — Lan tỏa cách sống đẹp | Chào ngày mới, Hôm nay là ngày 24/11 |
+| Q103 | Ngày mới 25/11 — Tôn trọng là nền tảng yêu thương | Chào ngày mới, Hôm nay là ngày 25/11 |
+| Q104 | Ngày mới 26/11 — Lựa chọn nhỏ tạo tương lai | Chào ngày mới, Hôm nay là ngày 26/11 |

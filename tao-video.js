@@ -8,6 +8,46 @@
   const base = p => p.split('/').pop();
   const isImage = () => S.template === 'anh-tho-giay-hoai-co';
   const isStillBackground = () => S.template === 'tho-reels-anh-mo';
+  const isRawVideo = () => S.template === 'trich-dan-khong-chu';
+  const isQuote = p => (p || (S.poem && findP(S.poem)))?.kind?.startsWith('Trích dẫn');
+  const clipMeta = new Map();
+  const seconds = n => n.toLocaleString('vi-VN', { maximumFractionDigits: 1 });
+  function clipTarget(p) {
+    p = p || (S.poem && findP(S.poem));
+    const recording = p && (audio[p.id] || []).find(v => v.file === S.voice);
+    if (recording) return { seconds: recording.dur + (isQuote(p) ? 3 : 0.5 + (['tho-reels-doc-nhanh', 'tho-reels-anh-mo'].includes(S.template) ? 4 : 3)), estimated: false };
+    return { seconds: p?.est || Math.max(1, ...D.poems.filter(p => p.kind === 'Trích dẫn Ngày mới').map(p => p.est || 0)), estimated: true };
+  }
+  function clipAssessment(file, p) {
+    const c = clipMeta.get(file);
+    if (!c) return null;
+    if (c.error) return { short: true, text: '⚠ Không đọc được clip', title: c.error };
+    if (!Number.isFinite(c.dur) || c.dur <= 0) return null;
+    const target = clipTarget(p), capacity = c.dur / c.min_speed;
+    const short = capacity + 1e-8 < target.seconds;
+    const speed = Math.min(c.max_speed, c.dur / target.seconds);
+    const text = short ? `⚠ ${seconds(c.dur)}s · quá ngắn dùng riêng`
+      : `${seconds(c.dur)}s · slow ${speed.toFixed(2)}× → ${target.estimated ? '≈ ' : ''}${seconds(target.seconds)}s`;
+    return { short, text, title: short
+      ? `Ở ${c.min_speed}× chỉ được ${seconds(capacity)}s; ${target.estimated ? 'ước tính cần' : 'cần'} ${seconds(target.seconds)}s. Có thể ghép thêm clip.`
+      : `${target.estimated ? 'Ước tính; sẽ tính lại theo file giọng đọc.' : 'Theo giọng đọc đã chọn.'} Phần hình dư sẽ được cắt.` };
+  }
+  window.tvClipUsable = (file, p) => !clipAssessment(file, p)?.short;
+  function updateTimingNote() {
+    const el = $('#tvTiming');
+    const visible = S.poem && isQuote() && !isImage() && !isStillBackground();
+    el.hidden = !visible;
+    if (!visible) return;
+    const target = clipTarget();
+    let text = `${target.estimated ? 'Dự kiến' : 'Giọng đọc + 3s'}: ${seconds(target.seconds)}s. Tự slow 0,5–0,85×; clip dư sẽ cắt vừa đủ.`;
+    const known = S.videos.map(f => clipMeta.get(f));
+    if (known.length && known.every(c => Number.isFinite(c?.dur))) {
+      const capacity = known.reduce((n, c) => n + c.dur / c.min_speed, 0);
+      if (capacity < target.seconds) text += ` ⚠ Các clip đã chọn chỉ kéo được ${seconds(capacity)}s; cần ghép thêm clip.`;
+    }
+    if (target.estimated) text += ' Chưa có giọng đọc; sẽ tính lại khi lồng tiếng xong.';
+    if (el.textContent !== text) el.textContent = text;
+  }
   function markVideoDone() {
     if (isImage() || !S.poem) return;
     try {
@@ -44,6 +84,11 @@
   #tvM2 .it.on{border-color:var(--acc)} #tvM2 .it img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover}
   #tvM2 .it i{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.65);color:#fff;border-radius:6px;padding:0 6px;font-style:normal;font-size:12px}
   #tvM2 .it .nm{font-size:10px;padding:2px 4px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #tvM2 .it .fit,.tv-fit{font-size:11px;color:var(--mut)}
+  #tvM2 .it .fit{padding:3px 4px;line-height:1.3}
+  #tvM2 .it .fit.short,.tv-fit.short{color:var(--acc);font-weight:600}
+  .tv-fit{margin-left:8px;font-family:system-ui,sans-serif}
+  #tvTiming{max-width:960px;margin:3px auto;font-size:12px;color:var(--mut)}
   #tvM2 .it a{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.65);color:#fff;border-radius:6px;padding:0 6px;font-size:12px;text-decoration:none}
   .tv-tts{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0;font-size:13px}
   .tv-tts select{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px}
@@ -61,14 +106,14 @@
      <span id="tvVoiceGroup">🎙 <b>Giọng:</b> <select id="tvV"><option value="">—</option></select></span>
      <span>📄 <b>Template:</b> <select id="tvT"><option value="">—</option></select></span>
      <span id="tvClipGroup">🎞 <b id="tvMediaLabel">Clip:</b> <span class="vl" id="tvC">chưa chọn</span> <button class="tv-pick" id="tvAll">＋ Tất cả clip</button></span></div>
-   <div class="r"><span id="tvMusicGroup">🎵 <b>Nhạc nền:</b> <select id="tvM"><option value="">— chọn nhạc —</option></select>
+   <div class="r"><span id="tvMusicGroup">🎵 <b id="tvMusicLabel">Nhạc nền:</b> <select id="tvM"><option value="">— chọn nhạc —</option></select>
        <button class="tv-pick" id="tvMP">▶ nghe nhạc</button>
        <label>nhỏ <input type="range" id="tvVol" min="0.05" max="1" step="0.05" value="1"> to nhất (≈ 15 dB dưới giọng)</label>
        <span id="tvDb" style="color:var(--mut)"></span></span>
      <span id="tvPreviewGroup"><button class="tv-pick" id="tvVP">▶ nghe giọng</button> <button class="tv-pick" id="tvMix">🎧 Nghe thử giọng + nhạc</button></span>
      <button class="tv-pick" id="tvReset" title="Bỏ chọn bài, giọng, clip, nhạc và đưa mọi thứ về mặc định" style="margin-left:auto">↺ Reset</button>
      <button class="go" id="tvGo" disabled style="margin-left:6px">Tạo video</button></div>
-   <div class="bar"><i id="tvBar"></i></div><div class="msg" id="tvMsg">Chọn thơ, giọng đọc, clip và nhạc nền để bật nút Tạo video.</div>`;
+   <div id="tvTiming" hidden></div><div class="bar"><i id="tvBar"></i></div><div class="msg" id="tvMsg">Chọn thơ, giọng đọc, clip và nhạc nền để bật nút Tạo video.</div>`;
   document.body.appendChild(panel);
   const prev = new Audio(), vA = new Audio(), mA = new Audio();
   const speech = document.createElement('dialog');
@@ -209,8 +254,9 @@
       const t0 = ac.currentTime + 0.05;
       gM = ac.createGain(); gM.gain.value = effGain();
       srcM = ac.createBufferSource(); srcM.buffer = bm; srcM.loop = true; srcM.connect(gM); gM.connect(ac.destination); srcM.start(t0);
-      srcV = ac.createBufferSource(); srcV.buffer = bv; srcV.connect(ac.destination); srcV.start(t0 + 0.5);   // giọng vào sau 0,5 giây
-      mixEnd = t0 + 0.5 + bv.duration;
+      const voiceLead = isQuote() ? 0 : 0.5;
+      srcV = ac.createBufferSource(); srcV.buffer = bv; srcV.connect(ac.destination); srcV.start(t0 + voiceLead);
+      mixEnd = t0 + voiceLead + bv.duration;
       gM.gain.setValueAtTime(effGain(), mixEnd); gM.gain.linearRampToValueAtTime(0, mixEnd + 3);               // 3 giây cuối nhạc nhỏ dần
       srcM.stop(mixEnd + 3);
       endT = setTimeout(stopAll, (mixEnd + 3.2 - ac.currentTime) * 1000);
@@ -230,7 +276,13 @@
     }
     if (S.poem && !S.voice) miss.push('giọng đọc');
     if (!S.videos.length) miss.push(isStillBackground() ? 'ảnh nền' : 'clip');
-    if (!S.music) miss.push('nhạc nền');
+    if (isQuote() && !isStillBackground() && S.voice && S.videos.length) {
+      const known = S.videos.map(f => clipMeta.get(f));
+      if (known.some(c => c?.error)) miss.push('thay clip không đọc được');
+      else if (known.every(c => Number.isFinite(c?.dur)) && known.reduce((n, c) => n + c.dur / c.min_speed, 0) < clipTarget().seconds)
+        miss.push('clip dài hơn hoặc ghép thêm clip (không tự lặp cảnh)');
+    }
+    if (!S.music && !isRawVideo()) miss.push('nhạc nền');
     return miss;
   }
   function refresh() {
@@ -255,6 +307,9 @@
     loadInfo();
     const imageMode = isImage();
     const stillMode = isStillBackground();
+    $('#tvMusicLabel').textContent = isRawVideo() ? 'Nhạc nền (tùy chọn):' : 'Nhạc nền:';
+    $('#tvM').options[0].textContent = isRawVideo() ? '— không nhạc nền —' : '— chọn nhạc —';
+    updateTimingNote();
     $('#tvMediaLabel').textContent = stillMode ? 'Ảnh nền:' : 'Clip:';
     $('#tvAll').textContent = stillMode ? '＋ Chọn ảnh' : '＋ Tất cả clip';
     const miss = ready();
@@ -306,6 +361,15 @@
           d.prepend(s);
         }
       });
+      card.querySelectorAll('.cl div[data-copy],.pick').forEach(d => {
+        const file = d.dataset.copy || d.querySelector('.tv-cb')?.dataset.path;
+        const fit = file && clipAssessment(file, findP(id));
+        let note = d.querySelector('.tv-fit');
+        if (!fit) { note?.remove(); return; }
+        if (!note) { note = document.createElement('span'); note.className = 'tv-fit'; d.appendChild(note); }
+        if (note.textContent !== fit.text) note.textContent = fit.text;
+        note.classList.toggle('short', fit.short); note.title = fit.title;
+      });
     });
     refresh();
   }
@@ -326,7 +390,7 @@
     refresh();
   }, true);
 
-  $('#tvV').onchange = e => { S.voice = e.target.value; refresh(); };
+  $('#tvV').onchange = e => { S.voice = e.target.value; decorate(); drawGrid(); };
   $('#tvT').onchange = e => {
     const wasStill = isStillBackground();
     S.template = e.target.value;
@@ -336,7 +400,7 @@
     S.note = S.template === S.suggestedTemplate
       ? `Đang dùng template gợi ý: ${chosen?.label || S.template}.`
       : `Đã chọn: ${chosen?.label || S.template}. Hệ thống sẽ dùng lựa chọn này thay cho gợi ý ${suggested?.label || S.suggestedTemplate}.`;
-    refresh();
+    refresh(); drawGrid();
   };
   $('#tvM').onchange = e => { S.music = e.target.value; stopAll(); refresh(); };
   $('#tvVol').oninput = e => { S.vol = +e.target.value; showDb(); applyMixGain(); };
@@ -386,6 +450,13 @@
 
   // ── cửa sổ chọn clip từ tất cả thư mục ──
   let allClips = null, folderSel = '', qSel = '';
+  async function loadClips() {
+    const response = await fetch('/api/clips?refresh=' + Date.now());
+    if (!response.ok) throw new Error('Không tải được danh sách clip');
+    allClips = await response.json();
+    clipMeta.clear();
+    for (const items of Object.values(allClips)) for (const c of items) if (c.dur || c.error) clipMeta.set(c.file, c);
+  }
   const modal = document.createElement('div');
   modal.id = 'tvM2';
   modal.innerHTML = `<div class="box"><div class="top"><b id="tvPickerTitle">🎞 Chọn clip từ tất cả thư mục</b>
@@ -401,12 +472,17 @@
     $('#tvN').textContent = `${items.length} ${wanted === 'image' ? 'ảnh' : 'clip'} · đã chọn ${S.videos.length}`;
     $('#tvG').innerHTML = items.map(c => `<div class="it${S.videos.includes(c.file) ? ' on' : ''}" data-file="${esc(c.file)}">
       <img loading="lazy" src="/api/thumb?path=${encodeURIComponent(c.file)}" alt=""><i>${S.videos.includes(c.file) ? '☑ ' + (S.videos.indexOf(c.file) + 1) : '☐'}</i>
-      <a href="/${encodeURI(c.file)}" target="_blank" data-tvprev title="Xem clip">▶</a><div class="nm" title="${esc(c.name)}">${esc(c.name)}</div></div>`).join('');
+      <a href="/${encodeURI(c.file)}" target="_blank" data-tvprev title="Xem clip">▶</a><div class="nm" title="${esc(c.name)}">${esc(c.name)}</div>${(() => {
+        const fit = clipAssessment(c.file);
+        return fit ? `<div class="fit${fit.short ? ' short' : ''}" title="${esc(fit.title)}">${esc(fit.text)}</div>` : '';
+      })()}</div>`).join('');
   }
   $('#tvAll').onclick = async () => {
     modal.style.display = 'flex';
-    // Quét lại mỗi lần mở để clip vừa tải vào Videos/ hiện ngay.
-    allClips = await (await fetch('/api/clips?refresh=' + Date.now())).json();
+    // Quét lại Videos/ và Vid/ mỗi lần mở, tính theo bài/giọng đọc đang chọn.
+    try { await loadClips(); }
+    catch (err) { $('#tvG').textContent = err.message; return; }
+    decorate();
     const wanted = isStillBackground() ? 'image' : 'video';
     $('#tvPickerTitle').textContent = wanted === 'image' ? '🖼 Chọn một ảnh nền' : '🎞 Chọn clip từ tất cả thư mục';
     $('#tvQ').placeholder = wanted === 'image' ? 'Tìm tên ảnh…' : 'Tìm tên clip…';
@@ -443,6 +519,10 @@
       $('#tvM').innerHTML = '<option value="">— chọn nhạc —</option>' + Object.entries(groups).map(([g, ms]) =>
         `<optgroup label="${esc(g)}">${ms.map(m => `<option value="${esc(m.file)}">${esc(m.name.replace(/^Pixabay_/, '').slice(0, 44))} · ${m.dur}s</option>`).join('')}</optgroup>`).join('');
     } catch (e) { online = false; }
+    if (online) {
+      try { await loadClips(); }
+      catch (e) { S.note = 'Chưa tải được thời lượng clip; mở “Tất cả clip” để thử lại.'; }
+    }
     new MutationObserver(decorate).observe($('#list'), { childList: true, subtree: true });
     decorate();
   })();
